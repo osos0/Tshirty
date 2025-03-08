@@ -1,0 +1,45 @@
+@use "./var" as *;
+
+.containerofTheNav {
+  background: $mainblue;
+  padding: 5px;
+  .navbar-brand {
+    color: $maiwhite;
+  }
+  .navbar-nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    // color: red;
+    .nav-item {
+      width: 100%;
+      text-align: center;
+      border: 1px solid $maiwhite;
+      border-radius: 10px;
+      a {
+        color: $maiwhite;
+        margin: auto;
+        text-align: center;
+      }
+      .dropdown-menu {
+        width: inherit;
+        border: 1px solid $mainblue;
+        a {
+          color: $maiwhite;
+          margin: auto;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .dropdown-menu a {
+    color: $mainblue !important;
+    background: inherit;
+  }
+  .rightH3 {
+    color: $maiwhite;
+    margin: auto;
+  }
+}

@@ -1,0 +1,39 @@
+@use "./var" as *;
+
+.brand {
+  height: 50px;
+  padding: 0;
+  .brandPicCon {
+    height: 50px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    .brandPicConSvg {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10%;
+      a {
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          // padding: 10%;
+          color: $mainblue;
+        }
+      }
+    }
+
+    img {
+      height: 100%;
+      filter: drop-shadow(0px 20px 15px rgba($mainblue, 0.5));
+    }
+    .imgshadow {
+      filter: drop-shadow(0px 20px 15px rgba($mainblue, 0.5));
+    }
+  }
+}

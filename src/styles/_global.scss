@@ -1,0 +1,18 @@
+@use "./var" as *;
+
+* {
+  box-sizing: border-box;
+  font-family: cursive;
+  margin: 0;
+}
+
+html {
+  color: $mainblue;
+  min-height: 100vh !important;
+  scroll-behavior: smooth;
+  background: $maiwhite;
+}
+
+li {
+  list-style-type: none;
+}

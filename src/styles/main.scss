@@ -1,3 +1,6 @@
 @use "./var" as *;
-// @use "./global" as *;
+@use "./global" as *;
+
+@use "./Topsocialnavbar.scss" as *;
 @use "./navbar" as *;
+@use "./footer" as *;

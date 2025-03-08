@@ -1,7 +1,7 @@
 @use "./var" as *;
 
 .containerofTheNav {
-  background: $mainblue;
+  background: $mainblue !important;
   padding: 5px;
   .navbar-brand {
     color: $maiwhite;

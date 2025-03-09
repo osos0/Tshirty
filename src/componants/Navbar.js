@@ -10,7 +10,7 @@ export default function Navbar() {
             Navbar
           </Link>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler btn btn-white"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"

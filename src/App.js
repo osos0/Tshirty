@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Topsocialnavbar from "./componants/Topsocialnavbar";
+
 import Navbar from "./componants/Navbar";
 import Footer from "./componants/Footer";
 import Home from "./pages/Home";
@@ -13,6 +14,7 @@ import About from "./pages/About";
 function App() {
   return (
     <Fragment>
+      {/* <Topsocialnavbar /> */}
       <Topsocialnavbar />
       <Navbar />
       <Routes>

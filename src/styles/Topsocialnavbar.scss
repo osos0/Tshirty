@@ -1,39 +1,40 @@
 @use "./var" as *;
 
-.brand {
-  height: 50px;
-  padding: 0;
-  .brandPicCon {
-    height: 50px;
-    max-width: 100%;
+.topCon {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2px;
+  .topSonLeft {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .topSonCenter {
+    flex: 3;
     display: flex;
     justify-content: center;
-    .brandPicConSvg {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10%;
-      a {
-        height: 100%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        svg {
-          // padding: 10%;
-          color: $mainblue;
-        }
+    align-items: center;
+    .brandPicConeR {
+      max-height: 100%;
+      img {
+        height: 40px;
       }
     }
-
-    img {
-      height: 100%;
-      filter: drop-shadow(0px 20px 15px rgba($mainblue, 0.5));
-    }
-    .imgshadow {
-      filter: drop-shadow(0px 20px 15px rgba($mainblue, 0.5));
+  }
+  .topSonRight {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .topSonLeft a {
+    svg {
+      font-size: 17px;
+      color: $mainblue;
     }
   }
 }

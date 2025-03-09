@@ -11,7 +11,7 @@ import TextFktarek from "../imgs/slang-bg-remove.png";
 
 const Topsocialnavbar = () => {
   return (
-    <div className="topCon">
+    <div className="topConsoc">
       <div className="topSonLeft">
         <Link to="/" target="_blank">
           <FontAwesomeIcon icon={faSquareFacebook} />
@@ -35,7 +35,7 @@ const Topsocialnavbar = () => {
           <img src={TextFktarek} alt="فكرتك" />
         </div>
       </div>
-      <div className="topSonRight">- - - -</div>
+      <div className="topSonRight">sign in</div>
     </div>
   );
 };

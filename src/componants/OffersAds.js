@@ -1,5 +1,7 @@
 import React from "react";
-import cars from "../imgs/cars.jpg";
+import tshirt from "../imgs/tshirt.jpg";
+import tshirt2 from "../imgs/tshirt2.jpg";
+import nature from "../imgs/nature.jpg";
 
 export default function OffersAds() {
   return (
@@ -33,7 +35,7 @@ export default function OffersAds() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="10000">
-            <img src={cars} className="d-block w-100" alt="First slide" />
+            <img src={tshirt} className="d-block w-100" alt="First slide" />
             <div className="carousel-caption d-none d-md-block">
               <h5>First slide label</h5>
               <p>
@@ -42,7 +44,7 @@ export default function OffersAds() {
             </div>
           </div>
           <div className="carousel-item" data-bs-interval="2000">
-            <img src={cars} className="d-block w-100" alt="Second slide" />
+            <img src={tshirt} className="d-block w-100" alt="Second slide" />
             <div className="carousel-caption d-none d-md-block">
               <h5>Second slide label</h5>
               <p>
@@ -51,7 +53,7 @@ export default function OffersAds() {
             </div>
           </div>
           <div className="carousel-item">
-            <img src={cars} className="d-block w-100" alt="Third slide" />
+            <img src={tshirt} className="d-block w-100" alt="Third slide" />
             <div className="carousel-caption d-none d-md-block">
               <h5>Third slide label</h5>
               <p>

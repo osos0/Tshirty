@@ -1,0 +1,20 @@
+@use "../styles/var" as *;
+
+.cardMother {
+  border: 1px solid red;
+  text-align: center !important;
+  .rowConOfCard {
+    border: 1px solid green;
+
+    .colConOfCard {
+      border: 1px solid black;
+      height: 500px;
+      .cardImgCon {
+        img {
+          max-height: 100%;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

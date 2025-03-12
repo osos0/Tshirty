@@ -1,20 +1,51 @@
 @use "../styles/var" as *;
 
 .cardMother {
-  border: 1px solid red;
-  text-align: center !important;
+  padding: 20px 0;
+  text-align: center;
   .rowConOfCard {
-    border: 1px solid green;
-
     .colConOfCard {
-      border: 1px solid black;
-      height: 500px;
+      padding: 50px 20px;
+      min-height: 400px;
       .cardImgCon {
+        // border: 1px solid yellowgreen;
+        height: 350px;
+        max-height: 400px;
+        width: 100%;
         img {
-          max-height: 100%;
-          max-width: 100%;
+          height: 350px;
+          width: 97%;
         }
       }
+    }
+    .cardlink1 {
+      background: $maiOrang;
+      height: 50px;
+      padding: 10px;
+      transform: rotate(-3deg) scaleY(1.5);
+    }
+    .cardlink2 {
+      background: $mainBage;
+      height: 50px;
+      padding: 10px;
+      transform: rotate(2deg) scaleY(1.5);
+    }
+    .cardlink3 {
+      background: $mainblue;
+      height: 50px;
+      padding: 10px;
+      transform: rotate(-2deg) scaleY(1.5);
+    }
+    .cardlink4 {
+      background: $mainGreen;
+      height: 50px;
+      padding: 10px;
+      transform: rotate(2deg) scaleY(1.5);
+    }
+    a {
+      text-decoration: none;
+      color: $maiwhite;
+      font-size: 20px;
     }
   }
 }

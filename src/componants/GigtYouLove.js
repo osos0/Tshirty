@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import girl from "../imgs/55.jpg";
+import cup from "../imgs/cup22.jpg";
+import cap from "../imgs/cap5.jpg";
 
 export default function GiftYouLove() {
   return (
@@ -12,13 +14,34 @@ export default function GiftYouLove() {
             <div className="cardImgCon">
               <img src={girl} alt="product" />
             </div>
-            <div className="cardlinkk">
-              <Link>link</Link>
+            <div className="cardlink1">
+              <Link to="/">T-Shirts</Link>
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 col-sm-12">2</div>
-          <div className="col-lg-3 col-md-6 col-sm-12">3</div>
-          <div className="col-lg-3 col-md-6 col-sm-12">4</div>
+          <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
+            <div className="cardImgCon">
+              <img src={cup} alt="product" />
+            </div>
+            <div className="cardlink2">
+              <Link to="/">Mugs</Link>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
+            <div className="cardImgCon">
+              <img src={cap} alt="product" />
+            </div>
+            <div className="cardlink3">
+              <Link to="/">Hats & Caps</Link>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
+            <div className="cardImgCon">
+              <img src={cup} alt="product" />
+            </div>
+            <div className="cardlink4">
+              <Link to="/">Baby</Link>
+            </div>
+          </div>
         </div>
       </div>
     </>

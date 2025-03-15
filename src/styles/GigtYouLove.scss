@@ -4,6 +4,9 @@
   padding: 20px 0;
   text-align: center;
   .rowConOfCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .colConOfCard {
       padding: 50px 20px;
       min-height: 280px;

@@ -37,6 +37,30 @@ export default function GiftYouLove() {
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
             <div className="cardImgCon">
+              <img src={cup} alt="product" />
+            </div>
+            <div className="cardlink2">
+              <Link to="/">Mugs</Link>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
+            <div className="cardImgCon">
+              <img src={girl} alt="product" />
+            </div>
+            <div className="cardlink1">
+              <Link to="/">T-Shirts</Link>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
+            <div className="cardImgCon">
+              <img src={cap} alt="product" />
+            </div>
+            <div className="cardlink3">
+              <Link to="/">Hats & Caps</Link>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
+            <div className="cardImgCon">
               <img src={MoreTshirt} alt="product" />
             </div>
             <div className="cardlink4">

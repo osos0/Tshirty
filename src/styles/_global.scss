@@ -20,6 +20,34 @@ li {
 
 // Mobile Screens
 @media (max-width: 767px) {
+  // navbar Height and padding settings
+  .containerofTheNav {
+    padding: 10px 5px !important;
+  }
+
+  // Ads Height settings
+  .offersAdsFather {
+    .w-100 {
+      height: 450px !important;
+    }
+  }
+
+  // Card Height settings
+  .colConOfCard {
+    padding: 50px 20px;
+    min-height: 400px;
+    .cardImgCon {
+      // border: 1px solid yellowgreen;
+      height: 400px;
+      max-height: 400px;
+      width: 70% !important;
+      margin: auto;
+      img {
+        height: 400px;
+        width: 97%;
+      }
+    }
+  }
 }
 // Small Screens
 @media (min-width: 768px) {

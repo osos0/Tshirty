@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import girl from "../imgs/55.jpg";
 import cup from "../imgs/cup22.jpg";
 import cap from "../imgs/cap5.jpg";
+import MoreTshirt from "../imgs/More-tshirt.jpg";
 
 export default function GiftYouLove() {
   return (
@@ -36,10 +37,10 @@ export default function GiftYouLove() {
           </div>
           <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
             <div className="cardImgCon">
-              <img src={cup} alt="product" />
+              <img src={MoreTshirt} alt="product" />
             </div>
             <div className="cardlink4">
-              <Link to="/">Baby</Link>
+              <Link to="/">More ... </Link>
             </div>
           </div>
         </div>

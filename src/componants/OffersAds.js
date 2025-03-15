@@ -1,14 +1,12 @@
 import React from "react";
 import tshirt from "../imgs/tshirt.jpg";
-import tshirt2 from "../imgs/tshirt2.jpg";
-import nature from "../imgs/nature.jpg";
 
 export default function OffersAds() {
   return (
     <div>
       <div
         id="carouselExampleDark"
-        className="carousel carousel-dark slide"
+        className="offersAdsFather carousel carousel-dark slide"
         data-bs-ride="carousel"
       >
         <div className="carousel-indicators">

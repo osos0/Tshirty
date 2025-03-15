@@ -2,7 +2,13 @@
 
 .containerofTheNav {
   background: $mainblue !important;
-  padding: 5px;
+  padding: 20px 10px;
+  .navbar {
+    background: $mainblue !important;
+    .navbar-toggler {
+      background: $maiwhite;
+    }
+  }
   .navbar-brand {
     color: $maiwhite;
   }

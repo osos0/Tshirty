@@ -6,46 +6,57 @@
   .rowConOfCard {
     .colConOfCard {
       padding: 50px 20px;
-      min-height: 400px;
+      min-height: 280px;
       .cardImgCon {
         // border: 1px solid yellowgreen;
-        height: 350px;
-        max-height: 400px;
+        height: 280px;
+        max-height: 280px;
         width: 100%;
         img {
-          height: 350px;
+          height: 280px;
           width: 97%;
         }
       }
     }
     .cardlink1 {
       background: $maiOrang;
-      height: 50px;
-      padding: 10px;
+      height: 45px;
+      padding: 5px;
       transform: rotate(-3deg) scaleY(1.5);
+      transition: transform 0.2s ease-in-out;
     }
     .cardlink2 {
       background: $mainBage;
-      height: 50px;
-      padding: 10px;
+      height: 45px;
+      padding: 5px;
       transform: rotate(2deg) scaleY(1.5);
+      transition: transform 0.2s ease-in-out;
     }
     .cardlink3 {
       background: $mainblue;
-      height: 50px;
-      padding: 10px;
+      height: 45px;
+      padding: 5px;
       transform: rotate(-2deg) scaleY(1.5);
+      transition: transform 0.2s ease-in-out;
     }
     .cardlink4 {
       background: $mainGreen;
-      height: 50px;
-      padding: 10px;
+      height: 45px;
+      padding: 5px;
       transform: rotate(2deg) scaleY(1.5);
+      transition: transform 0.2s ease-in-out;
     }
     a {
       text-decoration: none;
       color: $maiwhite;
       font-size: 20px;
+    }
+    .cardlink1:hover,
+    .cardlink2:hover,
+    .cardlink3:hover,
+    .cardlink4:hover {
+      transform: rotate(-1deg) scaleY(1.7);
+      transition: transform 0.2s ease-in-out;
     }
   }
 }

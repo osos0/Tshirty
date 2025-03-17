@@ -9,14 +9,13 @@
     align-items: center;
     .colConOfCard {
       padding: 50px 20px;
-      min-height: 280px;
+      height: 400px;
+      width: 330px;
       .cardImgCon {
-        // border: 1px solid yellowgreen;
-        height: 280px;
-        max-height: 280px;
+        height: 100%;
         width: 100%;
         img {
-          height: 280px;
+          height: 100%;
           width: 97%;
         }
       }

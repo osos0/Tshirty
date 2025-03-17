@@ -9,7 +9,7 @@ import Topsocialnavbar from "./componants/Topsocialnavbar";
 import Navbar from "./componants/Navbar";
 import Footer from "./componants/Footer";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Tshirts from "./pages/Tshirts";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/tshirts" element={<Tshirts />} />
       </Routes>
       <Footer />
     </Fragment>

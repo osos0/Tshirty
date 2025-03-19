@@ -9,7 +9,7 @@ export default function GiftYouLove() {
   return (
     <>
       <div className="container cardMother">
-        <h1>Gift You Love</h1>
+        <h1>What's hot</h1>
         <div className="row rowConOfCard">
           <div className="col-lg-3 col-md-6 col-sm-12 colConOfCard">
             <div className="cardImgCon">

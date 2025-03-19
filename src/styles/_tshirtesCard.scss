@@ -2,12 +2,25 @@
 
 .tshirtesCardRow {
   padding: 30px 0;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  hr {
+    border: 1px solid $mainblue;
+    margin: 20px 0;
+  }
+  h3 {
+    color: $maiOrang;
+    // color: $mainblue;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+  }
   .tshirtesCardCard {
-    padding: 0px 0;
-    border: 1px solid $maiGray;
+    padding: 10px;
     .cardImgCon {
-      height: 350px;
+      border: 1px solid $maiGray;
+      height: 300px;
       width: 100%;
       img {
         width: 100%;
@@ -15,7 +28,7 @@
       }
     }
     .card-body {
-      padding: 40px 0;
+      padding: 40px 0px 40px 10px;
       background: $maiGray;
     }
   }

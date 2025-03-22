@@ -10,6 +10,7 @@ import Navbar from "./componants/Navbar";
 import Footer from "./componants/Footer";
 import Home from "./pages/Home";
 import Tshirts from "./pages/Tshirts";
+import TshirtsDynaimc from "./pages/TshirtsDynaimc";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tshirts" element={<Tshirts />} />
+        <Route path="/tshirts/:gender/:typo/:id" element={<TshirtsDynaimc />} />
       </Routes>
       <Footer />
     </Fragment>

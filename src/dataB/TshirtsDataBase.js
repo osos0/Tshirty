@@ -3,6 +3,8 @@ const Tshirts = {
     {
       id: 1000, // أرقام بالآلاف للرجال
       img: require("../imgs/tshirts/tshirt1.webp"),
+      front: require("../imgs/tshirts/tshirt1-Front.jpg"),
+      back: require("../imgs/tshirts/tshirt1-back.jpg"),
       price: 100,
       desc: "Economic T-shirt",
       gender: "Men",

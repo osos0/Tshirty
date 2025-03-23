@@ -16,13 +16,26 @@ export default function TshirtsDynamic() {
 
   return (
     <div>
-      <h1>Dynamic T-shirt Page</h1>
-      <img src={tshirt.img} alt={tshirt.desc} />
-      <p>Gender: {gender}</p>
-      <p>Type: {typo}</p>
-      <p>ID: {id}</p>
-      <h2>{tshirt.desc}</h2>
-      <h3>{tshirt.price} LE</h3>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 col-md-6 col-sm-12">14</div>
+
+          <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="">
+              <div className="">
+                <img src={tshirt.front} className="" alt="T-shirt" />
+              </div>
+              <div className="">
+                <h4 className="">{tshirt.desc}</h4>
+                <h5 className="">{tshirt.price} LE</h5>
+                <p className="">Some quick example text</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-lg-3 col-md-6 col-sm-12">55</div>
+        </div>
+      </div>
     </div>
   );
 }

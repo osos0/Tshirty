@@ -17,23 +17,47 @@ export default function TshirtsDynamic() {
   return (
     <div>
       <div className="container">
-        <div className="row">
-          <div className="col-lg-3 col-md-6 col-sm-12">14</div>
+        <div className="row dynamicPicFather">
+          <div className="col-lg-3 col-md-6 col-sm-12 dynamicleftSon">14</div>
 
-          <div className="col-lg-6 col-md-6 col-sm-12">
+          <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
+            <div className="dynaminPicCon">
+              <img src={tshirt.front} className="" alt="T-shirt" />
+            </div>
             <div className="">
-              <div className="">
-                <img src={tshirt.front} className="" alt="T-shirt" />
-              </div>
-              <div className="">
-                <h4 className="">{tshirt.desc}</h4>
-                <h5 className="">{tshirt.price} LE</h5>
-                <p className="">Some quick example text</p>
-              </div>
+              <h4 className="">{tshirt.desc}</h4>
+              <h5 className="">{tshirt.price} LE</h5>
+              <p className="">Some quick example text</p>
             </div>
           </div>
 
-          <div className="col-lg-3 col-md-6 col-sm-12">55</div>
+          <div className="col-lg-3 col-md-6 col-sm-12 dynamicRightSon">
+            <div className="designYourOwn">
+              <div className="designYourOwnSon1">
+                Design Your Own Sports Shirts
+              </div>
+              <div className="designYourOwnSon2">
+                <h4>{tshirt.price} LE</h4>
+                <p>Per unit, inc VAT</p>
+              </div>
+              <hr />
+              <div className="designYourOwnSon3">
+                <h5>colors</h5>
+                <div className="colorsFather">
+                  {tshirt.colores.map((color, index) => (
+                    <div
+                      key={index}
+                      className="colrSon"
+                      style={{ backgroundColor: color }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+              <hr />
+              <div className="designYourOwnSon3">size</div>
+              <hr />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ const Tshirts = {
       gender: "Men",
       typo: "Trianglecollar",
       season: "summer",
+      colores: ["white", "red", "black", "pink", "blue"],
     },
     {
       id: 1001,
@@ -19,6 +20,7 @@ const Tshirts = {
       gender: "Men",
       typo: "sports",
       season: "winter",
+      colores: ["white", "red", "black", "pink"],
     },
     {
       id: 1002,
@@ -28,6 +30,7 @@ const Tshirts = {
       gender: "Men",
       typo: "Economictshiet",
       season: "summer",
+      colores: ["white", "red", "black", "pink"],
     },
   ],
   Woman: [
@@ -39,6 +42,7 @@ const Tshirts = {
       gender: "Woman",
       typo: "Trianglecollar",
       season: "winter",
+      colores: ["white", "red", "black", "pink"],
     },
     {
       id: 2001,
@@ -48,6 +52,7 @@ const Tshirts = {
       gender: "Woman",
       typo: "roundshirtcollar",
       season: "summer",
+      colores: ["white", "red", "black", "pink"],
     },
   ],
   Kids: [
@@ -59,6 +64,8 @@ const Tshirts = {
       gender: "Kids",
       typo: "newbaby",
       season: "winter",
+
+      colores: ["white", "red", "black", "pink"],
     },
     {
       id: 3001,
@@ -68,6 +75,7 @@ const Tshirts = {
       gender: "Kids",
       typo: "roundshirtcollar",
       season: "summer",
+      colores: ["white", "red", "black", "pink"],
     },
     {
       id: 3002,
@@ -77,6 +85,7 @@ const Tshirts = {
       gender: "Kids",
       typo: "sports",
       season: "winter",
+      colores: ["white", "red", "black", "pink"],
     },
   ],
 };

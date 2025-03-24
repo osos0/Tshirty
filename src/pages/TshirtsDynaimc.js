@@ -42,7 +42,7 @@ export default function TshirtsDynamic() {
               </div>
               <hr />
               <div className="designYourOwnSon3">
-                <h5>colors</h5>
+                <h5>Color</h5>
                 <div className="colorsFather">
                   {tshirt.colores.map((color, index) => (
                     <div
@@ -54,7 +54,17 @@ export default function TshirtsDynamic() {
                 </div>
               </div>
               <hr />
-              <div className="designYourOwnSon3">size</div>
+              <div className="designYourOwnSon4">
+                <h5>Size</h5>
+                <div className="sizeSon">
+                  <div className="sizesName">XS</div>
+                  <div className="sizesConrol">
+                    <div className="decrease">-</div>
+                    <div className="zero">0</div>
+                    <div className="increase">+</div>
+                  </div>
+                </div>
+              </div>
               <hr />
             </div>
           </div>

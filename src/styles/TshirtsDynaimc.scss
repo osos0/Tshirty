@@ -65,6 +65,56 @@
           }
         }
       }
+      .designYourOwnSon4 {
+        border: 1px solid black;
+        padding: 10px 0;
+        .sizeSon {
+          border: 1px solid red;
+          width: 100%;
+          padding: 10px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .sizesName {
+            border: 1px solid green;
+            padding: 10px;
+          }
+          .sizesConrol {
+            width: 100%;
+            border: 1px solid purple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .increase,
+            .decrease {
+              padding: 5px;
+              font-size: 20px;
+              border: 1px solid $maiGray2;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: $maiGray2;
+              background: inherit;
+              transition: background 0.5s;
+              cursor: pointer;
+              &:hover {
+                background: $maiGray2;
+                color: white;
+              }
+            }
+            .zero {
+              border: 1px solid $maiGray2;
+              border-radius: 5px;
+              padding: 5px 15px;
+              font-size: 15px;
+              color: $maiGray2;
+              margin: auto 5px;
+            }
+          }
+        }
+      }
     }
   }
 }

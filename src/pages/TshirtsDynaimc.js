@@ -1,11 +1,24 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Tshirts from "../dataB/TshirtsDataBase"; // Import Tshirts data
+import Tshirts from "../dataB/TshirtsDataBase";
+import { useState } from "react";
 
 export default function TshirtsDynamic() {
-  const { gender, typo, id } = useParams(); // Extract gender, typo, and id from the URL
+  const { gender, typo, id } = useParams();
 
-  // Find the T-shirt based on gender, typo, and id
+  // Initialize counters for each possible size
+  const [sizeCounters, setSizeCounters] = useState({
+    XS: 0,
+    S: 0,
+    M: 0,
+    L: 0,
+    XL: 0,
+    XXL: 0,
+    "3XL": 0,
+  });
+  const [selectedColor, setSelectedColor] = useState("white"); // Default color
+  const [selectside, setSelectside] = useState("front"); // Default side
+
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
   );
@@ -13,6 +26,31 @@ export default function TshirtsDynamic() {
   if (!tshirt) {
     return <div>T-shirt not found!</div>;
   }
+
+  const getImageSrc = () => {
+    try {
+      return require(`../imgs/tshirts/tshirt1${selectedColor}-${selectside}.jpg`);
+    } catch (error) {
+      console.error("Image not found:", error);
+      return tshirt.front; // Fallback to default image
+    }
+  };
+
+  // Handle increment for a specific size
+  const handleIncrement = (size) => {
+    setSizeCounters((prev) => ({
+      ...prev,
+      [size]: prev[size] + 1,
+    }));
+  };
+
+  // Handle decrement for a specific size
+  const handleDecrement = (size) => {
+    setSizeCounters((prev) => ({
+      ...prev,
+      [size]: Math.max(prev[size] - 1, 0), // Prevent going below 0
+    }));
+  };
 
   return (
     <div>
@@ -22,7 +60,14 @@ export default function TshirtsDynamic() {
 
           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
             <div className="dynaminPicCon">
-              <img src={tshirt.front} className="" alt="T-shirt" />
+              <img
+                src={getImageSrc()}
+                alt="This color is Not available now please choose another color"
+              />
+            </div>
+            <div className="frontAndBackCon">
+              <div onClick={() => setSelectside("front")}>Front</div>
+              <div onClick={() => setSelectside("back")}>Back </div>
             </div>
             <div className="">
               <h4 className="">{tshirt.desc}</h4>
@@ -42,30 +87,80 @@ export default function TshirtsDynamic() {
               </div>
               <hr />
               <div className="designYourOwnSon3">
-                <h5>Color</h5>
+                <h5 className="subjectOf">Color</h5>
+                <div className="selectedColorName">{selectedColor}</div>
                 <div className="colorsFather">
                   {tshirt.colores.map((color, index) => (
                     <div
                       key={index}
                       className="colrSon"
                       style={{ backgroundColor: color }}
+                      onClick={() => setSelectedColor(color)}
                     ></div>
                   ))}
                 </div>
               </div>
               <hr />
               <div className="designYourOwnSon4">
-                <h5>Size</h5>
-                <div className="sizeSon">
-                  <div className="sizesName">XS</div>
-                  <div className="sizesConrol">
-                    <div className="decrease">-</div>
-                    <div className="zero">0</div>
-                    <div className="increase">+</div>
+                <h5 className="subjectOf">Size</h5>
+                {tshirt.sizes.map((size, index) => (
+                  <div key={index} className="sizeSon">
+                    <div className="sizesName">{size}</div>
+                    <div className="sizesConrol">
+                      <div
+                        className="decrease"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDecrement(size);
+                        }}
+                      >
+                        -
+                      </div>
+                      <div className="zero">{sizeCounters[size]}</div>
+                      <div
+                        className="increase"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleIncrement(size);
+                        }}
+                      >
+                        +
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                ))}
+                <div className="total-price">
+                  <div className="totalPriceWord">Total Price:</div>
+                  <div className="totalPriceCurrency">
+                    {Object.entries(sizeCounters).reduce(
+                      (total, [size, count]) => {
+                        return total + count * tshirt.price;
+                      },
+                      0
+                    )}{" "}
+                    LE
                   </div>
                 </div>
               </div>
               <hr />
+
+              <div className="add-to-cart">
+                <button
+                  className="btn btn-primary"
+                  onClick={() => {
+                    // Filter out sizes with 0 quantity
+                    const selectedSizes = Object.entries(sizeCounters)
+                      .filter(([_, count]) => count > 0)
+                      .map(([size, count]) => ({ size, count }));
+
+                    console.log("Selected items:", selectedSizes);
+                    // Add your cart logic here
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -73,3 +168,99 @@ export default function TshirtsDynamic() {
     </div>
   );
 }
+
+///////////////////////////////////////////////////////////////
+
+// import React from "react";
+// import { useParams } from "react-router-dom";
+// import Tshirts from "../dataB/TshirtsDataBase"; // Import Tshirts data
+// import { useState } from "react";
+// export default function TshirtsDynamic() {
+//   const { gender, typo, id } = useParams(); // Extract gender, typo, and id from the URL
+//   const [counter, setCounter] = useState(0);
+//   const [counterXS, setCounterXS] = useState(0);
+//   const [counterS, setCounterS] = useState(0);
+//   const [counterM, setCounterM] = useState(0);
+//   const [counterL, setCounterL] = useState(0);
+//   const [counterXL, setCounterXL] = useState(0);
+//   const [counterXXL, setCounterXXL] = useState(0);
+//   const [counter3XL, setCounter3XL] = useState(0);
+
+//   // Find the T-shirt based on gender, typo, and id
+//   const tshirt = Tshirts[gender]?.find(
+//     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
+//   );
+
+//   if (!tshirt) {
+//     return <div>T-shirt not found!</div>;
+//   }
+
+//   const handleDecrement = () => {};
+//   const handleIncrement = () => {};
+
+//   return (
+//     <div>
+//       <div className="container">
+//         <div className="row dynamicPicFather">
+//           <div className="col-lg-3 col-md-6 col-sm-12 dynamicleftSon">14</div>
+
+//           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
+//             <div className="dynaminPicCon">
+//               <img src={tshirt.front} className="" alt="T-shirt" />
+//             </div>
+//             <div className="">
+//               <h4 className="">{tshirt.desc}</h4>
+//               <h5 className="">{tshirt.price} LE</h5>
+//               <p className="">Some quick example text</p>
+//             </div>
+//           </div>
+
+//           <div className="col-lg-3 col-md-6 col-sm-12 dynamicRightSon">
+//             <div className="designYourOwn">
+//               <div className="designYourOwnSon1">
+//                 Design Your Own Sports Shirts
+//               </div>
+//               <div className="designYourOwnSon2">
+//                 <h4>{tshirt.price} LE</h4>
+//                 <p>Per unit, inc VAT</p>
+//               </div>
+//               <hr />
+//               <div className="designYourOwnSon3">
+//                 <h5>Color</h5>
+//                 <div className="colorsFather">
+//                   {tshirt.colores.map((color, index) => (
+//                     <div
+//                       key={index}
+//                       className="colrSon"
+//                       style={{ backgroundColor: color }}
+//                     ></div>
+//                   ))}
+//                 </div>
+//               </div>
+//               <hr />
+//               <div className="designYourOwnSon4">
+//                 <h5>Size</h5>
+//                 {tshirt.sizes.map((size, index) => (
+//                   <div className="sizeSon">
+//                     <div className="sizesName">{size}</div>
+//                     <div className="sizesConrol">
+//                       <div className="decrease" onClick={handleDecrement()}>
+//                         -
+//                       </div>
+//                       <div className="zero">{counter}</div>
+//                       <div className="increase" onClick={handleIncrement()}>
+//                         +
+//                       </div>
+//                       <hr />
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//               <hr />
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

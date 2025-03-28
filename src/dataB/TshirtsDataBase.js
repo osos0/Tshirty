@@ -3,14 +3,15 @@ const Tshirts = {
     {
       id: 1000, // أرقام بالآلاف للرجال
       img: require("../imgs/tshirts/tshirt1.webp"),
-      front: require("../imgs/tshirts/tshirt1-Front.jpg"),
-      back: require("../imgs/tshirts/tshirt1-back.jpg"),
+      // front: require("../imgs/tshirts/tshirt1white-Front.jpg"),
+      // back: require("../imgs/tshirts/tshirt1white-back.jpg"),
       price: 100,
       desc: "Economic T-shirt",
       gender: "Men",
       typo: "Trianglecollar",
       season: "summer",
       colores: ["white", "red", "black", "pink", "blue"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
     {
       id: 1001,
@@ -21,6 +22,7 @@ const Tshirts = {
       typo: "sports",
       season: "winter",
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
     {
       id: 1002,
@@ -31,6 +33,7 @@ const Tshirts = {
       typo: "Economictshiet",
       season: "summer",
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
   ],
   Woman: [
@@ -43,6 +46,7 @@ const Tshirts = {
       typo: "Trianglecollar",
       season: "winter",
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
     {
       id: 2001,
@@ -53,6 +57,7 @@ const Tshirts = {
       typo: "roundshirtcollar",
       season: "summer",
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
   ],
   Kids: [
@@ -64,8 +69,8 @@ const Tshirts = {
       gender: "Kids",
       typo: "newbaby",
       season: "winter",
-
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
     {
       id: 3001,
@@ -76,6 +81,7 @@ const Tshirts = {
       typo: "roundshirtcollar",
       season: "summer",
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
     {
       id: 3002,
@@ -86,6 +92,7 @@ const Tshirts = {
       typo: "sports",
       season: "winter",
       colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
   ],
 };

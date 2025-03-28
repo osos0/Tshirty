@@ -8,8 +8,6 @@
     background-color: $maiGray2;
     margin: 20px 0;
   }
-  .dynamicleftSon {
-  }
   .dynamicPicSon {
     border: 1px solid red;
     .dynaminPicCon {
@@ -20,6 +18,22 @@
         height: 100%;
       }
     }
+    .frontAndBackCon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+      div {
+        padding: 10px 20px;
+        border-radius: 10px 10px;
+        background: $maiOrang;
+        color: $maiGray;
+        cursor: pointer;
+        min-width: 120px;
+        text-align: center;
+      }
+    }
   }
   .dynamicRightSon {
     border: 2px solid $maiGray;
@@ -28,6 +42,11 @@
     .designYourOwn {
       padding: 10px 0px;
       font-weight: bold;
+      .subjectOf {
+        font-size: 25px;
+        font-weight: 900;
+        color: $maiOrang;
+      }
       .designYourOwnSon1 {
         font-size: 20px;
       }
@@ -39,6 +58,7 @@
         h4 {
           display: inline;
           margin: auto 0;
+          color: $maiOrang;
         }
         p {
           font-size: 15px;
@@ -47,6 +67,12 @@
         }
       }
       .designYourOwnSon3 {
+        .selectedColorName {
+          font-size: 15px;
+          width: 100%;
+          text-align: center;
+          color: $maiGray2;
+        }
         .colorsFather {
           padding: 10px 0;
           display: flex;
@@ -66,24 +92,21 @@
         }
       }
       .designYourOwnSon4 {
-        border: 1px solid black;
         padding: 10px 0;
         .sizeSon {
-          border: 1px solid red;
           width: 100%;
-          padding: 10px 0;
+          padding: 10px 10%;
           display: flex;
           justify-content: space-between;
           align-items: center;
           .sizesName {
-            border: 1px solid green;
             padding: 10px;
           }
+          border-bottom: 1px solid $maiGray;
           .sizesConrol {
             width: 100%;
-            border: 1px solid purple;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
 
             .increase,
@@ -112,6 +135,20 @@
               color: $maiGray2;
               margin: auto 5px;
             }
+          }
+        }
+        .total-price {
+          margin-top: 15px;
+          padding: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .totalPriceWord {
+            color: $maiGray2;
+          }
+          .totalPriceCurrency {
+            color: $maiOrang;
+            font-size: 30px;
           }
         }
       }

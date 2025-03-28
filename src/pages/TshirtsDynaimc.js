@@ -18,6 +18,7 @@ export default function TshirtsDynamic() {
   });
   const [selectedColor, setSelectedColor] = useState("white"); // Default color
   const [selectside, setSelectside] = useState("front"); // Default side
+  const [selectprintmethod, setSelectprintmethod] = useState("Printing"); // Default size
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -86,6 +87,19 @@ export default function TshirtsDynamic() {
                 <p>Per unit, inc VAT</p>
               </div>
               <hr />
+              <div className="designYourOwnSon2PrintMethod">
+                <h5 className="subjectOf">Print Method</h5>
+                <h5 className="selectedColorName">{selectprintmethod}</h5>
+                <div className="printMethod">
+                  <div onClick={() => setSelectprintmethod("Printing")}>
+                    Printing
+                  </div>
+                  <div onClick={() => setSelectprintmethod("Embroidery")}>
+                    Embroidery
+                  </div>
+                </div>
+                <hr />
+              </div>
               <div className="designYourOwnSon3">
                 <h5 className="subjectOf">Color</h5>
                 <div className="selectedColorName">{selectedColor}</div>

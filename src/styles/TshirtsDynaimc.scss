@@ -66,13 +66,29 @@
           color: $maiGray2;
         }
       }
-      .designYourOwnSon3 {
-        .selectedColorName {
-          font-size: 15px;
-          width: 100%;
-          text-align: center;
-          color: $maiGray2;
+      .designYourOwnSon2PrintMethod {
+        padding: 10px 0;
+        .printMethod {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          div {
+            border-radius: 20px;
+            padding: 10px 15px;
+            background: $maiOrang;
+            color: $maiGray;
+            cursor: pointer;
+          }
         }
+      }
+      .selectedColorName {
+        font-size: 15px;
+        width: 100%;
+        text-align: center;
+        color: $maiGray2;
+      }
+      .designYourOwnSon3 {
         .colorsFather {
           padding: 10px 0;
           display: flex;

@@ -2,17 +2,122 @@
 
 .dynamicPicFather {
   padding: 40px 0;
+  position: relative;
+
   hr {
     border: none;
     height: 2px;
     background-color: $maiGray2;
     margin: 20px 0;
   }
+  .dynamicleftSon {
+    border: 2px solid $maiGray;
+    border-radius: 15px;
+    padding: 20px 10px;
+    background: linear-gradient($mainbluelight, transparent, $mainbluelight);
+    text-align: center;
+    .dynamicleftSon1 {
+      font-size: 20px;
+    }
+    .dynamicleftSon1Color {
+      .subjectOf {
+        font-size: 20px;
+        font-weight: 500;
+        color: $maiOrang;
+      }
+      .colorsFather {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .colrSon {
+          width: 30px;
+          height: 30px;
+          border: 1px solid $maiGray2;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+    .dynamicleftSon2 {
+      padding: 10px 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      .dynamicleftSon2Tool {
+        border: 1px solid rgb(187, 177, 177);
+        border-radius: 20px;
+        width: 100%;
+        padding: 20px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // font-size: 20px;
+        color: $mainblue;
+        svg {
+          font-size: 30px;
+          color: $maiOrang;
+        }
+      }
+    }
+    //////////////////////////
+    /// handel Pop Up Buttom
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .popupModel {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 18px;
+      }
+      .closePopupModel {
+        cursor: pointer;
+        font-size: 25px;
+        color: $maiGray;
+        background: $maiOrang;
+        padding: 10px 40px;
+        border-radius: 20px;
+        border: 1px solid transparent;
+      }
+    }
+
+    //////////////////////////////////
+  }
   .dynamicPicSon {
-    border: 1px solid red;
+    // border: 1px solid red;
+
     .dynaminPicCon {
       width: 100%;
       height: 494px;
+      margin: 15px 0;
       img {
         width: 100%;
         height: 100%;
@@ -38,13 +143,15 @@
   .dynamicRightSon {
     border: 2px solid $maiGray;
     border-radius: 15px;
-    padding: 10px 5px;
+    padding: 20px 10px;
+    background: linear-gradient($mainbluelight, transparent, $mainbluelight);
+
     .designYourOwn {
       padding: 10px 0px;
       font-weight: bold;
       .subjectOf {
-        font-size: 25px;
-        font-weight: 900;
+        font-size: 20px;
+        font-weight: 500;
         color: $maiOrang;
       }
       .designYourOwnSon1 {
@@ -67,7 +174,7 @@
         }
       }
       .designYourOwnSon2PrintMethod {
-        padding: 10px 0;
+        // padding: 10px 0;
         .printMethod {
           display: flex;
           align-items: center;
@@ -75,9 +182,10 @@
           gap: 10px;
           div {
             border-radius: 20px;
-            padding: 10px 15px;
+            padding: 5px 15px;
             background: $maiOrang;
             color: $maiGray;
+            font-size: 12px;
             cursor: pointer;
           }
         }
@@ -171,3 +279,5 @@
     }
   }
 }
+
+////////////////////////////////////////////////////////////////////////

@@ -2,6 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Tshirts from "../dataB/TshirtsDataBase";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTShirt } from "@fortawesome/free-solid-svg-icons";
+import { faImages } from "@fortawesome/free-regular-svg-icons";
 
 export default function TshirtsDynamic() {
   const { gender, typo, id } = useParams();
@@ -19,6 +22,7 @@ export default function TshirtsDynamic() {
   const [selectedColor, setSelectedColor] = useState("white"); // Default color
   const [selectside, setSelectside] = useState("front"); // Default side
   const [selectprintmethod, setSelectprintmethod] = useState("Printing"); // Default size
+  const [popupmodel, setPopupmodel] = useState(false);
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -53,11 +57,70 @@ export default function TshirtsDynamic() {
     }));
   };
 
+  // Handle Popup Model
+  const toggelModel = () => {
+    setPopupmodel(!popupmodel);
+  };
+
   return (
     <div>
       <div className="container">
         <div className="row dynamicPicFather">
-          <div className="col-lg-3 col-md-6 col-sm-12 dynamicleftSon">14</div>
+          <div className="col-lg-3 col-md-6 col-sm-12 dynamicleftSon">
+            <div className="dynamicleftSon1">
+              Design Tools
+              <hr />
+            </div>
+            <div className="dynamicleftSon1Color">
+              <h5 className="subjectOf">Color</h5>
+              <div className="selectedColorName">{selectedColor}</div>
+              <div className="colorsFather">
+                {tshirt.colores.map((color, index) => (
+                  <div
+                    key={index}
+                    className="colrSon"
+                    style={{ backgroundColor: color }}
+                    onClick={() => setSelectedColor(color)}
+                  ></div>
+                ))}
+              </div>
+              <hr />
+            </div>
+            <div className="dynamicleftSon2">
+              <button className="dynamicleftSon2Tool" onClick={toggelModel}>
+                <FontAwesomeIcon icon={faTShirt} />
+                <div>Print Postion</div>
+                <FontAwesomeIcon icon={faPencil} />
+              </button>
+              {popupmodel && (
+                <>
+                  <div className="overlay"></div>
+                  <div className="popupModel">
+                    <div>hello</div>
+                    <p>
+                      Loren50 Loren ipsum dolor sit amet, consectetur adipiscing
+                      elit. Sed consectetur, ipsum et elementum tristique,
+                      mauris mi fermentum sem, sed pulvinar neque mauris non
+                      erat. Donec vel libero non arcu facilisis bibendum. Donec
+                      vel libero non arcu facilisis bibendum. Donec vel libero
+                      non arcu facilisis bibendum. Donec vel libero non arcu
+                      facilisis bibendum. Donec vel libero non arcu facilisis
+                      bibendum. Donec vel libero non arcu
+                    </p>
+                    <button className="closePopupModel" onClick={toggelModel}>
+                      Close
+                    </button>
+                  </div>
+                </>
+              )}
+
+              <div className="dynamicleftSon2Tool">
+                <FontAwesomeIcon icon={faImages} />
+                <div>Design Your Own</div>
+                <FontAwesomeIcon icon={faPencil} />
+              </div>
+            </div>
+          </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
             <div className="dynaminPicCon">
@@ -80,7 +143,7 @@ export default function TshirtsDynamic() {
           <div className="col-lg-3 col-md-6 col-sm-12 dynamicRightSon">
             <div className="designYourOwn">
               <div className="designYourOwnSon1">
-                Design Your Own Sports Shirts
+                Design Your Own {tshirt.typo} Shirts
               </div>
               <div className="designYourOwnSon2">
                 <h4>{tshirt.price} LE</h4>
@@ -100,7 +163,7 @@ export default function TshirtsDynamic() {
                 </div>
                 <hr />
               </div>
-              <div className="designYourOwnSon3">
+              {/* <div className="designYourOwnSon3">
                 <h5 className="subjectOf">Color</h5>
                 <div className="selectedColorName">{selectedColor}</div>
                 <div className="colorsFather">
@@ -114,7 +177,7 @@ export default function TshirtsDynamic() {
                   ))}
                 </div>
               </div>
-              <hr />
+              <hr /> */}
               <div className="designYourOwnSon4">
                 <h5 className="subjectOf">Size</h5>
                 {tshirt.sizes.map((size, index) => (
@@ -182,99 +245,3 @@ export default function TshirtsDynamic() {
     </div>
   );
 }
-
-///////////////////////////////////////////////////////////////
-
-// import React from "react";
-// import { useParams } from "react-router-dom";
-// import Tshirts from "../dataB/TshirtsDataBase"; // Import Tshirts data
-// import { useState } from "react";
-// export default function TshirtsDynamic() {
-//   const { gender, typo, id } = useParams(); // Extract gender, typo, and id from the URL
-//   const [counter, setCounter] = useState(0);
-//   const [counterXS, setCounterXS] = useState(0);
-//   const [counterS, setCounterS] = useState(0);
-//   const [counterM, setCounterM] = useState(0);
-//   const [counterL, setCounterL] = useState(0);
-//   const [counterXL, setCounterXL] = useState(0);
-//   const [counterXXL, setCounterXXL] = useState(0);
-//   const [counter3XL, setCounter3XL] = useState(0);
-
-//   // Find the T-shirt based on gender, typo, and id
-//   const tshirt = Tshirts[gender]?.find(
-//     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
-//   );
-
-//   if (!tshirt) {
-//     return <div>T-shirt not found!</div>;
-//   }
-
-//   const handleDecrement = () => {};
-//   const handleIncrement = () => {};
-
-//   return (
-//     <div>
-//       <div className="container">
-//         <div className="row dynamicPicFather">
-//           <div className="col-lg-3 col-md-6 col-sm-12 dynamicleftSon">14</div>
-
-//           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
-//             <div className="dynaminPicCon">
-//               <img src={tshirt.front} className="" alt="T-shirt" />
-//             </div>
-//             <div className="">
-//               <h4 className="">{tshirt.desc}</h4>
-//               <h5 className="">{tshirt.price} LE</h5>
-//               <p className="">Some quick example text</p>
-//             </div>
-//           </div>
-
-//           <div className="col-lg-3 col-md-6 col-sm-12 dynamicRightSon">
-//             <div className="designYourOwn">
-//               <div className="designYourOwnSon1">
-//                 Design Your Own Sports Shirts
-//               </div>
-//               <div className="designYourOwnSon2">
-//                 <h4>{tshirt.price} LE</h4>
-//                 <p>Per unit, inc VAT</p>
-//               </div>
-//               <hr />
-//               <div className="designYourOwnSon3">
-//                 <h5>Color</h5>
-//                 <div className="colorsFather">
-//                   {tshirt.colores.map((color, index) => (
-//                     <div
-//                       key={index}
-//                       className="colrSon"
-//                       style={{ backgroundColor: color }}
-//                     ></div>
-//                   ))}
-//                 </div>
-//               </div>
-//               <hr />
-//               <div className="designYourOwnSon4">
-//                 <h5>Size</h5>
-//                 {tshirt.sizes.map((size, index) => (
-//                   <div className="sizeSon">
-//                     <div className="sizesName">{size}</div>
-//                     <div className="sizesConrol">
-//                       <div className="decrease" onClick={handleDecrement()}>
-//                         -
-//                       </div>
-//                       <div className="zero">{counter}</div>
-//                       <div className="increase" onClick={handleIncrement()}>
-//                         +
-//                       </div>
-//                       <hr />
-//                     </div>
-//                   </div>
-//                 ))}
-//               </div>
-//               <hr />
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

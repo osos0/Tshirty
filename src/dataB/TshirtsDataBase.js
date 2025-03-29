@@ -6,24 +6,7 @@ const Tshirts = {
       // front: require("../imgs/tshirts/tshirt1white-Front.jpg"),
       // back: require("../imgs/tshirts/tshirt1white-back.jpg"),
       price: 100,
-      desc: `Are you looking for a great print at an amazing low cost on our most versatile white garment? Our Budget T-Shirt is the way to go! 
-      Make your own design on this garment, and we'll print it using our high-quality technology. You can be creative with text, images, or our custom designs.  
-    
-      Don't be fooled by the price—the fine knit ensures excellent print quality.  
-    
-      **Uneek Olympic T-Shirt**  
-      - 100% Cotton  
-      - Fine gauge knit (141gsm)  
-      - Shoulder-to-shoulder taping  
-      - Rolled forward shoulders for a better fit  
-      - Front cover-seaming on the collar  
-    
-      **To fit chest sizes:**  
-      - S: 34/36"  
-      - M: 38/40"  
-      - L: 42/44"  
-      - XL: 46/48"  
-      - 2XL: 50/52"`,
+      desc: "Economic T-shirt",
       gender: "Men",
       typo: "Trianglecollar",
       season: "summer",

@@ -73,7 +73,6 @@ export default function TshirtsDynamic() {
             </div>
             <div className="dynamicleftSon1Color">
               <h5 className="subjectOf">Color</h5>
-              <div className="selectedColorName">{selectedColor}</div>
               <div className="colorsFather">
                 {tshirt.colores.map((color, index) => (
                   <div
@@ -84,6 +83,7 @@ export default function TshirtsDynamic() {
                   ></div>
                 ))}
               </div>
+              <div className="selectedColorName">{selectedColor}</div>
               <hr />
             </div>
             <div className="dynamicleftSon2">
@@ -96,17 +96,18 @@ export default function TshirtsDynamic() {
                 <>
                   <div className="overlay"></div>
                   <div className="popupModel">
-                    <div>hello</div>
-                    <p>
-                      Loren50 Loren ipsum dolor sit amet, consectetur adipiscing
-                      elit. Sed consectetur, ipsum et elementum tristique,
-                      mauris mi fermentum sem, sed pulvinar neque mauris non
-                      erat. Donec vel libero non arcu facilisis bibendum. Donec
-                      vel libero non arcu facilisis bibendum. Donec vel libero
-                      non arcu facilisis bibendum. Donec vel libero non arcu
-                      facilisis bibendum. Donec vel libero non arcu facilisis
-                      bibendum. Donec vel libero non arcu
-                    </p>
+                    <div className="tshirtPostionImgs">
+                      <img
+                        onClick={toggelModel}
+                        src={require(`../imgs/cnter-postion-removebg-preview.png`)}
+                        alt="front"
+                      />
+                      <img
+                        onClick={toggelModel}
+                        src={require(`../imgs/logo-postion-removebg-preview.png`)}
+                        alt="back"
+                      />
+                    </div>
                     <button className="closePopupModel" onClick={toggelModel}>
                       Close
                     </button>

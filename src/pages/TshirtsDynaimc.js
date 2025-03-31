@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Tshirts from "../dataB/TshirtsDataBase";
+import DesignsDatabase from "../dataB/DesignsDatabase";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTShirt } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +26,9 @@ export default function TshirtsDynamic() {
   const [popupmodel, setPopupmodel] = useState(false);
   const [popupmodeldesign, setPopupmodeldesign] = useState(false);
   const [selectiondesigne, setSelectiondesigne] = useState("Carton Images");
+  const selectedDesigns = DesignsDatabase[selectiondesigne] || [];
+  const [selectedPostionIMG, setSelectedPostionIMG] = useState("");
+  const [selectedDesignIMG, setSelectedDesignIMG] = useState("");
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -101,19 +105,35 @@ export default function TshirtsDynamic() {
                 <div>Print Postion</div>
                 <FontAwesomeIcon icon={faPencil} />
               </button>
+              {selectedPostionIMG && (
+                <div className="dynamicleftSon2ToolImg">
+                  <img src={selectedPostionIMG} alt="T-shirt" />
+                </div>
+              )}
+
               {popupmodel && (
                 <>
                   <div className="overlay"></div>
                   <div className="popupModel">
                     <div className="tshirtPostionImgs">
                       <img
-                        onClick={toggelModel}
-                        src={require(`../imgs/cnter-postion-removebg-preview.png`)}
+                        onClick={() => {
+                          setSelectedPostionIMG(
+                            require("../imgs/cnter-postion-removebg-preview.png")
+                          );
+                          toggelModel();
+                        }}
+                        src={require("../imgs/cnter-postion-removebg-preview.png")}
                         alt="front"
                       />
                       <img
-                        onClick={toggelModel}
-                        src={require(`../imgs/logo-postion-removebg-preview.png`)}
+                        onClick={() => {
+                          setSelectedPostionIMG(
+                            require("../imgs/logo-postion-removebg-preview.png")
+                          );
+                          toggelModel();
+                        }}
+                        src={require("../imgs/logo-postion-removebg-preview.png")}
                         alt="back"
                       />
                     </div>
@@ -135,6 +155,11 @@ export default function TshirtsDynamic() {
                 <div>Design Your Own</div>
                 <FontAwesomeIcon icon={faPencil} />
               </button>
+              {selectedDesignIMG && (
+                <div className="dynamicleftSon2ToolImg">
+                  <img src={selectedDesignIMG} alt="T-shirt" />
+                </div>
+              )}
               {popupmodeldesign && (
                 <>
                   <div className="overlay"></div>
@@ -145,30 +170,29 @@ export default function TshirtsDynamic() {
                         value={selectiondesigne}
                         onChange={(e) => setSelectiondesigne(e.target.value)}
                       >
-                        <option value="Carton Images">Carton Images</option>
-                        <option value="Love">Love</option>
-                        <option value="Iconic Symbols">Iconic Symbols</option>
-                        <option value="Pregnant">Pregnant</option>
-                        <option value="Sports">Sports</option>
+                        {Object.keys(DesignsDatabase).map((category, index) => (
+                          <option key={index} value={category}>
+                            {category}
+                          </option>
+                        ))}
                       </select>
                     </div>
+
                     <div className="SelctionConPics">
-                      <div className="SelctionConPicsSon">
-                        <img
-                          src={require(`../imgs/cap5.jpg`)}
-                          alt="Carton Images"
-                        />
-                        <></>
-                      </div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
-                      <div className="SelctionConPicsSon"></div>
+                      {selectedDesigns.map((design) => (
+                        <div
+                          key={design.id}
+                          className="SelctionConPicsSon"
+                          onClick={toggelModelDesign}
+                        >
+                          <img
+                            onClick={() => setSelectedDesignIMG(design.img)}
+                            src={design.img}
+                            alt={design.name}
+                          />
+                          <div>{design.name}</div>
+                        </div>
+                      ))}
                     </div>
 
                     <button

@@ -8,7 +8,6 @@
     border: none;
     height: 2px;
     background-color: $maiGray2;
-    // margin: 20px 0;
   }
   .dynamicleftSon {
     border: 2px solid $maiGray;
@@ -70,6 +69,15 @@
         svg {
           font-size: 28px;
           color: $maiOrang;
+        }
+      }
+      .dynamicleftSon2ToolImg {
+        width: 80px;
+        height: 80px;
+        border: 1px solid $maiGray;
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
     }
@@ -151,6 +159,15 @@
           color: $maiOrang;
         }
       }
+      .dynamicleftSon2ToolImg {
+        width: 80px;
+        height: 80px;
+        border: 1px solid $maiGray;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
     .overlay {
       position: fixed;
@@ -175,7 +192,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      border: 1px solid red;
+      border: 1px solid $maiOrang;
+
       ////////////////////////////////
       .SelctionCon {
         padding: 5px;
@@ -199,23 +217,31 @@
       .SelctionConPics {
         border: 1px solid $maiGray;
         padding: 5px;
-        width: 98%;
+        max-width: 98%;
         height: 350px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
+        justify-content: center;
+        align-items: flex-start;
         overflow: auto;
         .SelctionConPicsSon {
           margin: 5px;
           width: 100px;
-          height: 120px;
+          height: 130px;
           cursor: pointer;
           border: 1px solid $maiGray2;
           img {
             width: 100%;
             height: 100px;
             object-fit: cover;
+          }
+          div {
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-weight: 500;
+            color: $maiGray2;
+            text-align: center;
           }
         }
       }

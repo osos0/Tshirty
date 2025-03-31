@@ -23,6 +23,8 @@ export default function TshirtsDynamic() {
   const [selectside, setSelectside] = useState("front"); // Default side
   const [selectprintmethod, setSelectprintmethod] = useState("Printing"); // Default size
   const [popupmodel, setPopupmodel] = useState(false);
+  const [popupmodeldesign, setPopupmodeldesign] = useState(false);
+  const [selectiondesigne, setSelectiondesigne] = useState("Carton Images");
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -62,6 +64,11 @@ export default function TshirtsDynamic() {
     setPopupmodel(!popupmodel);
   };
 
+  // Handle Popup Model Design
+  const toggelModelDesign = () => {
+    setPopupmodeldesign(!popupmodeldesign);
+  };
+
   return (
     <div>
       <div className="container">
@@ -71,7 +78,7 @@ export default function TshirtsDynamic() {
               Design Tools
               <hr />
             </div>
-            <div className="dynamicleftSon1Color">
+            <div className="dynamicleftSonColor">
               <h5 className="subjectOf">Color</h5>
               <div className="colorsFather">
                 {tshirt.colores.map((color, index) => (
@@ -86,6 +93,8 @@ export default function TshirtsDynamic() {
               <div className="selectedColorName">{selectedColor}</div>
               <hr />
             </div>
+
+            {/* Handle Popup Model  */}
             <div className="dynamicleftSon2">
               <button className="dynamicleftSon2Tool" onClick={toggelModel}>
                 <FontAwesomeIcon icon={faTShirt} />
@@ -114,12 +123,63 @@ export default function TshirtsDynamic() {
                   </div>
                 </>
               )}
+            </div>
 
-              <div className="dynamicleftSon2Tool">
+            {/* Handle Popup Model Designe */}
+            <div className="dynamicleftSonDesign">
+              <button
+                className="dynamicleftSonDesignTool"
+                onClick={toggelModelDesign}
+              >
                 <FontAwesomeIcon icon={faImages} />
                 <div>Design Your Own</div>
                 <FontAwesomeIcon icon={faPencil} />
-              </div>
+              </button>
+              {popupmodeldesign && (
+                <>
+                  <div className="overlay"></div>
+                  <div className="popupModelDesign">
+                    <div className="SelctionCon">
+                      <select
+                        className="custom-select"
+                        value={selectiondesigne}
+                        onChange={(e) => setSelectiondesigne(e.target.value)}
+                      >
+                        <option value="Carton Images">Carton Images</option>
+                        <option value="Love">Love</option>
+                        <option value="Iconic Symbols">Iconic Symbols</option>
+                        <option value="Pregnant">Pregnant</option>
+                        <option value="Sports">Sports</option>
+                      </select>
+                    </div>
+                    <div className="SelctionConPics">
+                      <div className="SelctionConPicsSon">
+                        <img
+                          src={require(`../imgs/cap5.jpg`)}
+                          alt="Carton Images"
+                        />
+                        <></>
+                      </div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                      <div className="SelctionConPicsSon"></div>
+                    </div>
+
+                    <button
+                      className="closePopupModel"
+                      onClick={toggelModelDesign}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 

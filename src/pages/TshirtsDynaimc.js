@@ -40,7 +40,7 @@ export default function TshirtsDynamic() {
 
   const getImageSrc = () => {
     try {
-      return require(`../imgs/tshirts/tshirt1${selectedColor}-${selectside}.jpg`);
+      return require(`../imgs/tshirts/colors/${selectedColor}-${selectside}-removebg-preview.png`);
     } catch (error) {
       console.error("Image not found:", error);
       return tshirt.front; // Fallback to default image

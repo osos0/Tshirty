@@ -10,7 +10,7 @@ const Tshirts = {
       gender: "Men",
       typo: "Trianglecollar",
       season: "summer",
-      colores: ["white", "red", "black", "pink", "blue"],
+      colores: ["white", "red", "black", "pink", "blue", "yellow", "green"],
       sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
     },
     {

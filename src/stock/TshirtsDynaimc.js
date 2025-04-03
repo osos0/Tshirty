@@ -4,21 +4,8 @@ import Tshirts from "../dataB/TshirtsDataBase";
 import DesignsDatabase from "../dataB/DesignsDatabase";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowAltCircleDown,
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-  faArrowAltCircleUp,
-  faHandPointUp,
-  faMinusCircle,
-  faPencil,
-  faPlus,
-  faPlusCircle,
-  faTShirt,
-  faUpDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faTShirt } from "@fortawesome/free-solid-svg-icons";
 import { faImages } from "@fortawesome/free-regular-svg-icons";
-import { faUps } from "@fortawesome/free-brands-svg-icons";
 
 export default function TshirtsDynamic() {
   const { gender, typo, id } = useParams();
@@ -42,9 +29,6 @@ export default function TshirtsDynamic() {
   const selectedDesigns = DesignsDatabase[selectiondesigne] || [];
   const [selectedPostionIMG, setSelectedPostionIMG] = useState("");
   const [selectedDesignIMG, setSelectedDesignIMG] = useState("");
-  const [upAndDown, setUpAndDown] = useState(50);
-  const [leftAndRight, setLeftAndRight] = useState(50);
-  const [zooninAndOut, setZooninAndOut] = useState("");
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -93,7 +77,6 @@ export default function TshirtsDynamic() {
     <div>
       <div className="container">
         <div className="row dynamicPicFather">
-          {/* code of left side colors and desgin*/}
           <div className="col-lg-3 col-md-6 col-sm-12 dynamicleftSon">
             <div className="dynamicleftSon1">
               Design Tools
@@ -177,7 +160,6 @@ export default function TshirtsDynamic() {
                   <img src={selectedDesignIMG} alt="T-shirt" />
                 </div>
               )}
-
               {popupmodeldesign && (
                 <>
                   <div className="overlay"></div>
@@ -223,30 +205,8 @@ export default function TshirtsDynamic() {
                 </>
               )}
             </div>
-
-            <div className="dynamicleftSonCrossAndZoom">
-              <FontAwesomeIcon
-                icon={faArrowAltCircleUp}
-                onClick={() => setUpAndDown(upAndDown - 1)}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleDown}
-                onClick={() => setUpAndDown(upAndDown + 1)}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleLeft}
-                onClick={() => setLeftAndRight(leftAndRight - 1)}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleRight}
-                onClick={() => setLeftAndRight(leftAndRight + 1)}
-              />
-              <FontAwesomeIcon icon={faPlusCircle} />
-              <FontAwesomeIcon icon={faMinusCircle} />
-            </div>
           </div>
 
-          {/* code of Center side Picture Handling*/}
           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
             <div className="dynaminPicCon">
               <img
@@ -254,12 +214,7 @@ export default function TshirtsDynamic() {
                 alt="This color is Not available now please choose another color"
               />
               <div className="logoPostion">My logo</div>
-              <div
-                className="centerPostion"
-                style={{ top: `${upAndDown}%`, left: `${leftAndRight}%` }}
-              >
-                Hello My love
-              </div>
+              <div className="centerPostion">Hello My love</div>
             </div>
             <div className="frontAndBackCon">
               <div onClick={() => setSelectside("front")}>Front</div>
@@ -272,7 +227,6 @@ export default function TshirtsDynamic() {
             </div>
           </div>
 
-          {/* code of Right side PrintMethodes and sizes and Prices*/}
           <div className="col-lg-3 col-md-6 col-sm-12 dynamicRightSon">
             <div className="designYourOwn">
               <div className="designYourOwnSon1">
@@ -296,6 +250,21 @@ export default function TshirtsDynamic() {
                 </div>
                 <hr />
               </div>
+              {/* <div className="designYourOwnSon3">
+                <h5 className="subjectOf">Color</h5>
+                <div className="selectedColorName">{selectedColor}</div>
+                <div className="colorsFather">
+                  {tshirt.colores.map((color, index) => (
+                    <div
+                      key={index}
+                      className="colrSon"
+                      style={{ backgroundColor: color }}
+                      onClick={() => setSelectedColor(color)}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+              <hr /> */}
               <div className="designYourOwnSon4">
                 <h5 className="subjectOf">Size</h5>
                 {tshirt.sizes.map((size, index) => (

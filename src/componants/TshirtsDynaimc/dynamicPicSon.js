@@ -1,32 +1,39 @@
-import React, { useState } from "react";
-import Tshirts from "../../dataB/TshirtsDataBase";
-import { useParams } from "react-router-dom";
+import React from "react";
 
-export function DynamicPicSon() {
-  const { gender, typo, id } = useParams();
-  const tshirt = Tshirts[gender]?.find(
-    (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
-  );
-  const [selectside, setSelectside] = useState("front");
-  if (!tshirt) return <div>T-shirt not found!</div>;
-
+export default function DynamicPicSon({
+  tshirt,
+  selectedColor,
+  selectedDesignIMG,
+  selectedPostionIMG,
+}) {
   return (
     <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
       <div className="dynaminPicCon">
         <img
-          src={tshirt.front}
-          alt="This color is Not available now please choose another color"
+          src={require(`../../imgs/tshirts/colors/${selectedColor}-front-removebg-preview.png`)}
+          alt="T-shirt Preview"
         />
+        {selectedPostionIMG && (
+          <img
+            src={selectedPostionIMG}
+            alt="Position Design"
+            className="position-overlay"
+          />
+        )}
+        {selectedDesignIMG && (
+          <img
+            src={selectedDesignIMG}
+            alt="Design"
+            className="design-overlay"
+          />
+        )}
       </div>
       <div className="frontAndBackCon">
-        <div onClick={() => setSelectside("front")}>Front</div>
-        <div onClick={() => setSelectside("back")}>Back</div>
+        <div>Front</div>
+        <div>Back</div>
       </div>
-      <div>
-        <h4>{tshirt.desc}</h4>
-        <h5>{tshirt.price} LE</h5>
-        <p>Some quick example text</p>
-      </div>
+      <h4>{tshirt.desc}</h4>
+      <h5>{tshirt.price} LE</h5>
     </div>
   );
 }

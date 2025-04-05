@@ -9,16 +9,12 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
   faArrowAltCircleUp,
-  faHandPointUp,
   faMinusCircle,
   faPencil,
-  faPlus,
   faPlusCircle,
   faTShirt,
-  faUpDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { faImages } from "@fortawesome/free-regular-svg-icons";
-import { faUps } from "@fortawesome/free-brands-svg-icons";
 
 export default function TshirtsDynamic() {
   const { gender, typo, id } = useParams();
@@ -42,9 +38,11 @@ export default function TshirtsDynamic() {
   const selectedDesigns = DesignsDatabase[selectiondesigne] || [];
   const [selectedPostionIMG, setSelectedPostionIMG] = useState("");
   const [selectedDesignIMG, setSelectedDesignIMG] = useState("");
-  const [upAndDown, setUpAndDown] = useState(50);
+  const [upAndDown, setUpAndDown] = useState(44);
   const [leftAndRight, setLeftAndRight] = useState(50);
-  const [zooninAndOut, setZooninAndOut] = useState("");
+  const [upAndDownLogo, setUpAndDownLogo] = useState(22);
+  const [leftAndRightLogo, setLeftAndRightLogo] = useState(55);
+  const [dimensions, setDimensions] = useState({ width: 120, height: 150 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -227,39 +225,103 @@ export default function TshirtsDynamic() {
             <div className="dynamicleftSonCrossAndZoom">
               <FontAwesomeIcon
                 icon={faArrowAltCircleUp}
-                onClick={() => setUpAndDown(upAndDown - 1)}
+                onClick={() => {
+                  setUpAndDown(upAndDown - 1);
+                  setUpAndDownLogo(upAndDownLogo - 1);
+                }}
               />
               <FontAwesomeIcon
                 icon={faArrowAltCircleDown}
-                onClick={() => setUpAndDown(upAndDown + 1)}
+                onClick={() => {
+                  setUpAndDown(upAndDown + 1);
+                  setUpAndDownLogo(upAndDownLogo + 1);
+                }}
               />
               <FontAwesomeIcon
                 icon={faArrowAltCircleLeft}
-                onClick={() => setLeftAndRight(leftAndRight - 1)}
+                onClick={() => {
+                  setLeftAndRight(leftAndRight - 1);
+                  setLeftAndRightLogo(leftAndRightLogo - 1);
+                }}
               />
               <FontAwesomeIcon
                 icon={faArrowAltCircleRight}
-                onClick={() => setLeftAndRight(leftAndRight + 1)}
+                onClick={() => {
+                  setLeftAndRight(leftAndRight + 1);
+                  setLeftAndRightLogo(leftAndRightLogo + 1);
+                }}
               />
-              <FontAwesomeIcon icon={faPlusCircle} />
-              <FontAwesomeIcon icon={faMinusCircle} />
+              {/* <FontAwesomeIcon icon={faPlusCircle} />
+              <FontAwesomeIcon icon={faMinusCircle} /> */}
+              <FontAwesomeIcon
+                icon={faPlusCircle}
+                onClick={() =>
+                  setDimensions({
+                    width: dimensions.width + 5,
+                    height: dimensions.height + 5,
+                  })
+                }
+              />
+              <FontAwesomeIcon
+                icon={faMinusCircle}
+                onClick={() =>
+                  setDimensions({
+                    width: dimensions.width - 10,
+                    height: dimensions.height - 10,
+                  })
+                }
+              />
             </div>
           </div>
 
           {/* code of Center side Picture Handling*/}
           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
-            <div className="dynaminPicCon">
-              <img
-                src={getImageSrc()}
-                alt="This color is Not available now please choose another color"
-              />
-              <div className="logoPostion">My logo</div>
-              <div
+            <div
+              className="dynaminPicCon"
+              style={{
+                backgroundImage: `url(${getImageSrc()})`,
+              }}
+            >
+              {selectedPostionIMG ===
+              "/static/media/cnter-postion-removebg-preview.4f058f144fd670d11fac.png" ? (
+                <div
+                  className="centerPostion"
+                  style={{
+                    top: `${upAndDown}%`,
+                    left: `${leftAndRight}%`,
+                    width: `${dimensions.width}px`,
+                    minHeight: `${dimensions.height}px`,
+                    // hidden: `${selectedPostionIMG}`,
+                    // opacity: selectedPostionIMG ? 1 : 0,
+                  }}
+                >
+                  Hello My love
+                </div>
+              ) : (
+                <div
+                  className="logoPostion"
+                  style={{
+                    top: `${upAndDownLogo}%`,
+                    left: `${leftAndRightLogo}%`,
+                  }}
+                >
+                  My logo
+                </div>
+              )}
+              {/* <div className="logoPostion">My logo</div> */}
+              {/* <div
                 className="centerPostion"
-                style={{ top: `${upAndDown}%`, left: `${leftAndRight}%` }}
+                style={{
+                  top: `${upAndDown}%`,
+                  left: `${leftAndRight}%`,
+                  width: `${dimensions.width}px`,
+                  minHeight: `${dimensions.height}px`,
+                  // hidden: `${selectedPostionIMG}`,
+                  // opacity: selectedPostionIMG ? 1 : 0,
+                }}
               >
                 Hello My love
-              </div>
+              </div> */}
             </div>
             <div className="frontAndBackCon">
               <div onClick={() => setSelectside("front")}>Front</div>

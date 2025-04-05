@@ -104,6 +104,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      z-index: 5;
 
       .tshirtPostionImgs {
         display: flex;
@@ -164,6 +165,7 @@
         width: 80px;
         height: 80px;
         border: 1px solid $maiGray;
+
         img {
           width: 100%;
           height: 100%;
@@ -177,6 +179,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2;
     }
     .popupModelDesign {
       position: absolute;
@@ -194,11 +197,13 @@
       justify-content: space-between;
       gap: 20px;
       border: 1px solid $maiOrang;
+      z-index: 2;
 
       ////////////////////////////////
       .SelctionCon {
         padding: 5px;
         width: 98%;
+        z-index: 2;
         .custom-select {
           width: 80%;
           padding: 5px;
@@ -276,73 +281,34 @@
     }
   }
   .dynamicPicSon {
-    // border: 1px solid red;
-
-    // .dynaminPicCon {
-    //   width: 100%;
-    //   height: 500px;
-    //   margin: 15px 0;
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: center;
-    //   border: 1px solid red;
-    //   position: relative;
-    //   img {
-    //     width: 100%;
-    //     max-width: 400px;
-    //     height: auto;
-    //     object-fit: cover;
-    //     border-radius: 10px;
-    //     border: 1px solid red;
-    //   }
-    //   .logoPostion {
-    //     border: 2px solid orange;
-    //     position: absolute;
-    //     top: 22%;
-    //     right: 32%;
-    //     width: 70px; // تكبير الحجم
-    //     height: 70px;
-    //   }
-
-    //   .centerPostion {
-    //     border: 2px solid green;
-    //     position: absolute;
-    //     top: 50%; // تمركز العنصر في المنتصف
-    //     left: 50%;
-    //     transform: translate(-50%, -50%); // جعله في المنتصف تمامًا
-    //     width: 150px;
-    //     height: 200px;
-    //   }
-    // }
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     .dynaminPicCon {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
       width: 100%;
-      height: 500px;
+      max-width: 400px;
+      height: 370px;
+
       margin: 15px auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid red;
       position: relative;
-      // z-index:  !important;
-      img {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 10px;
-        border: 1px solid red;
-      }
+      border: 1px solid #ddd; /* خليه لون هادي */
+      border-radius: 8px; /* منظر أحلى */
+
+      transition: all 0.3s ease; /* لو هتعمل hover */
 
       .logoPostion {
         border: 2px solid orange;
         position: absolute;
-        top: 30%;
-        left: 55%;
+        // top: 22% ;
+        // left: 55%;
         width: 60px; // حجم ثابت
         height: 55px;
         max-width: 60px;
@@ -352,17 +318,16 @@
       .centerPostion {
         border: 2px solid green;
         position: absolute;
-        // top: 50%;
+
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 120px; // حجم ثابت
-        height: 150px;
-        max-width: 120px;
-        max-height: 150px;
-        font-size: 50px;
+
+        font-size: 20px;
         font-weight: 700;
         text-align: center;
-        font-family: "Times New Roman", Times, serif;
+        font-family: "sans-serif";
+
+        // opacity: 90%;
       }
     }
 

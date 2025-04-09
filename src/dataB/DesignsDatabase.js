@@ -84,6 +84,23 @@ const DesignsDatabase = {
       img: require("../imgs/design/Sports/boyThinking.png"),
     },
   ],
+  logos: [
+    {
+      id: 16,
+      name: "logos 1",
+      img: require("../imgs/design/Sports/boyThinking.png"),
+    },
+    {
+      id: 17,
+      name: "logos 2",
+      img: require("../imgs/design/Sports/boyThinking.png"),
+    },
+    {
+      id: 17,
+      name: "logos 3",
+      img: require("../imgs/design/Sports/boyThinking.png"),
+    },
+  ],
 };
 
 export default DesignsDatabase;

@@ -43,6 +43,10 @@ export default function TshirtsDynamic() {
   const [upAndDownLogo, setUpAndDownLogo] = useState(22);
   const [leftAndRightLogo, setLeftAndRightLogo] = useState(55);
   const [dimensions, setDimensions] = useState({ width: 120, height: 150 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
+  const [dimensionsLogo, setDimensionsLogo] = useState({
+    width: 60,
+    height: 55,
+  });
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -57,7 +61,7 @@ export default function TshirtsDynamic() {
       return require(`../imgs/tshirts/colors/${selectedColor}-${selectside}-removebg-preview.png`);
     } catch (error) {
       console.error("Image not found:", error);
-      return tshirt.front; // Fallback to default image
+      return tshirt.front;
     }
   };
 
@@ -85,6 +89,31 @@ export default function TshirtsDynamic() {
   // Handle Popup Model Design
   const toggelModelDesign = () => {
     setPopupmodeldesign(!popupmodeldesign);
+  };
+
+  const handleResize = (type) => {
+    if (
+      selectedPostionIMG ===
+      "/static/media/cnter-postion-removebg-preview.4f058f144fd670d11fac.png"
+    ) {
+      setDimensions({
+        width:
+          type === "increase" ? dimensions.width + 5 : dimensions.width - 5,
+        height:
+          type === "increase" ? dimensions.height + 5 : dimensions.height - 5,
+      });
+    } else {
+      setDimensionsLogo({
+        width:
+          type === "increase"
+            ? dimensionsLogo.width + 5
+            : dimensionsLogo.width - 5,
+        height:
+          type === "increase"
+            ? dimensionsLogo.height + 5
+            : dimensionsLogo.height - 5,
+      });
+    }
   };
 
   return (
@@ -251,25 +280,13 @@ export default function TshirtsDynamic() {
                   setLeftAndRightLogo(leftAndRightLogo + 1);
                 }}
               />
-              {/* <FontAwesomeIcon icon={faPlusCircle} />
-              <FontAwesomeIcon icon={faMinusCircle} /> */}
               <FontAwesomeIcon
                 icon={faPlusCircle}
-                onClick={() =>
-                  setDimensions({
-                    width: dimensions.width + 5,
-                    height: dimensions.height + 5,
-                  })
-                }
+                onClick={() => handleResize("increase")}
               />
               <FontAwesomeIcon
                 icon={faMinusCircle}
-                onClick={() =>
-                  setDimensions({
-                    width: dimensions.width - 10,
-                    height: dimensions.height - 10,
-                  })
-                }
+                onClick={() => handleResize("decrease")}
               />
             </div>
           </div>
@@ -295,7 +312,7 @@ export default function TshirtsDynamic() {
                     // opacity: selectedPostionIMG ? 1 : 0,
                   }}
                 >
-                  Hello My love
+                  Hello center Picture{" "}
                 </div>
               ) : (
                 <div
@@ -303,25 +320,13 @@ export default function TshirtsDynamic() {
                   style={{
                     top: `${upAndDownLogo}%`,
                     left: `${leftAndRightLogo}%`,
+                    width: `${dimensionsLogo.width}px`,
+                    minHeight: `${dimensionsLogo.height}px`,
                   }}
                 >
                   My logo
                 </div>
               )}
-              {/* <div className="logoPostion">My logo</div> */}
-              {/* <div
-                className="centerPostion"
-                style={{
-                  top: `${upAndDown}%`,
-                  left: `${leftAndRight}%`,
-                  width: `${dimensions.width}px`,
-                  minHeight: `${dimensions.height}px`,
-                  // hidden: `${selectedPostionIMG}`,
-                  // opacity: selectedPostionIMG ? 1 : 0,
-                }}
-              >
-                Hello My love
-              </div> */}
             </div>
             <div className="frontAndBackCon">
               <div onClick={() => setSelectside("front")}>Front</div>

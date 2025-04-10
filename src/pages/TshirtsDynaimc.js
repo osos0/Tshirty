@@ -312,7 +312,12 @@ export default function TshirtsDynamic() {
                     // opacity: selectedPostionIMG ? 1 : 0,
                   }}
                 >
-                  Hello center Picture{" "}
+                  {/* Hello center Picture{" "} */}
+                  {selectedDesignIMG && (
+                    <div className="dynamicleftSon2ToolImg">
+                      <img src={selectedDesignIMG} alt="T-shirt" />
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div
@@ -324,7 +329,11 @@ export default function TshirtsDynamic() {
                     minHeight: `${dimensionsLogo.height}px`,
                   }}
                 >
-                  My logo
+                  {selectedDesignIMG && (
+                    <div className="dynamicleftSon2ToolImg">
+                      <img src={selectedDesignIMG} alt="T-shirt" />
+                    </div>
+                  )}
                 </div>
               )}
             </div>

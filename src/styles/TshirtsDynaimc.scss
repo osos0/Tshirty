@@ -232,6 +232,7 @@
         overflow: auto;
         .SelctionConPicsSon {
           margin: 5px;
+          padding: 5px;
           width: 100px;
           height: 130px;
           cursor: pointer;
@@ -305,7 +306,7 @@
       transition: all 0.3s ease; /* لو هتعمل hover */
 
       .logoPostion {
-        border: 2px solid orange;
+        // border: 2px solid orange;
         position: absolute;
         // top: 22% ;
         // left: 55%;
@@ -313,19 +314,26 @@
         // height: 55px;
         max-width: 60px;
         max-height: 50px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       .centerPostion {
-        border: 2px solid green;
+        // border: 2px solid green;
         position: absolute;
-
         left: 50%;
         transform: translate(-50%, -50%);
-
         font-size: 20px;
         font-weight: 700;
         text-align: center;
         font-family: "sans-serif";
+        img {
+          width: 100%;
+          height: 100%;
+          opacity: 90%;
+        }
 
         // opacity: 90%;
       }

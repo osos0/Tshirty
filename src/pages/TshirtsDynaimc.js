@@ -308,8 +308,6 @@ export default function TshirtsDynamic() {
                     left: `${leftAndRight}%`,
                     width: `${dimensions.width}px`,
                     minHeight: `${dimensions.height}px`,
-                    // hidden: `${selectedPostionIMG}`,
-                    // opacity: selectedPostionIMG ? 1 : 0,
                   }}
                 >
                   {/* Hello center Picture{" "} */}

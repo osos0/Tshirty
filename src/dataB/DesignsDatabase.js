@@ -50,38 +50,56 @@ const DesignsDatabase = {
       img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
     },
   ],
-  Pregnant: [
+  pregnancy: [
     {
-      id: 10,
+      id: 3001,
       name: "Pregnant 1",
-      img: require("../imgs/design/Pregnant/boyThinking.png"),
+      img: require("../imgs/design/pregnancy/001/001.png"),
     },
     {
-      id: 11,
+      id: 3002,
       name: "Pregnant 2",
-      img: require("../imgs/design/Pregnant/boyThinking.png"),
+      img: require("../imgs/design/pregnancy/002/002.png"),
     },
     {
-      id: 12,
+      id: 3003,
       name: "Pregnant 3",
-      img: require("../imgs/design/Pregnant/boyThinking.png"),
-    },
-  ],
-  Sports: [
-    {
-      id: 13,
-      name: "Sport 1",
-      img: require("../imgs/design/Sports/boyThinking.png"),
+      img: require("../imgs/design/pregnancy/003/003.png"),
     },
     {
-      id: 14,
-      name: "Sport 2",
-      img: require("../imgs/design/Sports/boyThinking.png"),
+      id: 3004,
+      name: "Pregnant 4",
+      img: require("../imgs/design/pregnancy/004/004.png"),
     },
     {
-      id: 15,
-      name: "Sport 3",
-      img: require("../imgs/design/Sports/boyThinking.png"),
+      id: 3005,
+      name: "Pregnant 5",
+      img: require("../imgs/design/pregnancy/005/005.png"),
+    },
+    {
+      id: 3006,
+      name: "Pregnant 6",
+      img: require("../imgs/design/pregnancy/006/006.png"),
+    },
+    {
+      id: 3007,
+      name: "Pregnant 7",
+      img: require("../imgs/design/pregnancy/007/007.png"),
+    },
+    {
+      id: 3008,
+      name: "Pregnant 8",
+      img: require("../imgs/design/pregnancy/008/008.png"),
+    },
+    {
+      id: 3009,
+      name: "Pregnant 9",
+      img: require("../imgs/design/pregnancy/009/009.png"),
+    },
+    {
+      id: 3010,
+      name: "Pregnant 10",
+      img: require("../imgs/design/pregnancy/010/010.png"),
     },
   ],
   logos: [
@@ -103,19 +121,54 @@ const DesignsDatabase = {
   ],
   animals: [
     {
-      id: 18,
-      name: "Dog 1",
-      img: require("../imgs/design/animals/001/001-dog.jpg"),
+      id: 7001,
+      name: "animals 1",
+      img: require("../imgs/design/animals/001/001.png"),
     },
     {
-      id: 19,
+      id: 7002,
       name: "animals 2",
-      img: require("../imgs/design/Sports/boyThinking.png"),
+      img: require("../imgs/design/animals/002/002.png"),
     },
     {
-      id: 20,
+      id: 7003,
       name: "animals 3",
-      img: require("../imgs/design/Sports/boyThinking.png"),
+      img: require("../imgs/design/animals/003/003.png"),
+    },
+    {
+      id: 7004,
+      name: "animals 4",
+      img: require("../imgs/design/animals/004/004.png"),
+    },
+    {
+      id: 7005,
+      name: "animals 5",
+      img: require("../imgs/design/animals/005/005.png"),
+    },
+    {
+      id: 7006,
+      name: "animals 6",
+      img: require("../imgs/design/animals/006/006.png"),
+    },
+    {
+      id: 7007,
+      name: "animals 7",
+      img: require("../imgs/design/animals/007/007.png"),
+    },
+    {
+      id: 7008,
+      name: "animals 8",
+      img: require("../imgs/design/animals/008/008.png"),
+    },
+    {
+      id: 7009,
+      name: "animals 9",
+      img: require("../imgs/design/animals/009/009.png"),
+    },
+    {
+      id: 7010,
+      name: "animals 10",
+      img: require("../imgs/design/animals/010/010.png"),
     },
   ],
 };

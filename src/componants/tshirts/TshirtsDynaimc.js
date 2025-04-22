@@ -1,7 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Tshirts from "../dataB/TshirtsDataBase";
-import DesignsDatabase from "../dataB/DesignsDatabase";
+// import Tshirts from "../dataB/tshirts/TshirtsDataBase";
+// import DesignsDatabase from "../dataB/DesignsDatabase";
+import Tshirts from "../../dataB/tshirts/TshirtsDataBase";
+import DesignsDatabase from "../../dataB/DesignsDatabase";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -58,7 +60,7 @@ export default function TshirtsDynamic() {
 
   const getImageSrc = () => {
     try {
-      return require(`../imgs/tshirts/colors/${selectedColor}-${selectside}-removebg-preview.png`);
+      return require(`../../imgs/tshirts/colors/${selectedColor}-${selectside}-removebg-preview.png`);
     } catch (error) {
       console.error("Image not found:", error);
       return tshirt.front;
@@ -163,21 +165,21 @@ export default function TshirtsDynamic() {
                       <img
                         onClick={() => {
                           setSelectedPostionIMG(
-                            require("../imgs/cnter-postion-removebg-preview.png")
+                            require("../../imgs/cnter-postion-removebg-preview.png")
                           );
                           toggelModel();
                         }}
-                        src={require("../imgs/cnter-postion-removebg-preview.png")}
+                        src={require("../../imgs/cnter-postion-removebg-preview.png")}
                         alt="front"
                       />
                       <img
                         onClick={() => {
                           setSelectedPostionIMG(
-                            require("../imgs/logo-postion-removebg-preview.png")
+                            require("../../imgs/logo-postion-removebg-preview.png")
                           );
                           toggelModel();
                         }}
-                        src={require("../imgs/logo-postion-removebg-preview.png")}
+                        src={require("../../imgs/logo-postion-removebg-preview.png")}
                         alt="back"
                       />
                     </div>

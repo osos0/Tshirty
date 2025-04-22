@@ -10,13 +10,13 @@ import Navbar from "./componants/Navbar";
 import Footer from "./componants/Footer";
 import Home from "./pages/Home";
 import Tshirts from "./pages/Tshirts";
-import TshirtsDynaimc from "./pages/TshirtsDynaimc";
+import TshirtsDynaimc from "./componants/tshirts/TshirtsDynaimc";
+import MugsDynaimc from "./componants/mugs/MugsDynaimc";
 import Mugs from "./pages/Mugs";
 
 function App() {
   return (
     <Fragment>
-      {/* <Topsocialnavbar /> */}
       <Topsocialnavbar />
       <Navbar />
       <Routes>
@@ -24,6 +24,7 @@ function App() {
         <Route path="/tshirts" element={<Tshirts />} />
         <Route path="/tshirts/:gender/:typo/:id" element={<TshirtsDynaimc />} />
         <Route path="/mugs" element={<Mugs />} />
+        <Route path="/mugs/:gender/:typo/:id" element={<MugsDynaimc />} />
       </Routes>
       <Footer />
     </Fragment>

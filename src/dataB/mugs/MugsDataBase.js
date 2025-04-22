@@ -1,8 +1,9 @@
-const Tshirts = {
+const Mugs = {
   Men: [
     {
       id: 1000, // أرقام بالآلاف للرجال
-      img: require("../imgs/tshirts/tshirt1.webp"),
+      // img: require("../imgs/tshirts/tshirt1.webp"),
+      img: require("../../imgs/tshirts/tshirt1.webp"),
       // front: require("../imgs/tshirts/tshirt1white-Front.jpg"),
       // back: require("../imgs/tshirts/tshirt1white-back.jpg"),
       price: 100,
@@ -15,7 +16,7 @@ const Tshirts = {
     },
     {
       id: 1001,
-      img: require("../imgs/tshirts/tshirt1.webp"),
+      img: require("../../imgs/tshirts/tshirt1.webp"),
       price: 200,
       desc: "Economic T-shirt",
       gender: "Men",
@@ -26,7 +27,7 @@ const Tshirts = {
     },
     {
       id: 1002,
-      img: require("../imgs/tshirts/tshirt1.webp"),
+      img: require("../../imgs/tshirts/tshirt1.webp"),
       price: 300,
       desc: "Economic T-shirt",
       gender: "Men",
@@ -39,7 +40,7 @@ const Tshirts = {
   Woman: [
     {
       id: 2000, // أرقام بالآلاف للنساء
-      img: require("../imgs/tshirts/womantshirt1.webp"),
+      img: require("../../imgs/tshirts/womantshirt1.webp"),
       price: 100,
       desc: "Economic T-shirt",
       gender: "Woman",
@@ -50,7 +51,7 @@ const Tshirts = {
     },
     {
       id: 2001,
-      img: require("../imgs/tshirts/womantshirt1.webp"),
+      img: require("../../imgs/tshirts/womantshirt1.webp"),
       price: 200,
       desc: "Economic T-shirt",
       gender: "Woman",
@@ -63,7 +64,7 @@ const Tshirts = {
   Kids: [
     {
       id: 3000, // أرقام بالآلاف للأطفال
-      img: require("../imgs/tshirts/kidstshirt1.webp"),
+      img: require("../../imgs/tshirts/kidstshirt1.webp"),
       price: 100,
       desc: "Economic T-shirt",
       gender: "Kids",
@@ -74,7 +75,7 @@ const Tshirts = {
     },
     {
       id: 3001,
-      img: require("../imgs/tshirts/kidstshirt1.webp"),
+      img: require("../../imgs/tshirts/kidstshirt1.webp"),
       price: 200,
       desc: "Economic T-shirt",
       gender: "Kids",
@@ -85,7 +86,7 @@ const Tshirts = {
     },
     {
       id: 3002,
-      img: require("../imgs/tshirts/kidstshirt1.webp"),
+      img: require("../../imgs/tshirts/kidstshirt1.webp"),
       price: 300,
       desc: "Economic T-shirt",
       gender: "Kids",
@@ -97,4 +98,4 @@ const Tshirts = {
   ],
 };
 
-export default Tshirts;
+export default Mugs;

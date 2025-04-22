@@ -24,7 +24,7 @@ function App() {
         <Route path="/tshirts" element={<Tshirts />} />
         <Route path="/tshirts/:gender/:typo/:id" element={<TshirtsDynaimc />} />
         <Route path="/mugs" element={<Mugs />} />
-        <Route path="/mugs/:gender/:typo/:id" element={<MugsDynaimc />} />
+        <Route path="/mugs/:typo/:id" element={<MugsDynaimc />} />
       </Routes>
       <Footer />
     </Fragment>

@@ -11,7 +11,7 @@ export default function MugsCard() {
         <div className="row tshirtesCardRow">
           <h3>Which Mugs Model Will You Design On ?</h3>
           <p>Mugs</p>
-          {Mugs.Men.map((Mugs) => (
+          {Mugs.Mugs.map((Mugs) => (
             <div
               key={Mugs.id}
               className="col-lg-4 col-md-6 col-sm-6 tshirtesCardCard"
@@ -26,9 +26,7 @@ export default function MugsCard() {
                   <p className="card-text">Some quick example text</p>
                   <button
                     className="btn btn-danger"
-                    onClick={() =>
-                      navigate(`/Mugs/${Mugs.gender}/${Mugs.typo}/${Mugs.id}`)
-                    }
+                    onClick={() => navigate(`/Mugs/${Mugs.typo}/${Mugs.id}`)}
                   >
                     Let’s Design
                   </button>
@@ -38,7 +36,7 @@ export default function MugsCard() {
           ))}
           <hr />
           <p>Bottles</p>
-          {Mugs.Woman.map((Mugs) => (
+          {Mugs.Bottle.map((Mugs) => (
             <div
               key={Mugs.id}
               className="col-lg-4 col-md-6 col-sm-6 tshirtesCardCard"
@@ -53,9 +51,7 @@ export default function MugsCard() {
                   <p className="card-text">Some quick example text</p>
                   <button
                     className="btn btn-danger"
-                    onClick={() =>
-                      navigate(`/Mugs/${Mugs.gender}/${Mugs.typo}/${Mugs.id}`)
-                    }
+                    onClick={() => navigate(`/Mugs/${Mugs.typo}/${Mugs.id}`)}
                   >
                     Let’s Design
                   </button>

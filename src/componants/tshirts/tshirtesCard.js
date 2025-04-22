@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import Tshirts from "../dataB/TshirtsDataBase"; // Import the Tshirts data
+import Tshirts from "../../dataB/TshirtsDataBase"; // Import the Tshirts data
 
 export default function TshirtesCard() {
   const navigate = useNavigate(); // Initialize useNavigate

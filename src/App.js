@@ -11,6 +11,7 @@ import Footer from "./componants/Footer";
 import Home from "./pages/Home";
 import Tshirts from "./pages/Tshirts";
 import TshirtsDynaimc from "./pages/TshirtsDynaimc";
+import Mugs from "./pages/Mugs";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tshirts" element={<Tshirts />} />
         <Route path="/tshirts/:gender/:typo/:id" element={<TshirtsDynaimc />} />
+        <Route path="/mugs" element={<Mugs />} />
       </Routes>
       <Footer />
     </Fragment>

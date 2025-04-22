@@ -1,5 +1,5 @@
 import React from "react";
-import threeTshirts from "../imgs/three-tshirts.jpg";
+import threeTshirts from "../../imgs/three-tshirts.jpg";
 
 export default function tshirtyTopSection() {
   return (

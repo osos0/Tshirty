@@ -27,29 +27,24 @@ const DesignsDatabase = {
       name: "Love 2",
       img: require("../imgs/design/Love/boyThinking.png"),
     },
-    {
-      id: 6,
-      name: "Love 3",
-      img: require("../imgs/design/Love/boyThinking.png"),
-    },
   ],
-  "Iconic Symbols": [
-    {
-      id: 7,
-      name: "Symbol 1",
-      img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
-    },
-    {
-      id: 8,
-      name: "Symbol 2",
-      img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
-    },
-    {
-      id: 9,
-      name: "Symbol 3",
-      img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
-    },
-  ],
+  // "Iconic Symbols": [
+  //   {
+  //     id: 7,
+  //     name: "Symbol 1",
+  //     img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
+  //   },
+  //   {
+  //     id: 8,
+  //     name: "Symbol 2",
+  //     img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
+  //   },
+  //   // {
+  //   //   id: 9,
+  //   //   name: "Symbol 3",
+  //   //   img: require("../imgs/design/Iconic Symbols/boyThinking.png"),
+  //   // },
+  // ],
   pregnancy: [
     {
       id: 3001,

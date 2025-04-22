@@ -87,7 +87,7 @@ export default function Navbar() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="/mugs">
                       Mugs
                     </Link>
                   </li>

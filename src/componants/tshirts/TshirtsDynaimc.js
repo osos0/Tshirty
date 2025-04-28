@@ -1,7 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-// import Tshirts from "../dataB/tshirts/TshirtsDataBase";
-// import DesignsDatabase from "../dataB/DesignsDatabase";
 import Tshirts from "../../dataB/tshirts/TshirtsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import { useState } from "react";
@@ -119,7 +117,7 @@ export default function TshirtsDynamic() {
   };
 
   return (
-    <div>
+    <>
       <div className="container">
         <div className="row dynamicPicFather">
           {/* code of left side colors and desgin*/}
@@ -436,6 +434,6 @@ export default function TshirtsDynamic() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

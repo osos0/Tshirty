@@ -7,7 +7,8 @@ const Mugs = {
       price: 100,
       desc: "Classic Mug",
       typo: "Standard",
-      colors: ["white", "red", "black", "pink", "blue", "yellow", "green"],
+      colores: ["white", "red", "black", "pink", "blue", "yellow", "green"],
+      sizes: ["400 ml"],
     },
     {
       id: 1001,
@@ -16,7 +17,8 @@ const Mugs = {
       price: 200,
       desc: "Premium Mug",
       typo: "Sports",
-      colors: ["white", "red", "black", "pink"],
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["400 ml"],
     },
     {
       id: 1002,
@@ -25,7 +27,8 @@ const Mugs = {
       price: 300,
       desc: "Eco Mug",
       typo: "Eco",
-      colors: ["white", "red", "black", "pink"],
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["400 ml"],
     },
   ],
   Bottle: [
@@ -36,7 +39,8 @@ const Mugs = {
       price: 100,
       desc: "Classic Bottle",
       typo: "Triangle Cap",
-      colors: ["white", "red", "black", "pink"],
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["1000 ml"],
     },
     {
       id: 2001,
@@ -45,7 +49,8 @@ const Mugs = {
       price: 200,
       desc: "Sport Bottle",
       typo: "Round Cap",
-      colors: ["white", "red", "black", "pink"],
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["1000 ml"],
     },
   ],
 };

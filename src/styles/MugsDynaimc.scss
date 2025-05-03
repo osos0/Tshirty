@@ -304,25 +304,26 @@
       border-radius: 8px; /* منظر أحلى */
 
       transition: all 0.3s ease; /* لو هتعمل hover */
-
-      .logoPostion {
-        // border: 2px solid orange;
+      .oneSidePostion {
+        // border: 1px dotted orange;
         position: absolute;
+        transform: translate(-50%, -50%);
         // top: 22% ;
-        // left: 55%;
+        // left: 20%;
         // width: 60px; // حجم ثابت
         // height: 55px;
-        max-width: 60px;
-        max-height: 50px;
+        // max-width: 60px;
+        // max-height: 50px;
         img {
           width: 100%;
           height: 100%;
           opacity: 95%;
         }
-      }
 
-      .centerPostion {
-        // border: 2px solid green;
+        // opacity: 90%;
+      }
+      .fullPrintPostion {
+        border: 2px solid green;
         position: absolute;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -335,8 +336,6 @@
           height: 100%;
           opacity: 95%;
         }
-
-        // opacity: 90%;
       }
     }
 

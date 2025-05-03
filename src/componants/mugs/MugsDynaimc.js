@@ -33,12 +33,14 @@ export default function MugsDynaimc() {
   const selectedDesigns = DesignsDatabase[selectiondesigne] || [];
   const [upAndDown, setUpAndDown] = useState(44);
   const [leftAndRight, setLeftAndRight] = useState(50);
-  const [upAndDownLogo, setUpAndDownLogo] = useState(22);
-  const [leftAndRightLogo, setLeftAndRightLogo] = useState(55);
+  const [upAndDownLogo, setUpAndDownLogo] = useState(50);
+  const [leftAndRightLogo, setLeftAndRightLogo] = useState(43);
   const [dimensions, setDimensions] = useState({ width: 120, height: 150 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
   const [dimensionsLogo, setDimensionsLogo] = useState({
-    width: 60,
-    height: 55,
+    width: 120,
+    height: 150,
+    // width: 60,
+    // height: 55,
   });
 
   // Handle increment for a specific size
@@ -163,6 +165,7 @@ export default function MugsDynaimc() {
                         src={require("../../imgs/Mugs/1oneside-removebg-preview.png")}
                         alt="front"
                       />
+
                       <img
                         onClick={() => {
                           setSelectedPostionIMG(
@@ -293,9 +296,25 @@ export default function MugsDynaimc() {
               }}
             >
               {selectedPostionIMG ===
-              "/static/media/cnter-postion-removebg-preview.4f058f144fd670d11fac.png" ? (
+              "/static/media/1oneside-removebg-preview.5892e58ff99c14079f1f.png" ? (
                 <div
-                  className="centerPostion"
+                  className="oneSidePostion"
+                  style={{
+                    top: `${upAndDownLogo}%`,
+                    left: `${leftAndRightLogo}%`,
+                    width: `${dimensionsLogo.width}px`,
+                    minHeight: `${dimensionsLogo.height}px`,
+                  }}
+                >
+                  {selectedDesignIMG && (
+                    <div className="dynamicleftSon2ToolImg">
+                      <img src={selectedDesignIMG} alt="T-shirt" />
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div
+                  className="fullPrintPostion"
                   style={{
                     top: `${upAndDown}%`,
                     left: `${leftAndRight}%`,
@@ -310,27 +329,11 @@ export default function MugsDynaimc() {
                     </div>
                   )}
                 </div>
-              ) : (
-                <div
-                  className="logoPostion"
-                  style={{
-                    top: `${upAndDownLogo}%`,
-                    left: `${leftAndRightLogo}%`,
-                    width: `${dimensionsLogo.width}px`,
-                    minHeight: `${dimensionsLogo.height}px`,
-                  }}
-                >
-                  {selectedDesignIMG && (
-                    <div className="dynamicleftSon2ToolImg">
-                      <img src={selectedDesignIMG} alt="T-shirt" />
-                    </div>
-                  )}
-                </div>
               )}
             </div>
             <div className="frontAndBackCon">
-              <div onClick={() => setSelectside("front")}>Front</div>
-              <div onClick={() => setSelectside("back")}>Back </div>
+              <div onClick={() => setSelectside("front")}>One side</div>
+              <div onClick={() => setSelectside("full")}>Full Print</div>
             </div>
             <div className="">
               <h4 className="">{Mug.desc}</h4>

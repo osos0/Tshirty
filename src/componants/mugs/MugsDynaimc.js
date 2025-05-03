@@ -29,18 +29,19 @@ export default function MugsDynaimc() {
   const [popupmodel, setPopupmodel] = useState(false);
   const [popupmodeldesign, setPopupmodeldesign] = useState(false);
   const [selectiondesigne, setSelectiondesigne] = useState("Carton Images");
-  const [selectedPostionIMG, setSelectedPostionIMG] = useState("");
+  // const [selectedPostionIMG, setSelectedPostionIMG] = useState("");
+  const [selectedPostionIMG, setSelectedPostionIMG] = useState(
+    require("../../imgs/Mugs/1oneside-removebg-preview.png")
+  );
   const selectedDesigns = DesignsDatabase[selectiondesigne] || [];
-  const [upAndDown, setUpAndDown] = useState(44);
+  const [upAndDown, setUpAndDown] = useState(58);
   const [leftAndRight, setLeftAndRight] = useState(50);
   const [upAndDownLogo, setUpAndDownLogo] = useState(50);
   const [leftAndRightLogo, setLeftAndRightLogo] = useState(43);
-  const [dimensions, setDimensions] = useState({ width: 120, height: 150 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
+  const [dimensions, setDimensions] = useState({ width: 200, height: 120 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
   const [dimensionsLogo, setDimensionsLogo] = useState({
     width: 120,
     height: 150,
-    // width: 60,
-    // height: 55,
   });
 
   // Handle increment for a specific size
@@ -67,6 +68,14 @@ export default function MugsDynaimc() {
     return <div>Item not found</div>;
   }
 
+  // const getImageSrc = () => {
+  //   try {
+  //     return require(`../../imgs/Mugs/colors/${selectedColor}-removebg-preview.png`);
+  //   } catch (error) {
+  //     console.error("Image not found:", error);
+  //     return Mug.front;
+  //   }
+  // };
   const getImageSrc = () => {
     try {
       return require(`../../imgs/Mugs/colors/${selectedColor}-${selectside}-removebg-preview.png`);
@@ -86,11 +95,9 @@ export default function MugsDynaimc() {
     setPopupmodeldesign(!popupmodeldesign);
   };
 
+  // Handle Popup Model Design
   const handleResize = (type) => {
-    if (
-      selectedPostionIMG ===
-      "/static/media/cnter-postion-removebg-preview.4f058f144fd670d11fac.png"
-    ) {
+    if (selectside === "full") {
       setDimensions({
         width:
           type === "increase" ? dimensions.width + 5 : dimensions.width - 5,
@@ -110,7 +117,6 @@ export default function MugsDynaimc() {
       });
     }
   };
-
   return (
     <>
       <div className="container">
@@ -161,6 +167,7 @@ export default function MugsDynaimc() {
                             require("../../imgs/Mugs/1oneside-removebg-preview.png")
                           );
                           toggelModel();
+                          setSelectside("front");
                         }}
                         src={require("../../imgs/Mugs/1oneside-removebg-preview.png")}
                         alt="front"
@@ -172,6 +179,7 @@ export default function MugsDynaimc() {
                             require("../../imgs/Mugs/2fullprint-removebg-preview.png")
                           );
                           toggelModel();
+                          setSelectside("full");
                         }}
                         src={require("../../imgs/Mugs/2fullprint-removebg-preview.png")}
                         alt="back"
@@ -197,7 +205,7 @@ export default function MugsDynaimc() {
               </button>
               {selectedDesignIMG && (
                 <div className="dynamicleftSon2ToolImg">
-                  <img src={selectedDesignIMG} alt="T-shirt" />
+                  <img src={selectedDesignIMG} alt="Mug" />
                 </div>
               )}
 
@@ -293,6 +301,8 @@ export default function MugsDynaimc() {
               className="dynaminPicCon"
               style={{
                 backgroundImage: `url(${getImageSrc()})`,
+                // backgroundImage: `
+                //   url(${require(`../../imgs/Mugs/colors/${selectedColor}-removebg-preview.png`)})`,
               }}
             >
               {selectedPostionIMG ===
@@ -308,7 +318,7 @@ export default function MugsDynaimc() {
                 >
                   {selectedDesignIMG && (
                     <div className="dynamicleftSon2ToolImg">
-                      <img src={selectedDesignIMG} alt="T-shirt" />
+                      <img src={selectedDesignIMG} alt="Mug" />
                     </div>
                   )}
                 </div>
@@ -319,7 +329,7 @@ export default function MugsDynaimc() {
                     top: `${upAndDown}%`,
                     left: `${leftAndRight}%`,
                     width: `${dimensions.width}px`,
-                    minHeight: `${dimensions.height}px`,
+                    Height: `${dimensions.height}px`,
                   }}
                 >
                   {/* Hello center Picture{" "} */}
@@ -331,10 +341,10 @@ export default function MugsDynaimc() {
                 </div>
               )}
             </div>
-            <div className="frontAndBackCon">
+            {/* <div className="frontAndBackCon">
               <div onClick={() => setSelectside("front")}>One side</div>
               <div onClick={() => setSelectside("full")}>Full Print</div>
-            </div>
+            </div> */}
             <div className="">
               <h4 className="">{Mug.desc}</h4>
               <h5 className="">{Mug.price} LE</h5>

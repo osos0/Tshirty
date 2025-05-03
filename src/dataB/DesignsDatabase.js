@@ -166,6 +166,19 @@ const DesignsDatabase = {
       img: require("../imgs/design/animals/010/010.png"),
     },
   ],
+
+  "Mug full Printing": [
+    {
+      id: 9001,
+      name: "Mug full Printing 1",
+      img: require("../imgs/design/Mug full Printing/001/001.jpg"),
+    },
+    {
+      id: 9002,
+      name: "Mug full Printing 2",
+      img: require("../imgs/design/Mug full Printing/002/002.jpg"),
+    },
+  ],
 };
 
 export default DesignsDatabase;

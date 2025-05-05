@@ -301,8 +301,6 @@ export default function MugsDynaimc() {
               className="dynaminPicCon"
               style={{
                 backgroundImage: `url(${getImageSrc()})`,
-                // backgroundImage: `
-                //   url(${require(`../../imgs/Mugs/colors/${selectedColor}-removebg-preview.png`)})`,
               }}
             >
               {selectedPostionIMG ===
@@ -329,7 +327,7 @@ export default function MugsDynaimc() {
                     top: `${upAndDown}%`,
                     left: `${leftAndRight}%`,
                     width: `${dimensions.width}px`,
-                    Height: `${dimensions.height}px`,
+                    minHeight: `${dimensions.height}px`,
                   }}
                 >
                   {/* Hello center Picture{" "} */}
@@ -341,10 +339,21 @@ export default function MugsDynaimc() {
                 </div>
               )}
             </div>
-            {/* <div className="frontAndBackCon">
-              <div onClick={() => setSelectside("front")}>One side</div>
-              <div onClick={() => setSelectside("full")}>Full Print</div>
-            </div> */}
+            <div className="conOfPic360">
+              <div className="realMug">
+                <img
+                  //  src={require(`${Mug.img}`)}
+                  alt="Mug"
+                />
+              </div>
+              <div className="pic360">
+                <div className="banner">
+                  <div className="product">
+                    <div className="cup"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="">
               <h4 className="">{Mug.desc}</h4>
               <h5 className="">{Mug.price} LE</h5>

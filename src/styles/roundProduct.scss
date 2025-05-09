@@ -1,84 +1,62 @@
 @use "./var" as *;
 .conOfPic360 {
-  border: 1px solid blue;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   .realMug {
-    border: 1px solid green;
     width: 40%;
     height: 150px;
     img {
-      border: 1px solid red;
       width: 150px;
       height: 150px;
     }
   }
   .pic360 {
-    border: 1px solid red;
     width: 60%;
     height: 150px;
     width: 40%;
-
     .banner {
-      height: 150px; // Use full height of parent
+      height: 150px;
       overflow: hidden;
       position: relative;
 
       .product {
-        // background-color: red;
         width: 150px;
         height: 150px;
         position: absolute;
-        // bottom: 170px;
         left: 50%;
-
-        transform: translateX(-50%); // Center horizontally
+        transform: translateX(-50%);
         z-index: 1;
-        transition: 1s;
-        --left: 0px;
+        --left: -300px;
         display: flex;
         .cup {
-          background: url("../imgs/Mugs/cupBck.jpg") var(--left) 0,
-            // url("../imgs/Mugs/cubWithouthold.png");
-            url("../imgs/Mugs/cubWithouthold.png");
-          background-size: auto 100%;
+          // background: url("../imgs/Mugs/cupBck.jpg") var(--left) 0,
+          //   // url("../imgs/Mugs/cubWithouthold.png");
+          //   url("../imgs/Mugs/cubWithouthold.png");
+          background-size: auto 120%;
           width: 150px;
           height: 150px;
-          aspect-ratio: 2 / 4; // Maintain aspect ratio
-          background-blend-mode: multiply;
+          background-blend-mode: multiply; // Use normal for the first image and multiply for the second
           mask-image: url("../imgs/Mugs/cubWithouthold.png");
           mask-size: auto 100%;
-          transition: 1s;
           position: absolute;
           left: 50%;
+
           transform: translateX(-50%);
+          animation: scrollBg 30s linear infinite;
+          box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
         }
       }
     }
   }
-  .banner .product:hover {
-    --left: -200px;
-    // transform: translateX(-50%) translateY(-10px);
-  }
 }
 
-// @keyframes rotateCup {
-//   0% {
-//     transform: translate(-50%, -50%) rotateY(0deg);
-//   }
-//   100% {
-//     transform: translate(-50%, -50%) rotateY(360deg);
-//   }
-// }
-
-// // Keyframes for background scrolling
-// @keyframes backgroundScroll {
-//   0% {
-//     background-position: 0 0, center;
-//   }
-//   100% {
-//     background-position: -1000px 0, center;
-//   }
-// }
+@keyframes scrollBg {
+  0% {
+    background-position: 0 0, center;
+  }
+  100% {
+    background-position: -1000px 0, center;
+  }
+}

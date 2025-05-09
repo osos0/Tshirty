@@ -26,6 +26,7 @@ export default function MugsDynaimc() {
   const [selectedColor, setSelectedColor] = useState("white"); // Default color
   const [selectside, setSelectside] = useState("front"); // Default side
   const [selectedDesignIMG, setSelectedDesignIMG] = useState("");
+  const [selectedDesignIMGSide, setSelectedDesignIMGSide] = useState("");
   const [popupmodel, setPopupmodel] = useState(false);
   const [popupmodeldesign, setPopupmodeldesign] = useState(false);
   const [selectiondesigne, setSelectiondesigne] = useState("Carton Images");
@@ -235,7 +236,10 @@ export default function MugsDynaimc() {
                           onClick={toggelModelDesign}
                         >
                           <img
-                            onClick={() => setSelectedDesignIMG(design.img)}
+                            onClick={() => {
+                              setSelectedDesignIMG(design.img);
+                              setSelectedDesignIMGSide(design.side);
+                            }}
                             src={design.img}
                             alt={design.name}
                           />
@@ -297,6 +301,23 @@ export default function MugsDynaimc() {
 
           {/* code of Center side Picture Handling*/}
           <div className="col-lg-6 col-md-6 col-sm-12 mugsdynamicPicSon">
+            {/* {selectedDesignIMG && (
+              <p className="recommendation">
+                Recommendation : use{" "}
+                {selectedDesignIMGSide === "one" ? "One Side" : "Full Print"}{" "}
+                from print Postion
+              </p>
+            )} */}
+            {selectedDesignIMG && (
+              <p className="recommendation">
+                <span style={{ color: "red" }}>Recommendation</span> : with this
+                Design use{" "}
+                <span style={{ color: "red" }}>
+                  {selectedDesignIMGSide === "one" ? "One Side" : "Full Print"}
+                </span>{" "}
+                from print Postion
+              </p>
+            )}
             <div
               className="dynaminPicCon"
               style={{
@@ -341,18 +362,23 @@ export default function MugsDynaimc() {
             </div>
             <div className="conOfPic360">
               <div className="realMug">
-                <img
-                  //  src={require(`${Mug.img}`)}
-                  alt="Mug"
-                />
+                <img src={Mug.img} alt="Mug" />
               </div>
-              <div className="pic360">
-                <div className="banner">
-                  <div className="product">
-                    <div className="cup"></div>
+              {selectedDesignIMG && (
+                <div className="pic360">
+                  <div className="banner">
+                    <div className="product">
+                      {/* <div className="cup"></div> */}
+                      <div
+                        className="cup"
+                        style={{
+                          backgroundImage: `url(${selectedDesignIMG}), url(/imgs/Mugs/cubWithouthold.png)`,
+                        }}
+                      ></div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
             <div className="">
               <h4 className="">{Mug.desc}</h4>

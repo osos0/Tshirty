@@ -288,7 +288,8 @@
     .dynaminPicCon {
       background-repeat: no-repeat;
       background-position: center;
-      background-size: cover;
+      // background-size: cover;
+      background-size: contain;
       width: 100%;
       max-width: 400px;
       height: 370px;
@@ -298,12 +299,11 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      border: 1px solid #ddd; /* خليه لون هادي */
-      border-radius: 8px; /* منظر أحلى */
+      // border: 1px solid #ddd;
+      // border-radius: 8px;
 
-      transition: all 0.3s ease; /* لو هتعمل hover */
+      transition: all 0.3s ease;
       .oneSidePostion {
-        // border: 1px dotted orange;
         position: absolute;
         transform: translate(-50%, -50%);
         img {
@@ -311,20 +311,13 @@
           height: 100%;
           opacity: 95%;
         }
-
-        // opacity: 90%;
       }
       .fullPrintPostion {
-        // border: 2px solid green;
         position: absolute;
         transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
         img {
-          // border: 1px solid black;
-          // width: 100px;
-          height: 120px;
+          width: 110%;
+          height: 95%;
           opacity: 95%;
         }
       }

@@ -2,7 +2,9 @@
 
 .containerofTheNav {
   background: $mainblue !important;
-  padding: 20px 10px;
+  // padding: 20px 10px;
+  // filter: drop-shadow(5px 10px 8px rgba(255, 255, 255, 0.2));
+
   .navbar {
     background: $mainblue !important;
     .navbar-toggler {
@@ -11,6 +13,10 @@
   }
   .navbar-brand {
     color: $maiwhite;
+    img {
+      height: 150px;
+      filter: drop-shadow(5px 10px 8px rgba(255, 255, 255, 0.2));
+    }
   }
   .navbar-nav {
     flex-grow: 1;
@@ -19,6 +25,7 @@
     align-items: center;
     gap: 10px;
     // color: red;
+
     .nav-item {
       width: 100%;
       text-align: center;

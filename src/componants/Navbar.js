@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import firstLogo from "../imgs/firstLogo.jpg";
+
 export default function Navbar() {
   return (
     <div className="containerofTheNav">
       <nav className="navbar navbar-expand-lg">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Navbar
+            <img src={firstLogo} alt="logo" />
           </Link>
           <button
             className="navbar-toggler btn btn-white"

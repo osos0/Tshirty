@@ -69,14 +69,6 @@ export default function MugsDynaimc() {
     return <div>Item not found</div>;
   }
 
-  // const getImageSrc = () => {
-  //   try {
-  //     return require(`../../imgs/Mugs/colors/${selectedColor}-removebg-preview.png`);
-  //   } catch (error) {
-  //     console.error("Image not found:", error);
-  //     return Mug.front;
-  //   }
-  // };
   const getImageSrc = () => {
     try {
       return require(`../../imgs/Mugs/colors/${selectedColor}-${selectside}-removebg-preview.png`);
@@ -101,7 +93,7 @@ export default function MugsDynaimc() {
     if (selectside === "full") {
       setDimensions({
         width:
-          type === "increase" ? dimensions.width + 5 : dimensions.width - 5,
+          type === "increase" ? dimensions.width + 10 : dimensions.width - 5,
         height:
           type === "increase" ? dimensions.height + 5 : dimensions.height - 5,
       });
@@ -301,23 +293,6 @@ export default function MugsDynaimc() {
 
           {/* code of Center side Picture Handling*/}
           <div className="col-lg-6 col-md-6 col-sm-12 mugsdynamicPicSon">
-            {/* {selectedDesignIMG && (
-              <p className="recommendation">
-                Recommendation : use{" "}
-                {selectedDesignIMGSide === "one" ? "One Side" : "Full Print"}{" "}
-                from print Postion
-              </p>
-            )} */}
-            {selectedDesignIMG && (
-              <p className="recommendation">
-                <span style={{ color: "red" }}>Recommendation</span> : with this
-                Design use{" "}
-                <span style={{ color: "red" }}>
-                  {selectedDesignIMGSide === "one" ? "One Side" : "Full Print"}
-                </span>{" "}
-                from print Postion
-              </p>
-            )}
             <div
               className="dynaminPicCon"
               style={{
@@ -360,6 +335,16 @@ export default function MugsDynaimc() {
                 </div>
               )}
             </div>
+            {selectedDesignIMG && (
+              <p className="recommendation">
+                <span style={{ color: "red" }}>Recommendation</span> : with this
+                Design use{" "}
+                <span style={{ color: "red" }}>
+                  {selectedDesignIMGSide === "one" ? "One Side" : "Full Print"}
+                </span>{" "}
+                from print Postion
+              </p>
+            )}
             <div className="conOfPic360">
               <div className="realMug">
                 <img src={Mug.img} alt="Mug" />

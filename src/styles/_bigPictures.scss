@@ -1,0 +1,39 @@
+@use "./var" as *;
+
+.bigPictuers {
+  border: 1px solid red;
+  .row {
+    border: 1px solid black;
+    padding: 30px 0;
+
+    //Genral stylings
+    .son1,
+    .son2,
+    .son3,
+    .son4,
+    .son5,
+    .son6 {
+      min-height: 50px;
+      padding: 5px;
+    }
+
+    .son1 {
+      border: 1px solid blue;
+    }
+    .son2 {
+      border: 1px solid green;
+    }
+    .son3 {
+      border: 1px solid red;
+    }
+    .son4 {
+      border: 1px solid yellow;
+    }
+    .son5 {
+      border: 1px solid purple;
+    }
+    .son6 {
+      border: 1px solid orange;
+    }
+  }
+}

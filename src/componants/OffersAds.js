@@ -3,7 +3,7 @@ import tshirt from "../imgs/tshirt.jpg";
 
 export default function OffersAds() {
   return (
-    <div>
+    <div className="container genralShape">
       <div
         id="carouselExampleDark"
         className="offersAdsFather carousel carousel-dark slide"

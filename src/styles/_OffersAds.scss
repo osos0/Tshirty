@@ -1,8 +1,15 @@
 @use "./var" as *;
 
-.offersAdsFather {
-  .w-100 {
-    height: 650px;
+.genralShape {
+  margin: 50px 0 20px 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% 8%, 100% 0%, 100% 100%, 0% 92%);
+
+  .offersAdsFather {
+    .w-100 {
+      height: 600px;
+    }
   }
 }
 // .topCon {

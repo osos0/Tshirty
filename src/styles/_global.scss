@@ -10,11 +10,19 @@
   // outline: none;
 }
 
+body {
+  // background: $maiwhite;
+  background-image: url("../imgs/background/3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 html {
   color: $mainblue;
   min-height: 100vh !important;
   scroll-behavior: smooth;
-  background: $maiwhite;
+  // background: $maiwhite;
 }
 
 li {

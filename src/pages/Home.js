@@ -1,7 +1,7 @@
 import React from "react";
 import OffersAds from "../componants/OffersAds";
 import BigPictures from "../componants/bigPictures";
-import GiftYouLove from "../componants/GigtYouLove";
+import Whatshot from "../componants/whatsHot";
 import MoreOffers from "../componants/MoreOffers";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <OffersAds />
       <BigPictures />
-      <GiftYouLove />
+      <Whatshot />
       <MoreOffers />
     </div>
   );

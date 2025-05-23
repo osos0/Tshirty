@@ -1,11 +1,12 @@
 @use "./var" as *;
 
 .containerofTheNav {
+  // background: $mainblue !important;
   background: $mainblue !important;
 
   // padding: 20px 10px;
   // filter: drop-shadow(5px 10px 8px rgba(255, 255, 255, 0.2));
-  box-shadow: 5px 15px 12px rgba(17, 17, 17, 0.6);
+  // box-shadow: 5px 15px 12px rgba(17, 17, 17, 0.6);
 
   .navbar {
     // background: $mainblue !important;
@@ -16,8 +17,8 @@
   .navbar-brand {
     // color: $maiwhite;
     img {
-      height: 80px;
-      filter: drop-shadow(5px 10px 8px rgba(255, 255, 255, 0.2));
+      height: 70px;
+      filter: drop-shadow(5px 10px 8px rgba(0, 0, 0, 0.8));
     }
   }
   .navbar-nav {

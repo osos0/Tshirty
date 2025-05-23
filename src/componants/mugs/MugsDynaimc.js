@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Mugs from "../../dataB/mugs/MugsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
+import ProductsMugsCard from "../../componants/productsMugsCard";
+
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -451,6 +453,11 @@ export default function MugsDynaimc() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-12">
+            <ProductsMugsCard />
           </div>
         </div>
       </div>

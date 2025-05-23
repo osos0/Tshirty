@@ -29,6 +29,31 @@ li {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none !important;
+  // font-size: 18px;
+  color: whitesmoke !important;
+}
+
+.standerbtn {
+  margin: 10px 0;
+  background: $maiOrang;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  // font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 15px 12px rgba(17, 17, 17, 0.5);
+  border: none;
+  &:hover {
+    color: white;
+    transform: scale(1.03);
+    transition: all 0.2s ease-in-out;
+  }
+}
+
 // Mobile Screens
 @media (max-width: 767px) {
   // navbar Height and padding settings
@@ -48,23 +73,6 @@ li {
       }
     }
   }
-
-  // Card Height settings
-  // .colConOfCard {
-  //   padding: 50px 20px;
-  //   min-height: 400px;
-  //   .cardImgCon {
-  //     // border: 1px solid yellowgreen;
-  //     height: 400px;
-  //     max-height: 400px;
-  //     width: 70% !important;
-  //     margin: auto;
-  //     img {
-  //       height: 400px;
-  //       width: 97%;
-  //     }
-  //   }
-  // }
   .TshirtsBigBoxRight {
     height: 250px !important;
   }
@@ -85,6 +93,28 @@ li {
       height: 150px !important;
     }
   }
+  .sonPadding {
+    height: 250px !important;
+  }
+  .clConOfCard {
+    height: 220px !important;
+  }
+  // Card Height settings
+  // .colConOfCard {
+  //   padding: 50px 20px;
+  //   min-height: 400px;
+  //   .cardImgCon {
+  //     // border: 1px solid yellowgreen;
+  //     height: 400px;
+  //     max-height: 400px;
+  //     width: 70% !important;
+  //     margin: auto;
+  //     img {
+  //       height: 400px;
+  //       width: 97%;
+  //     }
+  //   }
+  // }
 }
 // Small Screens
 @media (min-width: 768px) {

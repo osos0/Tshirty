@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Tshirts from "../../dataB/tshirts/TshirtsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
+import ProductsTshirtsCard from "../../componants/productsTshirtCard";
+
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -431,6 +433,11 @@ export default function TshirtsDynamic() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-12">
+            <ProductsTshirtsCard />
           </div>
         </div>
       </div>

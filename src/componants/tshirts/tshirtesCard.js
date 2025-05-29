@@ -10,7 +10,7 @@ export default function TshirtesCard() {
       <div className="container">
         <div className="row tshirtesCardRow">
           <h3>Which T-shirt Model Will You Design On ?</h3>
-          <p>Men</p>
+          <p>{Object.keys(Tshirts)[0]}</p>
           {Tshirts.Men.map((tshirt) => (
             <div
               key={tshirt.id}
@@ -39,7 +39,7 @@ export default function TshirtesCard() {
             </div>
           ))}
           <hr />
-          <p>Woman</p>
+          <p>{Object.keys(Tshirts)[1]}</p>
           {Tshirts.Woman.map((tshirt) => (
             <div
               key={tshirt.id}
@@ -68,7 +68,7 @@ export default function TshirtesCard() {
             </div>
           ))}
           <hr />
-          <p>Kids</p>
+          <p>{Object.keys(Tshirts)[2]}</p>
           {Tshirts.Kids.map((tshirt) => (
             <div
               key={tshirt.id}

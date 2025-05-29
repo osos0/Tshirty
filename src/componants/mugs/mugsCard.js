@@ -11,7 +11,7 @@ export default function MugsCard() {
         <div className="row tshirtesCardRow">
           <h3>Which Mugs Model Will You Design On?</h3>
 
-          <p>Mugs</p>
+          <p>{Object.keys(Mugs)[0]}</p>
           {Mugs.Mugs.map((item) => (
             <div
               key={item.id}
@@ -40,7 +40,7 @@ export default function MugsCard() {
 
           <hr />
 
-          <p>Bottles</p>
+          <p>{Object.keys(Mugs)[1]}</p>
           {Mugs.Bottle.map((item) => (
             <div
               key={item.id}

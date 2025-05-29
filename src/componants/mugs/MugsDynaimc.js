@@ -11,10 +11,10 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
   faArrowAltCircleUp,
+  faBeerMugEmpty,
   faMinusCircle,
   faPencil,
   faPlusCircle,
-  faTShirt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faImages } from "@fortawesome/free-regular-svg-icons";
 
@@ -141,7 +141,7 @@ export default function MugsDynaimc() {
             {/* Handle Popup Model  */}
             <div className="mugsdynamicleftSon2">
               <button className="dynamicleftSon2Tool" onClick={toggelModel}>
-                <FontAwesomeIcon icon={faTShirt} />
+                <FontAwesomeIcon icon={faBeerMugEmpty} />
                 <div>Print Postion</div>
                 <FontAwesomeIcon icon={faPencil} />
               </button>

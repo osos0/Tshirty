@@ -10,7 +10,7 @@ export default function OtherGiftsCard() {
         <div className="row tshirtesCardRow">
           <h3>Which Gift Will You Design On?</h3>
 
-          <p>Mugs</p>
+          <p>{Object.keys(OtherGiftsDB)[0]}</p>
           {OtherGiftsDB.hat.map((item) => (
             <div
               key={item.id}
@@ -40,7 +40,7 @@ export default function OtherGiftsCard() {
           ))}
 
           <hr />
-          <p>Bottles</p>
+          <p>{Object.keys(OtherGiftsDB)[1]}</p>
           {OtherGiftsDB.towel.map((item) => (
             <div
               key={item.id}

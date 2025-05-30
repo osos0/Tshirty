@@ -374,7 +374,7 @@ export default function MugsDynaimc() {
             </div>
           </div>
 
-          {/* code of Right side PrintMethodes and sizes and Prices*/}
+          {/* code of Right side PrintMethodes and Number of products and Prices*/}
           <div className="col-lg-3 col-md-6 col-sm-12 mugsdynamicRightSon">
             <div className="designYourOwn">
               <div className="designYourOwnSon1">

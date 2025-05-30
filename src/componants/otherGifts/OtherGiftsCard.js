@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import OtherGiftsDB from "../../dataB//otherGifts/OtherGiftsDatabase";
+import OtherGiftsDB from "../../dataB/otherGifts/OtherGiftsProductsCard";
 
 export default function OtherGiftsCard() {
   const navigate = useNavigate();

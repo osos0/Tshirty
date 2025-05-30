@@ -8,7 +8,7 @@ const OtherGiftsDB = {
       desc: "Classic hats",
       typo: "Standard",
       colores: ["white", "red", "black"],
-      sizes: ["400 ml"],
+      sizes: ["piece"],
     },
     {
       id: 1001,
@@ -18,7 +18,7 @@ const OtherGiftsDB = {
       desc: "Premium hats",
       typo: "Sports",
       colores: ["white", "red", "black"],
-      sizes: ["400 ml"],
+      sizes: ["piece"],
     },
     {
       id: 1002,
@@ -28,7 +28,7 @@ const OtherGiftsDB = {
       desc: "Eco hats",
       typo: "Eco",
       colores: ["white", "red", "black"],
-      sizes: ["400 ml"],
+      sizes: ["piece"],
     },
   ],
   towel: [
@@ -40,7 +40,7 @@ const OtherGiftsDB = {
       desc: "Classic bags",
       typo: "Triangle Cap",
       colores: ["white", "red", "black"],
-      sizes: ["1000 ml"],
+      sizes: ["Piece"],
     },
     {
       id: 2001,
@@ -50,7 +50,7 @@ const OtherGiftsDB = {
       desc: "Sport bags",
       typo: "Round Cap",
       colores: ["white", "red", "black"],
-      sizes: ["1000 ml"],
+      sizes: ["Piece"],
     },
   ],
 };

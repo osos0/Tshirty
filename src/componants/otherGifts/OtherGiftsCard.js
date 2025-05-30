@@ -41,7 +41,7 @@ export default function OtherGiftsCard() {
 
           <hr />
           <p>{Object.keys(OtherGiftsDB)[1]}</p>
-          {OtherGiftsDB.towel.map((item) => (
+          {OtherGiftsDB.bag.map((item) => (
             <div
               key={item.id}
               className="col-lg-4 col-md-6 col-sm-6 tshirtesCardCard"

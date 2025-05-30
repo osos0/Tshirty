@@ -31,10 +31,10 @@ const OtherGiftsDB = {
       sizes: ["piece"],
     },
   ],
-  towel: [
+  bag: [
     {
       id: 2000,
-      gender: "towel",
+      gender: "bag",
       img: require("../../imgs/otherGifts/cardsTyps/bags.jpg"),
       price: 100,
       desc: "Classic bags",
@@ -44,7 +44,7 @@ const OtherGiftsDB = {
     },
     {
       id: 2001,
-      gender: "towel",
+      gender: "bag",
       img: require("../../imgs/otherGifts/cardsTyps/bags.jpg"),
       price: 200,
       desc: "Sport bags",

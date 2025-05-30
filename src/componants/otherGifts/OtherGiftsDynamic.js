@@ -84,6 +84,7 @@ export default function OtherGiftsDynamic() {
 
   return (
     <>
+      {console.log(gender)}
       <div className="container">
         <div className="row otherGiftsdynamicPicFather">
           <div className="col-lg-3 col-md-6 col-sm-12 othergiftsdynamicleftSon">
@@ -130,7 +131,7 @@ export default function OtherGiftsDynamic() {
                             require("../../imgs/Mugs/1oneside-removebg-preview.png")
                           );
                           toggelModel();
-                          setSelectprouduct("Hat");
+                          setSelectprouduct("hat");
                         }}
                         src={require("../../imgs/Mugs/1oneside-removebg-preview.png")}
                         alt="Hat"
@@ -142,7 +143,7 @@ export default function OtherGiftsDynamic() {
                             require("../../imgs/Mugs/2fullprint-removebg-preview.png")
                           );
                           toggelModel();
-                          setSelectprouduct("Bag");
+                          setSelectprouduct("bag");
                         }}
                         src={require("../../imgs/Mugs/2fullprint-removebg-preview.png")}
                         alt="Bag"

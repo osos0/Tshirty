@@ -1,22 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import OtherGiftsDB from "../../dataB/otherGifts/OtherGiftsProductsCard";
+import DesignsDatabase from "../../dataB/DesignsDatabase";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGift,
-  // faArrowAltCircleDown,
-  // faArrowAltCircleLeft,
-  // faArrowAltCircleRight,
-  // faArrowAltCircleUp,
-  // faMinusCircle,
+  faArrowAltCircleDown,
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight,
+  faArrowAltCircleUp,
+  faMinusCircle,
   faPencil,
-  // faPlusCircle,
+  faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faImages } from "@fortawesome/free-regular-svg-icons";
-// import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
-
+import { faImages } from "@fortawesome/free-regular-svg-icons";
 export default function OtherGiftsDynamic() {
   const { gender, typo, id } = useParams();
 
@@ -27,18 +26,20 @@ export default function OtherGiftsDynamic() {
 
   const [selectedColor, setSelectedColor] = useState("white"); // Default color
   const [selectprouduct, setSelectprouduct] = useState(gender); // Default side
-  // const [selectedDesignIMG, setSelectedDesignIMG] = useState("");
-  // const [selectedDesignIMGSide, setSelectedDesignIMGSide] = useState("");
+  const [selectedDesignIMG, setSelectedDesignIMG] = useState("");
   const [popupmodel, setPopupmodel] = useState(false);
-  // const [popupmodeldesign, setPopupmodeldesign] = useState(false);
-  // const [selectiondesigne, setSelectiondesigne] = useState("Carton Images");
-  // const [popupmodeldesign, setPopupmodeldesign] = useState(false);
-
-  // const [selectedPostionIMG, setSelectedPostionIMG] = useState("");
+  const [popupmodeldesign, setPopupmodeldesign] = useState(false);
+  const [selectiondesigne, setSelectiondesigne] = useState("Carton Images");
   const [selectedProductIMG, setSelectedProductIMG] = useState(
     require("../../imgs/Mugs/1oneside-removebg-preview.png")
   );
-
+  const selectedDesigns = DesignsDatabase[selectiondesigne] || [];
+  const [upAndDown, setUpAndDown] = useState(58);
+  const [leftAndRight, setLeftAndRight] = useState(50);
+  const [upAndDownLogo, setUpAndDownLogo] = useState(50);
+  const [leftAndRightLogo, setLeftAndRightLogo] = useState(43);
+  const [dimensions, setDimensions] = useState({ width: 200, height: 120 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
+  const [customText, setCustomText] = useState("");
   // Handle increment for a specific size
   const handleIncrement = (size) => {
     setSizeCounters((prev) => ({
@@ -78,9 +79,17 @@ export default function OtherGiftsDynamic() {
   };
 
   // Handle Popup Model Design
-  // const toggelModelDesign = () => {
-  //   setPopupmodeldesign(!popupmodeldesign);
-  // };
+  const toggelModelDesign = () => {
+    setPopupmodeldesign(!popupmodeldesign);
+  };
+
+  const handleResize = (type) => {
+    setDimensions({
+      width: type === "increase" ? dimensions.width + 10 : dimensions.width - 5,
+      height:
+        type === "increase" ? dimensions.height + 5 : dimensions.height - 5,
+    });
+  };
 
   return (
     <>
@@ -168,6 +177,118 @@ export default function OtherGiftsDynamic() {
                 </>
               )}
             </div>
+            {/* Handle Popup Model Designe */}
+            <div className="mugsdynamicleftSonDesign">
+              <button
+                className="dynamicleftSonDesignTool"
+                onClick={toggelModelDesign}
+              >
+                <FontAwesomeIcon icon={faImages} />
+                <div>Design Your Own</div>
+                <FontAwesomeIcon icon={faPencil} />
+              </button>
+              {selectedDesignIMG && (
+                <div className="dynamicleftSon2ToolImg">
+                  <img src={selectedDesignIMG} alt="Mug" />
+                </div>
+              )}
+
+              {popupmodeldesign && (
+                <>
+                  <div className="overlay"></div>
+                  <div className="popupModelDesign">
+                    <div className="SelctionCon">
+                      <select
+                        className="custom-select"
+                        value={selectiondesigne}
+                        onChange={(e) => setSelectiondesigne(e.target.value)}
+                      >
+                        {Object.keys(DesignsDatabase).map((category, index) => (
+                          <option key={index} value={category}>
+                            {category}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="SelctionConPics">
+                      {selectedDesigns.map((design) => (
+                        <div
+                          key={design.id}
+                          className="SelctionConPicsSon"
+                          onClick={toggelModelDesign}
+                        >
+                          <img
+                            onClick={() => {
+                              setSelectedDesignIMG(design.img);
+                            }}
+                            src={design.img}
+                            alt={design.name}
+                          />
+                          <div>{design.name}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <button
+                      className="closePopupModel"
+                      onClick={toggelModelDesign}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+            {/* Handle Pic designe Zoom IN & Zoom Out */}
+            <div className="dynamicleftSonCrossAndZoom">
+              <FontAwesomeIcon
+                icon={faArrowAltCircleUp}
+                onClick={() => {
+                  setUpAndDown(upAndDown - 1);
+                  setUpAndDownLogo(upAndDownLogo - 1);
+                }}
+              />
+              <FontAwesomeIcon
+                icon={faArrowAltCircleDown}
+                onClick={() => {
+                  setUpAndDown(upAndDown + 1);
+                  setUpAndDownLogo(upAndDownLogo + 1);
+                }}
+              />
+              <FontAwesomeIcon
+                icon={faArrowAltCircleLeft}
+                onClick={() => {
+                  setLeftAndRight(leftAndRight - 1);
+                  setLeftAndRightLogo(leftAndRightLogo - 1);
+                }}
+              />
+              <FontAwesomeIcon
+                icon={faArrowAltCircleRight}
+                onClick={() => {
+                  setLeftAndRight(leftAndRight + 1);
+                  setLeftAndRightLogo(leftAndRightLogo + 1);
+                }}
+              />
+              <FontAwesomeIcon
+                icon={faPlusCircle}
+                onClick={() => handleResize("increase")}
+              />
+              <FontAwesomeIcon
+                icon={faMinusCircle}
+                onClick={() => handleResize("decrease")}
+              />
+            </div>
+            <div className="dynamicleftSonText">
+              <h5 className="subjectOf">Add Text</h5>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Type your text here"
+                value={customText}
+                onChange={(e) => setCustomText(e.target.value)}
+              />
+            </div>
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 othergiftsdynamicPicSon">
@@ -176,7 +297,41 @@ export default function OtherGiftsDynamic() {
               style={{
                 backgroundImage: `url(${getImageSrc()})`,
               }}
-            ></div>
+            >
+              <div
+                className="fullPrintPostion"
+                style={{
+                  top: `${upAndDown}%`,
+                  left: `${leftAndRight}%`,
+                  width: `${dimensions.width}px`,
+                  minHeight: `${dimensions.height}px`,
+                }}
+              >
+                {/* Hello center Picture{" "} */}
+                {selectedDesignIMG && (
+                  <div className="dynamicleftSon2ToolImg">
+                    <img src={selectedDesignIMG} alt="Mug" />
+                  </div>
+                )}
+              </div>
+              {customText && (
+                <div
+                  className="customText"
+                  style={{
+                    position: "absolute",
+                    top: `${upAndDown}%`,
+                    left: `${leftAndRight}%`,
+                    transform: "translate(-50%, -50%)",
+                    color: selectedColor,
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    pointerEvents: "none",
+                  }}
+                >
+                  {customText}
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="col-lg-3 col-md-6 col-sm-12 othergiftsdynamicRightSon">

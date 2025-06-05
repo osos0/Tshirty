@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import OtherGiftsDB from "../../dataB/otherGifts/OtherGiftsProductsCard";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
-
+import TextAdding from "../textAdding";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -39,7 +39,9 @@ export default function OtherGiftsDynamic() {
   const [upAndDownLogo, setUpAndDownLogo] = useState(50);
   const [leftAndRightLogo, setLeftAndRightLogo] = useState(43);
   const [dimensions, setDimensions] = useState({ width: 200, height: 120 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
-  const [customText, setCustomText] = useState("");
+  // const [customText, setCustomText] = useState("");
+  const [customTextAdd, setCustomTextAdd] = useState("");
+
   // Handle increment for a specific size
   const handleIncrement = (size) => {
     setSizeCounters((prev) => ({
@@ -93,7 +95,6 @@ export default function OtherGiftsDynamic() {
 
   return (
     <>
-      {console.log(gender)}
       <div className="container">
         <div className="row otherGiftsdynamicPicFather">
           <div className="col-lg-3 col-md-6 col-sm-12 othergiftsdynamicleftSon">
@@ -279,7 +280,7 @@ export default function OtherGiftsDynamic() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
-            <div className="dynamicleftSonText">
+            {/* <div className="dynamicleftSonText">
               <h5 className="subjectOf">Add Text</h5>
               <input
                 type="text"
@@ -288,7 +289,11 @@ export default function OtherGiftsDynamic() {
                 value={customText}
                 onChange={(e) => setCustomText(e.target.value)}
               />
-            </div>
+            </div> */}
+            <TextAdding
+              customTextAdd={customTextAdd}
+              setCustomTextAdd={setCustomTextAdd}
+            />
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 othergiftsdynamicPicSon">
@@ -314,7 +319,7 @@ export default function OtherGiftsDynamic() {
                   </div>
                 )}
               </div>
-              {customText && (
+              {customTextAdd && (
                 <div
                   className="customText"
                   style={{
@@ -328,7 +333,8 @@ export default function OtherGiftsDynamic() {
                     pointerEvents: "none",
                   }}
                 >
-                  {customText}
+                  {/* {customText} */}
+                  {customTextAdd}
                 </div>
               )}
             </div>

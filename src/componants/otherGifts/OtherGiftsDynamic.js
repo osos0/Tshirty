@@ -40,7 +40,18 @@ export default function OtherGiftsDynamic() {
   const [leftAndRightLogo, setLeftAndRightLogo] = useState(43);
   const [dimensions, setDimensions] = useState({ width: 200, height: 120 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
   // const [customText, setCustomText] = useState("");
-  const [customTextAdd, setCustomTextAdd] = useState("");
+  // const [customTextAdd, setCustomTextAdd] = useState("");
+
+  const [customTextAdd, setCustomTextAdd] = useState(" ");
+  // const [textStyle, setTextStyle] = useState({
+  //   font: "Arial",
+  //   color: "#000",
+  //   outline: "none",
+  // });
+
+  const [selectFont, setSelectFont] = useState("Arial");
+  const [selectColor, setSelectColor] = useState("#000000");
+  const [selectOutLineColor, setSelectOutLineColor] = useState("none");
 
   // Handle increment for a specific size
   const handleIncrement = (size) => {
@@ -280,19 +291,16 @@ export default function OtherGiftsDynamic() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
-            {/* <div className="dynamicleftSonText">
-              <h5 className="subjectOf">Add Text</h5>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Type your text here"
-                value={customText}
-                onChange={(e) => setCustomText(e.target.value)}
-              />
-            </div> */}
+            {/* Handle Text Adding */}
             <TextAdding
               customTextAdd={customTextAdd}
               setCustomTextAdd={setCustomTextAdd}
+              selectFont={selectFont}
+              setSelectFont={setSelectFont}
+              selectColor={selectColor}
+              setSelectColor={setSelectColor}
+              selectOutLineColor={selectOutLineColor}
+              setSelectOutLineColor={setSelectOutLineColor}
             />
           </div>
 
@@ -321,19 +329,15 @@ export default function OtherGiftsDynamic() {
               </div>
               {customTextAdd && (
                 <div
-                  className="customText"
                   style={{
-                    position: "absolute",
-                    top: `${upAndDown}%`,
-                    left: `${leftAndRight}%`,
-                    transform: "translate(-50%, -50%)",
-                    color: selectedColor,
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                    pointerEvents: "none",
+                    fontFamily: selectFont,
+                    color: selectColor,
+                    textShadow:
+                      selectOutLineColor !== "none"
+                        ? `2px 2px ${selectOutLineColor}`
+                        : "none",
                   }}
                 >
-                  {/* {customText} */}
                   {customTextAdd}
                 </div>
               )}

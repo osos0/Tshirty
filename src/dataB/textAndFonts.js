@@ -8,6 +8,10 @@ export const FontsDatabase = [
   { name: "Georgia", fontFamily: "Georgia, serif" },
   { name: "Dancing Script", fontFamily: "'Dancing Script', cursive" },
   { name: "Badeen Display", fontFamily: "'Badeen Display', cursive" },
+  {
+    name: "'Playpen Sans Arabic', cursive",
+    fontFamily: "'Playpen Sans Arabic', cursive",
+  },
 ];
 
 export const textColors = [

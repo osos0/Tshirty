@@ -5,6 +5,17 @@ import {
   outlineColors,
 } from "../dataB/textAndFonts";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowAltCircleDown,
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight,
+  faArrowAltCircleUp,
+  faMinusCircle,
+  faPlusCircle,
+  faTextHeight,
+} from "@fortawesome/free-solid-svg-icons";
+
 export default function TextAdding({
   customTextAdd,
   setCustomTextAdd,
@@ -14,8 +25,32 @@ export default function TextAdding({
   setSelectColor,
   selectOutLineColor,
   setSelectOutLineColor,
+  upAndDownText,
+  setUpAndDownText,
+  leftAndRightText,
+  setLeftAndRightText,
+  handleResizeText,
 }) {
   const [popupTextMenu, setPopupTextMenu] = useState(false);
+  // const [upAndDownText, setUpAndDownText] = useState(58);
+  // const [leftAndRightText, setLeftAndRightText] = useState(50);
+  // const [dimensionsText, setDimensionsText] = useState({
+  //   width: 200,
+  //   height: 120,
+  // });
+
+  // const handleResizeText = (type) => {
+  //   setDimensionsText({
+  //     width:
+  //       type === "increase"
+  //         ? dimensionsText.width + 10
+  //         : dimensionsText.width - 5,
+  //     height:
+  //       type === "increase"
+  //         ? dimensionsText.height + 5
+  //         : dimensionsText.height - 5,
+  //   });
+  // };
 
   const hideTextMenu = () => {
     setPopupTextMenu(!popupTextMenu);
@@ -23,17 +58,61 @@ export default function TextAdding({
 
   return (
     <div className="dynamicleftSonText">
-      <button className="textButton" onClick={hideTextMenu}>
-        Edit
-      </button>
+      <div className="dynamicleftSonTextOne">
+        <button className="textButton" onClick={hideTextMenu}>
+          Edit
+        </button>
 
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Type your text here"
-        value={customTextAdd}
-        onChange={(e) => setCustomTextAdd(e.target.value)}
-      />
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Type your text here"
+          value={customTextAdd}
+          onChange={(e) => setCustomTextAdd(e.target.value)}
+        />
+      </div>
+
+      {/* Handle Pic designe Zoom IN & Zoom Out */}
+      <div className="dynamicleftSonTextTwo">
+        <div className="dynamicleftSonCrossAndZoom">
+          <FontAwesomeIcon
+            icon={faTextHeight}
+            style={{ color: "red", pointerEvents: "none" }}
+          />
+          <FontAwesomeIcon
+            icon={faArrowAltCircleUp}
+            onClick={() => {
+              setUpAndDownText(upAndDownText - 1);
+            }}
+          />
+          <FontAwesomeIcon
+            icon={faArrowAltCircleDown}
+            onClick={() => {
+              setUpAndDownText(upAndDownText + 1);
+            }}
+          />
+          <FontAwesomeIcon
+            icon={faArrowAltCircleLeft}
+            onClick={() => {
+              setLeftAndRightText(leftAndRightText - 1);
+            }}
+          />
+          <FontAwesomeIcon
+            icon={faArrowAltCircleRight}
+            onClick={() => {
+              setLeftAndRightText(leftAndRightText + 1);
+            }}
+          />
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            onClick={() => handleResizeText("increase")}
+          />
+          <FontAwesomeIcon
+            icon={faMinusCircle}
+            onClick={() => handleResizeText("decrease")}
+          />
+        </div>
+      </div>
 
       {popupTextMenu && (
         <>
@@ -156,6 +235,9 @@ export default function TextAdding({
 // import TextAdding from "../textAdding";
 //////////////////////////////////////////////////////////////////
 // const [customTextAdd, setCustomTextAdd] = useState("");
+//  const [selectFont, setSelectFont] = useState("Arial");
+//   const [selectColor, setSelectColor] = useState("#000000");
+//   const [selectOutLineColor, setSelectOutLineColor] = useState("none");
 
 //  <TextAdding
 //    customTextAdd={customTextAdd}

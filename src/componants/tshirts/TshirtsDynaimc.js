@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Tshirts from "../../dataB/tshirts/TshirtsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import ProductsTshirtsCard from "../../componants/productsTshirtCard";
+import TextAdding from "../textAdding";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,6 +50,31 @@ export default function TshirtsDynamic() {
     width: 60,
     height: 55,
   });
+
+  const [customTextAdd, setCustomTextAdd] = useState("");
+  const [selectFont, setSelectFont] = useState("Arial");
+  const [selectColor, setSelectColor] = useState("#000000");
+  const [selectOutLineColor, setSelectOutLineColor] = useState("none");
+
+  const [upAndDownText, setUpAndDownText] = useState(20);
+  const [leftAndRightText, setLeftAndRightText] = useState(28);
+  const [dimensionsText, setDimensionsText] = useState({
+    width: 200,
+    height: 120,
+  });
+
+  const handleResizeText = (type) => {
+    setDimensionsText({
+      width:
+        type === "increase"
+          ? dimensionsText.width + 10
+          : dimensionsText.width - 5,
+      height:
+        type === "increase"
+          ? dimensionsText.height + 5
+          : dimensionsText.height - 5,
+    });
+  };
 
   const tshirt = Tshirts[gender]?.find(
     (tshirt) => tshirt.typo === typo && tshirt.id === parseInt(id)
@@ -255,6 +281,10 @@ export default function TshirtsDynamic() {
 
             <div className="dynamicleftSonCrossAndZoom">
               <FontAwesomeIcon
+                icon={faImages}
+                style={{ color: "red", pointerEvents: "none" }}
+              />
+              <FontAwesomeIcon
                 icon={faArrowAltCircleUp}
                 onClick={() => {
                   setUpAndDown(upAndDown - 1);
@@ -291,6 +321,22 @@ export default function TshirtsDynamic() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
+            {/* Handle Text Adding */}
+            <TextAdding
+              customTextAdd={customTextAdd}
+              setCustomTextAdd={setCustomTextAdd}
+              selectFont={selectFont}
+              setSelectFont={setSelectFont}
+              selectColor={selectColor}
+              setSelectColor={setSelectColor}
+              selectOutLineColor={selectOutLineColor}
+              setSelectOutLineColor={setSelectOutLineColor}
+              upAndDownText={upAndDownText}
+              setUpAndDownText={setUpAndDownText}
+              leftAndRightText={leftAndRightText}
+              setLeftAndRightText={setLeftAndRightText}
+              handleResizeText={handleResizeText}
+            />
           </div>
 
           {/* code of Center side Picture Handling*/}
@@ -334,6 +380,33 @@ export default function TshirtsDynamic() {
                       <img src={selectedDesignIMG} alt="T-shirt" />
                     </div>
                   )}
+                </div>
+              )}
+              {customTextAdd && (
+                <div
+                  // className="fullPrintPostion"
+                  style={{
+                    position: "absolute",
+                    opacity: "0.9",
+                    width: "180px",
+                    height: "200px",
+                    textAlign: "center",
+                    fontWeight: "800",
+                    top: `${upAndDownText}%`,
+                    left: `${leftAndRightText}%`,
+                    fontSize: `${dimensionsText.height / 5}px`,
+                    overflow: "hidden",
+                    letterSpacing: "0px",
+                    lineHeight: "1.1",
+                    fontFamily: selectFont,
+                    color: selectColor,
+                    textShadow:
+                      selectOutLineColor !== "none"
+                        ? `2px 2px ${selectOutLineColor}`
+                        : "none",
+                  }}
+                >
+                  {customTextAdd}
                 </div>
               )}
             </div>

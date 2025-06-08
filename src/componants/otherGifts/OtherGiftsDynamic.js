@@ -39,19 +39,32 @@ export default function OtherGiftsDynamic() {
   const [upAndDownLogo, setUpAndDownLogo] = useState(50);
   const [leftAndRightLogo, setLeftAndRightLogo] = useState(43);
   const [dimensions, setDimensions] = useState({ width: 200, height: 120 }); // const [zooninAndOut, setZooninAndOut] = useState([0, 0]);
-  // const [customText, setCustomText] = useState("");
-  // const [customTextAdd, setCustomTextAdd] = useState("");
 
+  // Handle text and font settings
   const [customTextAdd, setCustomTextAdd] = useState(" ");
-  // const [textStyle, setTextStyle] = useState({
-  //   font: "Arial",
-  //   color: "#000",
-  //   outline: "none",
-  // });
-
   const [selectFont, setSelectFont] = useState("Arial");
   const [selectColor, setSelectColor] = useState("#000000");
   const [selectOutLineColor, setSelectOutLineColor] = useState("none");
+
+  const [upAndDownText, setUpAndDownText] = useState(58);
+  const [leftAndRightText, setLeftAndRightText] = useState(50);
+  const [dimensionsText, setDimensionsText] = useState({
+    width: 200,
+    height: 120,
+  });
+
+  const handleResizeText = (type) => {
+    setDimensionsText({
+      width:
+        type === "increase"
+          ? dimensionsText.width + 10
+          : dimensionsText.width - 5,
+      height:
+        type === "increase"
+          ? dimensionsText.height + 5
+          : dimensionsText.height - 5,
+    });
+  };
 
   // Handle increment for a specific size
   const handleIncrement = (size) => {
@@ -255,6 +268,10 @@ export default function OtherGiftsDynamic() {
             {/* Handle Pic designe Zoom IN & Zoom Out */}
             <div className="dynamicleftSonCrossAndZoom">
               <FontAwesomeIcon
+                icon={faImages}
+                style={{ color: "red", pointerEvents: "none" }}
+              />
+              <FontAwesomeIcon
                 icon={faArrowAltCircleUp}
                 onClick={() => {
                   setUpAndDown(upAndDown - 1);
@@ -301,6 +318,11 @@ export default function OtherGiftsDynamic() {
               setSelectColor={setSelectColor}
               selectOutLineColor={selectOutLineColor}
               setSelectOutLineColor={setSelectOutLineColor}
+              upAndDownText={upAndDownText}
+              setUpAndDownText={setUpAndDownText}
+              leftAndRightText={leftAndRightText}
+              setLeftAndRightText={setLeftAndRightText}
+              handleResizeText={handleResizeText}
             />
           </div>
 
@@ -329,7 +351,17 @@ export default function OtherGiftsDynamic() {
               </div>
               {customTextAdd && (
                 <div
+                  // className="fullPrintPostion"
                   style={{
+                    opacity: 0.9,
+                    textAlign: "center",
+                    // top: `${upAndDownText}%`,
+                    top: `30% !important`,
+                    left: `${leftAndRightText}%`,
+                    fontSize: `${dimensionsText.height / 5}px`,
+                    // width: `${dimensionsText.width}px`,
+
+                    // height: `${dimensionsText.height}px`,
                     fontFamily: selectFont,
                     color: selectColor,
                     textShadow:

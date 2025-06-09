@@ -42,11 +42,11 @@ export default function OtherGiftsDynamic() {
 
   // Handle text and font settings
   const [customTextAdd, setCustomTextAdd] = useState(" ");
-  const [selectFont, setSelectFont] = useState("Arial");
+  const [selectFont, setSelectFont] = useState("'Eater', cursive");
   const [selectColor, setSelectColor] = useState("#000000");
   const [selectOutLineColor, setSelectOutLineColor] = useState("none");
 
-  const [upAndDownText, setUpAndDownText] = useState(58);
+  const [upAndDownText, setUpAndDownText] = useState(56);
   const [leftAndRightText, setLeftAndRightText] = useState(50);
   const [dimensionsText, setDimensionsText] = useState({
     width: 200,
@@ -351,23 +351,26 @@ export default function OtherGiftsDynamic() {
               </div>
               {customTextAdd && (
                 <div
-                  // className="fullPrintPostion"
+                  className="textStyling"
                   style={{
+                    minWidth: `250px`,
+                    maxHeight: `120px`,
                     opacity: 0.9,
                     textAlign: "center",
-                    // top: `${upAndDownText}%`,
-                    top: `30% !important`,
+                    top: `${upAndDownText}%`,
                     left: `${leftAndRightText}%`,
-                    fontSize: `${dimensionsText.height / 5}px`,
-                    // width: `${dimensionsText.width}px`,
-
-                    // height: `${dimensionsText.height}px`,
+                    fontSize: `${dimensionsText.height / 3}px`,
+                    letterSpacing: "0px",
+                    lineHeight: "1.1",
                     fontFamily: selectFont,
+                    fontWeight: "bold",
                     color: selectColor,
                     textShadow:
                       selectOutLineColor !== "none"
                         ? `2px 2px ${selectOutLineColor}`
                         : "none",
+                    whiteSpace: "pre-line",
+                    overflow: "hidden",
                   }}
                 >
                   {customTextAdd}

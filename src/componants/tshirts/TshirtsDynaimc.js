@@ -52,11 +52,11 @@ export default function TshirtsDynamic() {
   });
 
   const [customTextAdd, setCustomTextAdd] = useState("");
-  const [selectFont, setSelectFont] = useState("Arial");
+  const [selectFont, setSelectFont] = useState("'Eater', cursive");
   const [selectColor, setSelectColor] = useState("#000000");
   const [selectOutLineColor, setSelectOutLineColor] = useState("none");
 
-  const [upAndDownText, setUpAndDownText] = useState(20);
+  const [upAndDownText, setUpAndDownText] = useState(28);
   const [leftAndRightText, setLeftAndRightText] = useState(28);
   const [dimensionsText, setDimensionsText] = useState({
     width: 200,
@@ -404,6 +404,7 @@ export default function TshirtsDynamic() {
                       selectOutLineColor !== "none"
                         ? `2px 2px ${selectOutLineColor}`
                         : "none",
+                    whiteSpace: "pre-line",
                   }}
                 >
                   {customTextAdd}

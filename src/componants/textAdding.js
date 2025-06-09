@@ -32,25 +32,6 @@ export default function TextAdding({
   handleResizeText,
 }) {
   const [popupTextMenu, setPopupTextMenu] = useState(false);
-  // const [upAndDownText, setUpAndDownText] = useState(58);
-  // const [leftAndRightText, setLeftAndRightText] = useState(50);
-  // const [dimensionsText, setDimensionsText] = useState({
-  //   width: 200,
-  //   height: 120,
-  // });
-
-  // const handleResizeText = (type) => {
-  //   setDimensionsText({
-  //     width:
-  //       type === "increase"
-  //         ? dimensionsText.width + 10
-  //         : dimensionsText.width - 5,
-  //     height:
-  //       type === "increase"
-  //         ? dimensionsText.height + 5
-  //         : dimensionsText.height - 5,
-  //   });
-  // };
 
   const hideTextMenu = () => {
     setPopupTextMenu(!popupTextMenu);
@@ -63,13 +44,20 @@ export default function TextAdding({
           Edit
         </button>
 
-        <input
+        <textarea
           type="text"
           className="form-control"
           placeholder="Type your text here"
           value={customTextAdd}
           onChange={(e) => setCustomTextAdd(e.target.value)}
         />
+        {/* <input
+          type="text"
+          className="form-control"
+          placeholder="Type your text here"
+          value={customTextAdd}
+          onChange={(e) => setCustomTextAdd(e.target.value)}
+        /> */}
       </div>
 
       {/* Handle Pic designe Zoom IN & Zoom Out */}

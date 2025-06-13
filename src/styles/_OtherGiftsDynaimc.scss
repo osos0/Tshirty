@@ -353,6 +353,29 @@
         }
       }
     }
+    .textStyling {
+      opacity: 0.9;
+      text-align: center;
+      white-space: "pre-line";
+      overflow: "hidden";
+      letter-spacing: 0;
+      line-height: 1.1;
+      font-weight: bold;
+      svg {
+        position: absolute;
+        // top: 10px;
+        // right: 10px;
+        font-size: 20px;
+        color: $maiOrang;
+        cursor: pointer;
+        transform: translate(10%, 0%);
+        opacity: 0.5;
+        &:hover {
+          color: red;
+          opacity: 1;
+        }
+      }
+    }
   }
 }
 .othergiftsdynamicRightSon {

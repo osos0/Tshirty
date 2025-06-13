@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Mugs from "../../dataB/mugs/MugsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import ProductsMugsCard from "../../componants/productsMugsCard";
+import TextAdding from "../textAdding";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -46,6 +47,32 @@ export default function MugsDynaimc() {
     width: 120,
     height: 150,
   });
+
+  // Handle text and font settings
+  const [customTextAdd, setCustomTextAdd] = useState(" ");
+  const [selectFont, setSelectFont] = useState("'Eater', cursive");
+  const [selectColor, setSelectColor] = useState("#000000");
+  const [selectOutLineColor, setSelectOutLineColor] = useState("none");
+
+  const [upAndDownText, setUpAndDownText] = useState(56);
+  const [leftAndRightText, setLeftAndRightText] = useState(50);
+  const [dimensionsText, setDimensionsText] = useState({
+    width: 200,
+    height: 120,
+  });
+
+  const handleResizeText = (type) => {
+    setDimensionsText({
+      width:
+        type === "increase"
+          ? dimensionsText.width + 10
+          : dimensionsText.width - 5,
+      height:
+        type === "increase"
+          ? dimensionsText.height + 5
+          : dimensionsText.height - 5,
+    });
+  };
 
   // Handle increment for a specific size
   const handleIncrement = (size) => {
@@ -291,6 +318,22 @@ export default function MugsDynaimc() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
+            {/* Handle Text Adding */}
+            <TextAdding
+              customTextAdd={customTextAdd}
+              setCustomTextAdd={setCustomTextAdd}
+              selectFont={selectFont}
+              setSelectFont={setSelectFont}
+              selectColor={selectColor}
+              setSelectColor={setSelectColor}
+              selectOutLineColor={selectOutLineColor}
+              setSelectOutLineColor={setSelectOutLineColor}
+              upAndDownText={upAndDownText}
+              setUpAndDownText={setUpAndDownText}
+              leftAndRightText={leftAndRightText}
+              setLeftAndRightText={setLeftAndRightText}
+              handleResizeText={handleResizeText}
+            />
           </div>
 
           {/* code of Center side Picture Handling*/}
@@ -334,6 +377,33 @@ export default function MugsDynaimc() {
                       <img src={selectedDesignIMG} alt="Mug" />
                     </div>
                   )}
+                </div>
+              )}
+              {customTextAdd && (
+                <div
+                  className="textStyling"
+                  style={{
+                    minWidth: `250px`,
+                    maxHeight: `120px`,
+                    opacity: 0.9,
+                    textAlign: "center",
+                    top: `${upAndDownText}%`,
+                    left: `${leftAndRightText}%`,
+                    fontSize: `${dimensionsText.height / 3}px`,
+                    letterSpacing: "0px",
+                    lineHeight: "1.1",
+                    fontFamily: selectFont,
+                    fontWeight: "bold",
+                    color: selectColor,
+                    textShadow:
+                      selectOutLineColor !== "none"
+                        ? `2px 2px ${selectOutLineColor}`
+                        : "none",
+                    whiteSpace: "pre-line",
+                    overflow: "hidden",
+                  }}
+                >
+                  {customTextAdd}
                 </div>
               )}
             </div>

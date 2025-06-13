@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import OtherGiftsDB from "../../dataB/otherGifts/OtherGiftsProductsCard";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import TextAdding from "../textAdding";
@@ -14,6 +14,7 @@ import {
   faMinusCircle,
   faPencil,
   faPlusCircle,
+  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { faImages } from "@fortawesome/free-regular-svg-icons";
 export default function OtherGiftsDynamic() {
@@ -353,27 +354,23 @@ export default function OtherGiftsDynamic() {
                 <div
                   className="textStyling"
                   style={{
-                    minWidth: `250px`,
-                    maxHeight: `120px`,
-                    opacity: 0.9,
-                    textAlign: "center",
                     top: `${upAndDownText}%`,
                     left: `${leftAndRightText}%`,
                     fontSize: `${dimensionsText.height / 3}px`,
-                    letterSpacing: "0px",
-                    lineHeight: "1.1",
                     fontFamily: selectFont,
-                    fontWeight: "bold",
                     color: selectColor,
                     textShadow:
                       selectOutLineColor !== "none"
                         ? `2px 2px ${selectOutLineColor}`
                         : "none",
-                    whiteSpace: "pre-line",
-                    overflow: "hidden",
                   }}
                 >
                   {customTextAdd}
+
+                  <FontAwesomeIcon
+                    icon={faClose}
+                    onClick={() => setCustomTextAdd(" ")}
+                  />
                 </div>
               )}
             </div>

@@ -362,6 +362,31 @@
         }
       }
     }
+
+    .textStylingTshirt {
+      position: absolute;
+      opacity: 0.9;
+      width: 180px;
+      height: 200px;
+      font-weight: bold;
+      text-align: center;
+      white-space: "pre-line";
+      overflow: "hidden";
+      letter-spacing: 0;
+      line-height: 1.1;
+      svg {
+        position: absolute;
+        font-size: 20px;
+        color: $maiOrang;
+        cursor: pointer;
+        transform: translate(10%, 0%);
+        opacity: 0.5;
+        &:hover {
+          color: red;
+          opacity: 1;
+        }
+      }
+    }
   }
   .dynamicRightSon {
     border: 2px solid $maiGray;

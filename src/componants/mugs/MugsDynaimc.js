@@ -4,20 +4,22 @@ import Mugs from "../../dataB/mugs/MugsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import ProductsMugsCard from "../../componants/productsMugsCard";
 import TextAdding from "../textAdding";
+import SelectDesign from "../SelectDesignMugs";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowAltCircleDown,
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-  faArrowAltCircleUp,
+  // faArrowAltCircleDown,
+  // faArrowAltCircleLeft,
+  // faArrowAltCircleRight,
+  // faArrowAltCircleUp,
   faBeerMugEmpty,
-  faMinusCircle,
+  faClose,
+  // faMinusCircle,
   faPencil,
-  faPlusCircle,
+  // faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { faImages } from "@fortawesome/free-regular-svg-icons";
+// import { faImages } from "@fortawesome/free-regular-svg-icons";
 
 export default function MugsDynaimc() {
   const { gender, typo, id } = useParams();
@@ -214,9 +216,9 @@ export default function MugsDynaimc() {
                 </>
               )}
             </div>
-
+            <hr />
             {/* Handle Popup Model Designe */}
-            <div className="mugsdynamicleftSonDesign">
+            {/* <div className="mugsdynamicleftSonDesign">
               <button
                 className="dynamicleftSonDesignTool"
                 onClick={toggelModelDesign}
@@ -318,6 +320,28 @@ export default function MugsDynaimc() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
+            <hr /> */}
+            <SelectDesign
+              toggelModelDesign={toggelModelDesign}
+              selectedDesignIMG={selectedDesignIMG}
+              popupmodeldesign={popupmodeldesign}
+              selectiondesigne={selectiondesigne}
+              setSelectiondesigne={setSelectiondesigne}
+              DesignsDatabase={DesignsDatabase}
+              selectedDesigns={selectedDesigns}
+              setSelectedDesignIMG={setSelectedDesignIMG}
+              setSelectedDesignIMGSide={setSelectedDesignIMGSide}
+              setUpAndDown={setUpAndDown}
+              setUpAndDownLogo={setUpAndDownLogo}
+              setLeftAndRight={setLeftAndRight}
+              setLeftAndRightLogo={setLeftAndRightLogo}
+              handleResize={handleResize}
+              upAndDown={upAndDown}
+              upAndDownLogo={upAndDownLogo}
+              leftAndRight={leftAndRight}
+              leftAndRightLogo={leftAndRightLogo}
+            />
+
             {/* Handle Text Adding */}
             <TextAdding
               customTextAdd={customTextAdd}
@@ -404,6 +428,12 @@ export default function MugsDynaimc() {
                   }}
                 >
                   {customTextAdd}
+                  {customTextAdd.trim() !== "" && (
+                    <FontAwesomeIcon
+                      icon={faClose}
+                      onClick={() => setCustomTextAdd("")}
+                    />
+                  )}
                 </div>
               )}
             </div>

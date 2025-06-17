@@ -51,13 +51,6 @@ export default function TextAdding({
           value={customTextAdd}
           onChange={(e) => setCustomTextAdd(e.target.value)}
         />
-        {/* <input
-          type="text"
-          className="form-control"
-          placeholder="Type your text here"
-          value={customTextAdd}
-          onChange={(e) => setCustomTextAdd(e.target.value)}
-        /> */}
       </div>
 
       {/* Handle Pic designe Zoom IN & Zoom Out */}

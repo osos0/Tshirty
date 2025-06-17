@@ -1,22 +1,24 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import OtherGiftsDB from "../../dataB/otherGifts/OtherGiftsProductsCard";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import TextAdding from "../textAdding";
+import SelectDesign from "../SelectDesignOthers";
+
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGift,
-  faArrowAltCircleDown,
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-  faArrowAltCircleUp,
-  faMinusCircle,
+  // faArrowAltCircleDown,
+  // faArrowAltCircleLeft,
+  // faArrowAltCircleRight,
+  // faArrowAltCircleUp,
+  // faMinusCircle,
   faPencil,
-  faPlusCircle,
+  // faPlusCircle,
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
-import { faImages } from "@fortawesome/free-regular-svg-icons";
+// import { faImages } from "@fortawesome/free-regular-svg-icons";
 export default function OtherGiftsDynamic() {
   const { gender, typo, id } = useParams();
 
@@ -142,6 +144,7 @@ export default function OtherGiftsDynamic() {
               <div className="selectedColorName">{selectedColor}</div>
               <hr />
             </div>
+
             {/* Handle Popup Model  */}
             <div className="othergiftsdynamicleftSon2">
               <button className="dynamicleftSon2Tool" onClick={toggelModel}>
@@ -203,8 +206,9 @@ export default function OtherGiftsDynamic() {
                 </>
               )}
             </div>
+            <hr />
             {/* Handle Popup Model Designe */}
-            <div className="mugsdynamicleftSonDesign">
+            {/* <div className="mugsdynamicleftSonDesign">
               <button
                 className="dynamicleftSonDesignTool"
                 onClick={toggelModelDesign}
@@ -265,9 +269,10 @@ export default function OtherGiftsDynamic() {
                   </div>
                 </>
               )}
-            </div>
+            </div> */}
+
             {/* Handle Pic designe Zoom IN & Zoom Out */}
-            <div className="dynamicleftSonCrossAndZoom">
+            {/* <div className="dynamicleftSonCrossAndZoom">
               <FontAwesomeIcon
                 icon={faImages}
                 style={{ color: "red", pointerEvents: "none" }}
@@ -309,6 +314,28 @@ export default function OtherGiftsDynamic() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
+            <hr /> */}
+            <SelectDesign
+              toggelModelDesign={toggelModelDesign}
+              selectedDesignIMG={selectedDesignIMG}
+              popupmodeldesign={popupmodeldesign}
+              selectiondesigne={selectiondesigne}
+              setSelectiondesigne={setSelectiondesigne}
+              DesignsDatabase={DesignsDatabase}
+              selectedDesigns={selectedDesigns}
+              setSelectedDesignIMG={setSelectedDesignIMG}
+              // setSelectedDesignIMGSide={setSelectedDesignIMGSide}
+              setUpAndDown={setUpAndDown}
+              setUpAndDownLogo={setUpAndDownLogo}
+              setLeftAndRight={setLeftAndRight}
+              setLeftAndRightLogo={setLeftAndRightLogo}
+              handleResize={handleResize}
+              upAndDown={upAndDown}
+              upAndDownLogo={upAndDownLogo}
+              leftAndRight={leftAndRight}
+              leftAndRightLogo={leftAndRightLogo}
+            />
+
             {/* Handle Text Adding */}
             <TextAdding
               customTextAdd={customTextAdd}
@@ -359,6 +386,7 @@ export default function OtherGiftsDynamic() {
                     fontSize: `${dimensionsText.height / 3}px`,
                     fontFamily: selectFont,
                     color: selectColor,
+                    whiteSpace: "pre-line",
                     textShadow:
                       selectOutLineColor !== "none"
                         ? `2px 2px ${selectOutLineColor}`
@@ -366,11 +394,12 @@ export default function OtherGiftsDynamic() {
                   }}
                 >
                   {customTextAdd}
-
-                  <FontAwesomeIcon
-                    icon={faClose}
-                    onClick={() => setCustomTextAdd(" ")}
-                  />
+                  {customTextAdd.trim() !== "" && (
+                    <FontAwesomeIcon
+                      icon={faClose}
+                      onClick={() => setCustomTextAdd("")}
+                    />
+                  )}
                 </div>
               )}
             </div>

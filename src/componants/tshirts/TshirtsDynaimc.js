@@ -4,20 +4,22 @@ import Tshirts from "../../dataB/tshirts/TshirtsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
 import ProductsTshirtsCard from "../../componants/productsTshirtCard";
 import TextAdding from "../textAdding";
+import SelectDesign from "../SelectDesignTshirts";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowAltCircleDown,
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-  faArrowAltCircleUp,
-  faMinusCircle,
+  // faArrowAltCircleDown,
+  // faArrowAltCircleLeft,
+  // faArrowAltCircleRight,
+  // faArrowAltCircleUp,
+  faClose,
+  // faMinusCircle,
   faPencil,
-  faPlusCircle,
+  // faPlusCircle,
   faTShirt,
 } from "@fortawesome/free-solid-svg-icons";
-import { faImages } from "@fortawesome/free-regular-svg-icons";
+// import { faImages } from "@fortawesome/free-regular-svg-icons";
 
 export default function TshirtsDynamic() {
   const { gender, typo, id } = useParams();
@@ -216,9 +218,10 @@ export default function TshirtsDynamic() {
                 </>
               )}
             </div>
+            <hr />
 
             {/* Handle Popup Model Designe */}
-            <div className="dynamicleftSonDesign">
+            {/* <div className="dynamicleftSonDesign">
               <button
                 className="dynamicleftSonDesignTool"
                 onClick={toggelModelDesign}
@@ -277,9 +280,9 @@ export default function TshirtsDynamic() {
                   </div>
                 </>
               )}
-            </div>
+            </div> */}
 
-            <div className="dynamicleftSonCrossAndZoom">
+            {/* <div className="dynamicleftSonCrossAndZoom">
               <FontAwesomeIcon
                 icon={faImages}
                 style={{ color: "red", pointerEvents: "none" }}
@@ -321,6 +324,29 @@ export default function TshirtsDynamic() {
                 onClick={() => handleResize("decrease")}
               />
             </div>
+            <hr /> */}
+
+            <SelectDesign
+              toggelModelDesign={toggelModelDesign}
+              popupmodeldesign={popupmodeldesign}
+              selectedDesignIMG={selectedDesignIMG}
+              setSelectedDesignIMG={setSelectedDesignIMG}
+              // setSelectedDesignIMGSide={setSelectedDesignIMGSide}
+              DesignsDatabase={DesignsDatabase}
+              selectedDesigns={selectedDesigns}
+              selectiondesigne={selectiondesigne}
+              setSelectiondesigne={setSelectiondesigne}
+              upAndDown={upAndDown}
+              setUpAndDown={setUpAndDown}
+              upAndDownLogo={upAndDownLogo}
+              setUpAndDownLogo={setUpAndDownLogo}
+              leftAndRight={leftAndRight}
+              setLeftAndRight={setLeftAndRight}
+              leftAndRightLogo={leftAndRightLogo}
+              setLeftAndRightLogo={setLeftAndRightLogo}
+              handleResize={handleResize}
+            />
+
             {/* Handle Text Adding */}
             <TextAdding
               customTextAdd={customTextAdd}
@@ -384,30 +410,27 @@ export default function TshirtsDynamic() {
               )}
               {customTextAdd && (
                 <div
-                  // className="fullPrintPostion"
+                  className="textStylingTshirt"
                   style={{
-                    position: "absolute",
-                    opacity: "0.9",
-                    width: "180px",
-                    height: "200px",
-                    textAlign: "center",
-                    fontWeight: "800",
                     top: `${upAndDownText}%`,
                     left: `${leftAndRightText}%`,
                     fontSize: `${dimensionsText.height / 5}px`,
-                    overflow: "hidden",
-                    letterSpacing: "0px",
-                    lineHeight: "1.1",
                     fontFamily: selectFont,
                     color: selectColor,
+                    whiteSpace: "pre-line",
                     textShadow:
                       selectOutLineColor !== "none"
                         ? `2px 2px ${selectOutLineColor}`
                         : "none",
-                    whiteSpace: "pre-line",
                   }}
                 >
                   {customTextAdd}
+                  {customTextAdd.trim() !== "" && (
+                    <FontAwesomeIcon
+                      icon={faClose}
+                      onClick={() => setCustomTextAdd("")}
+                    />
+                  )}
                 </div>
               )}
             </div>

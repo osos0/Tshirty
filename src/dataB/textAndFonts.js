@@ -49,6 +49,7 @@ export const FontsDatabase = [
 
 export const textColors = [
   { name: "Black", value: "#000000" },
+  { name: "White", value: "#FFFFFF" },
   { name: "Red", value: "#FF0000" },
   { name: "Blue", value: "#0000FF" },
   { name: "Green", value: "#00FF00" },
@@ -95,6 +96,8 @@ export const textColors = [
 export const outlineColors = [
   { name: "None", value: "none" },
   { name: "Red", value: "#FF0000" },
+  { name: "White", value: "#FFFFFF" },
+  { name: "Black", value: "#000000" },
   { name: "Blue", value: "#0000FF" },
   { name: "Green", value: "#00FF00" },
   { name: "Yellow", value: "#FFFF00" },

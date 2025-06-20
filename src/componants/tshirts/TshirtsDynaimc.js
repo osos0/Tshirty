@@ -387,6 +387,13 @@ export default function TshirtsDynamic() {
                   {/* Hello center Picture{" "} */}
                   {selectedDesignIMG && (
                     <div className="dynamicleftSon2ToolImg">
+                      {selectedDesignIMG.trim() !== "" && (
+                        <FontAwesomeIcon
+                          className="closeTextIcon"
+                          icon={faClose}
+                          onClick={() => setSelectedDesignIMG("")}
+                        />
+                      )}
                       <img src={selectedDesignIMG} alt="T-shirt" />
                     </div>
                   )}
@@ -403,6 +410,13 @@ export default function TshirtsDynamic() {
                 >
                   {selectedDesignIMG && (
                     <div className="dynamicleftSon2ToolImg">
+                      {selectedDesignIMG.trim() !== "" && (
+                        <FontAwesomeIcon
+                          className="closeTextIcon"
+                          icon={faClose}
+                          onClick={() => setSelectedDesignIMG("")}
+                        />
+                      )}
                       <img src={selectedDesignIMG} alt="T-shirt" />
                     </div>
                   )}

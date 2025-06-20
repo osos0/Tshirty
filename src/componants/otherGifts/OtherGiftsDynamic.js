@@ -373,6 +373,13 @@ export default function OtherGiftsDynamic() {
                 {/* Hello center Picture{" "} */}
                 {selectedDesignIMG && (
                   <div className="dynamicleftSon2ToolImg">
+                    {selectedDesignIMG.trim() !== "" && (
+                      <FontAwesomeIcon
+                        className="closeTextIcon"
+                        icon={faClose}
+                        onClick={() => setSelectedDesignIMG("")}
+                      />
+                    )}
                     <img src={selectedDesignIMG} alt="Mug" />
                   </div>
                 )}
@@ -396,6 +403,7 @@ export default function OtherGiftsDynamic() {
                   {customTextAdd}
                   {customTextAdd.trim() !== "" && (
                     <FontAwesomeIcon
+                      className="closeTextIcon"
                       icon={faClose}
                       onClick={() => setCustomTextAdd("")}
                     />

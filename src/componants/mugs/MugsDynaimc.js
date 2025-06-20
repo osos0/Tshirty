@@ -381,6 +381,13 @@ export default function MugsDynaimc() {
                 >
                   {selectedDesignIMG && (
                     <div className="dynamicleftSon2ToolImg">
+                      {selectedDesignIMG.trim() !== "" && (
+                        <FontAwesomeIcon
+                          className="closeTextIcon"
+                          icon={faClose}
+                          onClick={() => setSelectedDesignIMG("")}
+                        />
+                      )}
                       <img src={selectedDesignIMG} alt="Mug" />
                     </div>
                   )}
@@ -398,6 +405,13 @@ export default function MugsDynaimc() {
                   {/* Hello center Picture{" "} */}
                   {selectedDesignIMG && (
                     <div className="dynamicleftSon2ToolImg">
+                      {selectedDesignIMG.trim() !== "" && (
+                        <FontAwesomeIcon
+                          className="closeTextIcon"
+                          icon={faClose}
+                          onClick={() => setSelectedDesignIMG("")}
+                        />
+                      )}
                       <img src={selectedDesignIMG} alt="Mug" />
                     </div>
                   )}
@@ -430,6 +444,7 @@ export default function MugsDynaimc() {
                   {customTextAdd}
                   {customTextAdd.trim() !== "" && (
                     <FontAwesomeIcon
+                      className="closeTextIcon"
                       icon={faClose}
                       onClick={() => setCustomTextAdd("")}
                     />

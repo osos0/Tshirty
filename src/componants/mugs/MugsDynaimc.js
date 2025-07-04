@@ -9,17 +9,15 @@ import SelectDesign from "../SelectDesignMugs";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  // faArrowAltCircleDown,
-  // faArrowAltCircleLeft,
-  // faArrowAltCircleRight,
-  // faArrowAltCircleUp,
   faBeerMugEmpty,
   faClose,
-  // faMinusCircle,
   faPencil,
-  // faPlusCircle,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faImages } from "@fortawesome/free-regular-svg-icons";
+
+import { CartContext } from "../../componants/CartContext";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function MugsDynaimc() {
   const { gender, typo, id } = useParams();
@@ -62,6 +60,8 @@ export default function MugsDynaimc() {
     width: 200,
     height: 120,
   });
+
+  const { addToCart } = useContext(CartContext);
 
   const handleResizeText = (type) => {
     setDimensionsText({
@@ -500,19 +500,6 @@ export default function MugsDynaimc() {
                 <p>Per unit, inc VAT</p>
               </div>
               <hr />
-              {/* <div className="designYourOwnSon2PrintMethod">
-                <h5 className="subjectOf">Print Method</h5>
-                <h5 className="selectedColorName">{selectprintmethod}</h5>
-                <div className="printMethod">
-                  <div onClick={() => setSelectprintmethod("Printing")}>
-                    Printing
-                  </div>
-                  <div onClick={() => setSelectprintmethod("Embroidery")}>
-                    Embroidery
-                  </div>
-                </div>
-                <hr />
-              </div> */}
               <div className="designYourOwnSon4">
                 <h5 className="subjectOf">Size</h5>
                 {Mug.sizes.map((size, index) => (
@@ -561,7 +548,33 @@ export default function MugsDynaimc() {
                 <button
                   className="btn btn-primary"
                   onClick={() => {
-                    //please AI add only price * the total
+                    Object.entries(sizeCounters).forEach(([size, quantity]) => {
+                      if (quantity > 0) {
+                        addToCart({
+                          id: `${Mug.id}-${size}-${selectedColor}-${selectedDesignIMG}`,
+                          name: `${Mug.desc} - ${size}`,
+                          price: Mug.price,
+                          quantity: quantity,
+                          image: getImageSrc(), // صورة المج
+                          color: selectedColor,
+                          printMethod:
+                            selectside === "full" ? "Full Print" : "One Side",
+                          designImg: selectedDesignIMG,
+                          customText: customTextAdd,
+                        });
+                      }
+                    });
+
+                    // Reset the counters
+                    setSizeCounters({
+                      "400 ml": 0,
+                      "1000 ml": 0,
+                    });
+
+                    toast.success("Item(s) added to cart!", {
+                      position: "top-center",
+                      autoClose: 2000,
+                    });
                   }}
                 >
                   Add to Cart

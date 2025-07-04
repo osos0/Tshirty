@@ -8,6 +8,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import TextFktarek from "../imgs/slang-bg-remove.png";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Topsocialnavbar = () => {
   return (
@@ -35,7 +36,9 @@ const Topsocialnavbar = () => {
           <img src={TextFktarek} alt="فكرتك" />
         </div>
       </div>
-      <div className="topSonRight">sign in</div>
+      <div className="topSonRight">
+        <FontAwesomeIcon icon={faUser} />
+      </div>
     </div>
   );
 };

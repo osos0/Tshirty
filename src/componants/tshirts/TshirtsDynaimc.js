@@ -5,21 +5,17 @@ import DesignsDatabase from "../../dataB/DesignsDatabase";
 import ProductsTshirtsCard from "../../componants/productsTshirtCard";
 import TextAdding from "../textAdding";
 import SelectDesign from "../SelectDesignTshirts";
+import { useContext } from "react";
+import { CartContext } from "../../componants/CartContext"; // عدل المسار حسب مشروعك
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  // faArrowAltCircleDown,
-  // faArrowAltCircleLeft,
-  // faArrowAltCircleRight,
-  // faArrowAltCircleUp,
-  faClose,
-  // faMinusCircle,
-  faPencil,
-  // faPlusCircle,
-  faTShirt,
-} from "@fortawesome/free-solid-svg-icons";
-// import { faImages } from "@fortawesome/free-regular-svg-icons";
+import { faClose, faPencil, faTShirt } from "@fortawesome/free-solid-svg-icons";
+
+import { toast } from "react-toastify";
+
+import html2canvas from "html2canvas";
+import { useRef } from "react";
 
 export default function TshirtsDynamic() {
   const { gender, typo, id } = useParams();
@@ -64,6 +60,10 @@ export default function TshirtsDynamic() {
     width: 200,
     height: 120,
   });
+
+  const { addToCart } = useContext(CartContext);
+
+  const tshirtRef = useRef(null);
 
   const handleResizeText = (type) => {
     setDimensionsText({
@@ -220,112 +220,6 @@ export default function TshirtsDynamic() {
             </div>
             <hr />
 
-            {/* Handle Popup Model Designe */}
-            {/* <div className="dynamicleftSonDesign">
-              <button
-                className="dynamicleftSonDesignTool"
-                onClick={toggelModelDesign}
-              >
-                <FontAwesomeIcon icon={faImages} />
-                <div>Design Your Own</div>
-                <FontAwesomeIcon icon={faPencil} />
-              </button>
-              {selectedDesignIMG && (
-                <div className="dynamicleftSon2ToolImg">
-                  <img src={selectedDesignIMG} alt="T-shirt" />
-                </div>
-              )}
-
-              {popupmodeldesign && (
-                <>
-                  <div className="overlay"></div>
-                  <div className="popupModelDesign">
-                    <div className="SelctionCon">
-                      <select
-                        className="custom-select"
-                        value={selectiondesigne}
-                        onChange={(e) => setSelectiondesigne(e.target.value)}
-                      >
-                        {Object.keys(DesignsDatabase).map((category, index) => (
-                          <option key={index} value={category}>
-                            {category}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="SelctionConPics">
-                      {selectedDesigns.map((design) => (
-                        <div
-                          key={design.id}
-                          className="SelctionConPicsSon"
-                          onClick={toggelModelDesign}
-                        >
-                          <img
-                            onClick={() => setSelectedDesignIMG(design.img)}
-                            src={design.img}
-                            alt={design.name}
-                          />
-                          <div>{design.name}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <button
-                      className="closePopupModel"
-                      onClick={toggelModelDesign}
-                    >
-                      Close
-                    </button>
-                  </div>
-                </>
-              )}
-            </div> */}
-
-            {/* <div className="dynamicleftSonCrossAndZoom">
-              <FontAwesomeIcon
-                icon={faImages}
-                style={{ color: "red", pointerEvents: "none" }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleUp}
-                onClick={() => {
-                  setUpAndDown(upAndDown - 1);
-                  setUpAndDownLogo(upAndDownLogo - 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleDown}
-                onClick={() => {
-                  setUpAndDown(upAndDown + 1);
-                  setUpAndDownLogo(upAndDownLogo + 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleLeft}
-                onClick={() => {
-                  setLeftAndRight(leftAndRight - 1);
-                  setLeftAndRightLogo(leftAndRightLogo - 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleRight}
-                onClick={() => {
-                  setLeftAndRight(leftAndRight + 1);
-                  setLeftAndRightLogo(leftAndRightLogo + 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faPlusCircle}
-                onClick={() => handleResize("increase")}
-              />
-              <FontAwesomeIcon
-                icon={faMinusCircle}
-                onClick={() => handleResize("decrease")}
-              />
-            </div>
-            <hr /> */}
-
             <SelectDesign
               toggelModelDesign={toggelModelDesign}
               popupmodeldesign={popupmodeldesign}
@@ -364,11 +258,11 @@ export default function TshirtsDynamic() {
               handleResizeText={handleResizeText}
             />
           </div>
-
           {/* code of Center side Picture Handling*/}
           <div className="col-lg-6 col-md-6 col-sm-12 dynamicPicSon">
             <div
               className="dynaminPicCon"
+              ref={tshirtRef}
               style={{
                 backgroundImage: `url(${getImageSrc()})`,
               }}
@@ -458,7 +352,6 @@ export default function TshirtsDynamic() {
               <p className="">Some quick example text</p>
             </div>
           </div>
-
           {/* code of Right side PrintMethodes and sizes and Prices*/}
           <div className="col-lg-3 col-md-6 col-sm-12 dynamicRightSon">
             <div className="designYourOwn">
@@ -526,24 +419,47 @@ export default function TshirtsDynamic() {
                 </div>
               </div>
               <hr />
-
-              <div className="add-to-cart">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    // Filter out sizes with 0 quantity
-                    const selectedSizes = Object.entries(sizeCounters)
-                      .filter(([_, count]) => count > 0)
-                      .map(([size, count]) => ({ size, count }));
-
-                    console.log("Selected items:", selectedSizes);
-                    // Add your cart logic here
-                  }}
-                >
-                  Add to Cart
-                </button>
-              </div>
             </div>
+          </div>
+          {/* Add to Cart Button */}
+          <div className="addToCart">
+            <button
+              className="addToCartButton"
+              onClick={async () => {
+                // لقطة للشكل الحالي للتشيرت
+                const canvas = await html2canvas(tshirtRef.current);
+                const imageData = canvas.toDataURL("image/png"); // ده base64 image
+
+                Object.entries(sizeCounters).forEach(([size, quantity]) => {
+                  if (quantity > 0) {
+                    addToCart({
+                      id: `${tshirt.id}-${size}-${Date.now()}`, // unique id
+                      name: `${tshirt.desc} - Size ${size}`,
+                      price: tshirt.price,
+                      quantity,
+                      color: selectedColor,
+                      printMethod: selectprintmethod,
+                      image: imageData, // هنا نحفظ صورة التصميم
+                    });
+                  }
+                });
+
+                // Reset counters
+                setSizeCounters({
+                  XS: 0,
+                  S: 0,
+                  M: 0,
+                  L: 0,
+                  XL: 0,
+                  XXL: 0,
+                  "3XL": 0,
+                });
+
+                toast.success("Item(s) added to cart!");
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
         <div className="row">

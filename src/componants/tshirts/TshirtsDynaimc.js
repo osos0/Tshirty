@@ -422,7 +422,7 @@ export default function TshirtsDynamic() {
             </div>
           </div>
           {/* Add to Cart Button */}
-          <div className="addToCart">
+          <div className="addToCartCon">
             <button
               className="addToCartButton"
               onClick={async () => {
@@ -455,7 +455,7 @@ export default function TshirtsDynamic() {
                   "3XL": 0,
                 });
 
-                toast.success("Item(s) added to cart!");
+                toast.success("✅ Product added to cart successfully!");
               }}
             >
               Add to Cart

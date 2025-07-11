@@ -19,6 +19,9 @@ import { useContext } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import html2canvas from "html2canvas";
+import { useRef } from "react";
+
 export default function MugsDynaimc() {
   const { gender, typo, id } = useParams();
 
@@ -53,6 +56,9 @@ export default function MugsDynaimc() {
   const [selectFont, setSelectFont] = useState("'Eater', cursive");
   const [selectColor, setSelectColor] = useState("#000000");
   const [selectOutLineColor, setSelectOutLineColor] = useState("none");
+
+  // Reference for the mug element
+  const mugRef = useRef(null);
 
   const [upAndDownText, setUpAndDownText] = useState(56);
   const [leftAndRightText, setLeftAndRightText] = useState(50);
@@ -362,8 +368,15 @@ export default function MugsDynaimc() {
 
           {/* code of Center side Picture Handling*/}
           <div className="col-lg-6 col-md-6 col-sm-12 mugsdynamicPicSon">
+            {/* <div
+              className="dynaminPicCon"
+              style={{
+                backgroundImage: `url(${getImageSrc()})`,
+              }}
+            > */}
             <div
               className="dynaminPicCon"
+              ref={mugRef}
               style={{
                 backgroundImage: `url(${getImageSrc()})`,
               }}
@@ -543,44 +556,52 @@ export default function MugsDynaimc() {
                 </div>
               </div>
               <hr />
-
-              <div className="add-to-cart">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    Object.entries(sizeCounters).forEach(([size, quantity]) => {
-                      if (quantity > 0) {
-                        addToCart({
-                          id: `${Mug.id}-${size}-${selectedColor}-${selectedDesignIMG}`,
-                          name: `${Mug.desc} - ${size}`,
-                          price: Mug.price,
-                          quantity: quantity,
-                          image: getImageSrc(), // صورة المج
-                          color: selectedColor,
-                          printMethod:
-                            selectside === "full" ? "Full Print" : "One Side",
-                          designImg: selectedDesignIMG,
-                          customText: customTextAdd,
-                        });
-                      }
-                    });
-
-                    // Reset the counters
-                    setSizeCounters({
-                      "400 ml": 0,
-                      "1000 ml": 0,
-                    });
-
-                    toast.success("Item(s) added to cart!", {
-                      position: "top-center",
-                      autoClose: 2000,
-                    });
-                  }}
-                >
-                  Add to Cart
-                </button>
-              </div>
             </div>
+          </div>
+          {/* Add to Cart Button */}
+          <div className="addToCartCon">
+            <button
+              className="addToCartButton"
+              onClick={async () => {
+                if (!mugRef.current) return;
+
+                const canvas = await html2canvas(mugRef.current, {
+                  backgroundColor: null, // يخلي الخلفية شفافة
+                  scale: 2, // جودة أعلى
+                });
+
+                const dataURL = canvas.toDataURL("image/png");
+
+                Object.entries(sizeCounters).forEach(([size, quantity]) => {
+                  if (quantity > 0) {
+                    addToCart({
+                      id: `${Mug.id}-${size}-${selectedColor}-${selectedDesignIMG}`,
+                      name: `${Mug.desc} - ${size}`,
+                      price: Mug.price,
+                      quantity: quantity,
+                      image: dataURL, // صورة التصميم النهائية
+                      color: selectedColor,
+                      printMethod:
+                        selectside === "full" ? "Full Print" : "One Side",
+                      designImg: selectedDesignIMG,
+                      customText: customTextAdd,
+                    });
+                  }
+                });
+
+                setSizeCounters({
+                  "400 ml": 0,
+                  "1000 ml": 0,
+                });
+
+                toast.success("✅ Product added to cart successfully!", {
+                  position: "top-center",
+                  autoClose: 2000,
+                });
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
         <div className="row">

@@ -7,17 +7,16 @@ import SelectDesign from "../SelectDesignOthers";
 
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGift,
-  // faArrowAltCircleDown,
-  // faArrowAltCircleLeft,
-  // faArrowAltCircleRight,
-  // faArrowAltCircleUp,
-  // faMinusCircle,
-  faPencil,
-  // faPlusCircle,
-  faClose,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGift, faPencil, faClose } from "@fortawesome/free-solid-svg-icons";
+
+import { CartContext } from "../../componants/CartContext";
+import { useContext } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import html2canvas from "html2canvas";
+import { useRef } from "react";
+
 // import { faImages } from "@fortawesome/free-regular-svg-icons";
 export default function OtherGiftsDynamic() {
   const { gender, typo, id } = useParams();
@@ -48,6 +47,9 @@ export default function OtherGiftsDynamic() {
   const [selectFont, setSelectFont] = useState("'Eater', cursive");
   const [selectColor, setSelectColor] = useState("#000000");
   const [selectOutLineColor, setSelectOutLineColor] = useState("none");
+
+  const { addToCart } = useContext(CartContext);
+  const designRef = useRef(null);
 
   const [upAndDownText, setUpAndDownText] = useState(56);
   const [leftAndRightText, setLeftAndRightText] = useState(50);
@@ -207,114 +209,7 @@ export default function OtherGiftsDynamic() {
               )}
             </div>
             <hr />
-            {/* Handle Popup Model Designe */}
-            {/* <div className="mugsdynamicleftSonDesign">
-              <button
-                className="dynamicleftSonDesignTool"
-                onClick={toggelModelDesign}
-              >
-                <FontAwesomeIcon icon={faImages} />
-                <div>Design Your Own</div>
-                <FontAwesomeIcon icon={faPencil} />
-              </button>
-              {selectedDesignIMG && (
-                <div className="dynamicleftSon2ToolImg">
-                  <img src={selectedDesignIMG} alt="Mug" />
-                </div>
-              )}
 
-              {popupmodeldesign && (
-                <>
-                  <div className="overlay"></div>
-                  <div className="popupModelDesign">
-                    <div className="SelctionCon">
-                      <select
-                        className="custom-select"
-                        value={selectiondesigne}
-                        onChange={(e) => setSelectiondesigne(e.target.value)}
-                      >
-                        {Object.keys(DesignsDatabase).map((category, index) => (
-                          <option key={index} value={category}>
-                            {category}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="SelctionConPics">
-                      {selectedDesigns.map((design) => (
-                        <div
-                          key={design.id}
-                          className="SelctionConPicsSon"
-                          onClick={toggelModelDesign}
-                        >
-                          <img
-                            onClick={() => {
-                              setSelectedDesignIMG(design.img);
-                            }}
-                            src={design.img}
-                            alt={design.name}
-                          />
-                          <div>{design.name}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <button
-                      className="closePopupModel"
-                      onClick={toggelModelDesign}
-                    >
-                      Close
-                    </button>
-                  </div>
-                </>
-              )}
-            </div> */}
-
-            {/* Handle Pic designe Zoom IN & Zoom Out */}
-            {/* <div className="dynamicleftSonCrossAndZoom">
-              <FontAwesomeIcon
-                icon={faImages}
-                style={{ color: "red", pointerEvents: "none" }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleUp}
-                onClick={() => {
-                  setUpAndDown(upAndDown - 1);
-                  setUpAndDownLogo(upAndDownLogo - 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleDown}
-                onClick={() => {
-                  setUpAndDown(upAndDown + 1);
-                  setUpAndDownLogo(upAndDownLogo + 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleLeft}
-                onClick={() => {
-                  setLeftAndRight(leftAndRight - 1);
-                  setLeftAndRightLogo(leftAndRightLogo - 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faArrowAltCircleRight}
-                onClick={() => {
-                  setLeftAndRight(leftAndRight + 1);
-                  setLeftAndRightLogo(leftAndRightLogo + 1);
-                }}
-              />
-              <FontAwesomeIcon
-                icon={faPlusCircle}
-                onClick={() => handleResize("increase")}
-              />
-              <FontAwesomeIcon
-                icon={faMinusCircle}
-                onClick={() => handleResize("decrease")}
-              />
-            </div>
-            <hr /> */}
             <SelectDesign
               toggelModelDesign={toggelModelDesign}
               selectedDesignIMG={selectedDesignIMG}
@@ -355,8 +250,15 @@ export default function OtherGiftsDynamic() {
           </div>
 
           <div className="col-lg-6 col-md-6 col-sm-12 othergiftsdynamicPicSon">
+            {/* <div
+              className="dynaminPicCon"
+              style={{
+                backgroundImage: `url(${getImageSrc()})`,
+              }}
+            > */}
             <div
               className="dynaminPicCon"
+              ref={designRef}
               style={{
                 backgroundImage: `url(${getImageSrc()})`,
               }}
@@ -466,17 +368,47 @@ export default function OtherGiftsDynamic() {
                 </div>
               </div>
               <hr />
-              <div className="add-to-cart">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    //please AI add only price * the total
-                  }}
-                >
-                  Add to Cart
-                </button>
-              </div>
             </div>
+          </div>
+          {/* Add to Cart Button */}
+          <div className="addToCartCon">
+            <button
+              className="addToCartButton"
+              onClick={async () => {
+                const canvas = await html2canvas(designRef.current);
+                const imageURL = canvas.toDataURL("image/png");
+
+                Object.entries(sizeCounters).forEach(([size, quantity]) => {
+                  if (quantity > 0) {
+                    // addToCart من الكارت كونتكست
+                    addToCart({
+                      id: `${Gift.id}-${size}-${selectedColor}-${selectedDesignIMG}`,
+                      name: `${Gift.desc} - ${size}`,
+                      price: Gift.price,
+                      quantity: quantity,
+                      image: imageURL, // الصورة الملتقطة من التصميم
+                      color: selectedColor,
+                      productType: selectprouduct,
+                      designImg: selectedDesignIMG,
+                      customText: customTextAdd,
+                    });
+                  }
+                });
+
+                // Reset counter
+                setSizeCounters({
+                  Piece: 0,
+                  piece: 0,
+                });
+
+                toast.success("✅ Product added to cart successfully!", {
+                  position: "top-center",
+                  autoClose: 2000,
+                });
+              }}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

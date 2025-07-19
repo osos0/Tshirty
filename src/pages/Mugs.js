@@ -1,7 +1,7 @@
 import React from "react";
 import MugsTopSection from "../componants/mugs/mugsTopSection";
 import MugsCard from "../componants/mugs/mugsCard";
-import ProductsMugsCard from "../componants/productsMugsCard";
+import ProductsMugsCard from "../componants/ReadyMadeProducts/productsMugsCard";
 import Whatshot from "../componants/whatsHot";
 
 export default function Mugs() {

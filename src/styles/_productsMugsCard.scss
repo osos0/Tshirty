@@ -17,14 +17,14 @@
       .sonPadding {
         border: 1px solid $mainBage;
         border-radius: 20px 20px 0px 0px;
-        height: 400px;
+        height: 450px;
         overflow: hidden;
         filter: drop-shadow(5px 10px 15px rgba(0, 0, 0, 0.9));
         .proSonImgCon {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 80%;
+          height: 75%;
           width: 100;
           padding: 0 !important;
           //   border: 1px solid red;
@@ -40,19 +40,44 @@
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          background-color: $mainBage !important;
+
           //   text-align: start !important;
           padding: 10px 0;
-          height: 20%;
+          height: 25%;
           width: 100%;
           // text-align: left !important;
           box-shadow: (5px 10px 15px rgba(0, 0, 0, 0.9));
-          background: $mainBage;
+          background: $maiOrang;
           .Detials {
             width: 100%;
           }
-          .price {
+          .conPriceAndBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            font-weight: bolder;
+            padding: 5px;
+            .price {
+              width: 40%;
+              font-weight: bolder;
+            }
+            .addToCartBtnReady {
+              // height: 38px;
+              color: white;
+              background-color: $maiOrang;
+              border: none;
+              border-radius: 10px;
+              transition: 0.3s ease-in-out;
+              padding: 5px 10px;
+              box-shadow: 0px 15px 12px rgba(17, 17, 17, 0.5);
+
+              &:hover {
+                background-color: darken($maiOrang, 2%);
+                transform: scale(1.05);
+                cursor: pointer;
+              }
+            }
           }
         }
       }

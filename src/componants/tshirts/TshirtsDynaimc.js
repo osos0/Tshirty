@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Tshirts from "../../dataB/tshirts/TshirtsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
-import ProductsTshirtsCard from "../../componants/productsTshirtCard";
+import ProductsTshirtsCard from "../../componants/ReadyMadeProducts/productsTshirtCard";
 import TextAdding from "../textAdding";
 import SelectDesign from "../SelectDesignTshirts";
 import { useContext } from "react";

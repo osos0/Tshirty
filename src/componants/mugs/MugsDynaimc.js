@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Mugs from "../../dataB/mugs/MugsDataBase";
 import DesignsDatabase from "../../dataB/DesignsDatabase";
-import ProductsMugsCard from "../../componants/productsMugsCard";
+import ProductsMugsCard from "../../componants/ReadyMadeProducts/productsMugsCard";
 import TextAdding from "../textAdding";
 import SelectDesign from "../SelectDesignMugs";
 

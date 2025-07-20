@@ -129,7 +129,7 @@ export default function ProductsTshirtCard() {
                       toast.success("✅ Product added to cart successfully!");
                     }}
                   >
-                    Add to Cart
+                    Add To Cart
                   </button>
                 </div>
               </div>

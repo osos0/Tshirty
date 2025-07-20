@@ -89,7 +89,7 @@ export default function ProductsMugCard() {
                       toast.success("✅ Product added to cart successfully!");
                     }}
                   >
-                    Add to Cart
+                    Add To Cart
                   </button>
                 </div>
               </div>

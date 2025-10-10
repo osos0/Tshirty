@@ -1,0 +1,98 @@
+const Tshirts = {
+  Men: [
+    {
+      id: 1000, // أرقام بالآلاف للرجال
+      img: require("../../imgs/tshirts/tshirt1.webp"),
+      price: 100,
+      desc: "Economic T-shirt",
+      gender: "Men",
+      typo: "Trianglecollar",
+      season: "summer",
+      colores: ["white", "red", "black", "pink", "blue", "yellow", "green"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+    {
+      id: 1001,
+      img: require("../../imgs/tshirts/tshirt1.webp"),
+      price: 200,
+      desc: "Economic T-shirt",
+      gender: "Men",
+      typo: "sports",
+      season: "winter",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+    {
+      id: 1002,
+      img: require("../../imgs/tshirts/tshirt1.webp"),
+      price: 300,
+      desc: "Economic T-shirt",
+      gender: "Men",
+      typo: "Economictshiet",
+      season: "summer",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+  ],
+  Woman: [
+    {
+      id: 2000, // أرقام بالآلاف للنساء
+      img: require("../../imgs/tshirts/womantshirt1.webp"),
+      price: 100,
+      desc: "Economic T-shirt",
+      gender: "Woman",
+      typo: "Trianglecollar",
+      season: "winter",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+    {
+      id: 2001,
+      img: require("../../imgs/tshirts/womantshirt1.webp"),
+      price: 200,
+      desc: "Economic T-shirt",
+      gender: "Woman",
+      typo: "roundshirtcollar",
+      season: "summer",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+  ],
+  Kids: [
+    {
+      id: 3000, // أرقام بالآلاف للأطفال
+      img: require("../../imgs/tshirts/kidstshirt1.webp"),
+      price: 100,
+      desc: "Economic T-shirt",
+      gender: "Kids",
+      typo: "newbaby",
+      season: "winter",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+    {
+      id: 3001,
+      img: require("../../imgs/tshirts/kidstshirt1.webp"),
+      price: 200,
+      desc: "Economic T-shirt",
+      gender: "Kids",
+      typo: "roundshirtcollar",
+      season: "summer",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+    {
+      id: 3002,
+      img: require("../../imgs/tshirts/kidstshirt1.webp"),
+      price: 300,
+      desc: "Economic T-shirt",
+      gender: "Kids",
+      typo: "sports",
+      season: "winter",
+      colores: ["white", "red", "black", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL", "3XL"],
+    },
+  ],
+};
+
+export default Tshirts;

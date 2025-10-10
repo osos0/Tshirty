@@ -1,0 +1,179 @@
+@use "../styles/var" as *;
+
+.mainStyle {
+  margin: 100px auto;
+}
+
+.leftaboutStyle {
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .rowleftaboutStyle {
+    width: 100%;
+    height: auto;
+    position: relative;
+    .orangeDot {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: $maiOrang;
+      border-radius: 10px;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%) rotate(45deg);
+      z-index: 1;
+    }
+  }
+
+  .childOne {
+    height: 300px;
+    width: 50%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    padding: 0 10px 10px 0;
+  }
+  .childOne div {
+    background-image: url("../imgs/pic-1.jpg");
+    background-size: cover;
+    height: 80%;
+    width: 80%;
+    border-radius: 0 40px 40px 40px;
+  }
+
+  .childTwo {
+    height: 300px;
+    max-width: 50%;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    padding: 0 0 10px 10px;
+  }
+
+  .childTwo div {
+    background-image: url("../imgs/pic-1.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 40px 0 40px 40px;
+  }
+
+  .childThree {
+    height: 300px;
+    max-width: 50%;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+    padding: 10px 10px 0 0;
+  }
+  .childThree div {
+    background-image: url("../imgs/pic-1.jpg");
+    background-size: cover;
+    height: 65%;
+    width: 65%;
+    border-radius: 40px 40px 40px 0;
+  }
+  .childFour {
+    height: 300px;
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px 0 0 10px;
+    .blueBigFram {
+      height: 75%;
+      width: 75%;
+      border-radius: 40px 40px 0 40px;
+      background-color: #e6e7ff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: $mainblue;
+      font-size: 80px;
+      font-weight: 980 !important;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      line-height: 90%;
+    }
+
+    .blueBigFram p {
+      font-size: 15px !important;
+      font-weight: 300 !important;
+      font-family: cursive;
+    }
+
+    .blueFram {
+      border: 1px solid $maiOrang;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      transform: translate(10px, 10px);
+      border-radius: 40px 40px 0 40px;
+    }
+  }
+}
+
+.RightaboutStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  .fourBoxes {
+    width: 100%;
+    margin: 10px;
+  }
+
+  .fourBoxesBigChild {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fourBoxesChild {
+    color: $mainblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    width: 50%;
+    border: 1px solid $maiOrang;
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 0;
+  }
+
+  .fourBoxesChild svg {
+    color: $mainblue;
+    font-size: 35px;
+  }
+  button {
+    background-color: $maiOrang;
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    width: max-content;
+    height: max-content;
+    border-radius: 10px !important;
+    color: $mainblue;
+    text-align: center;
+    font-size: 14px !important;
+    box-shadow: 0px 5px 20px 0px rgba(86, 90, 207, 50%);
+  }
+
+  button:hover {
+    opacity: 0.8;
+    transition: 300ms ease-in-out;
+  }
+}
+.RightaboutStyle h4 {
+  color: $mainblue;
+}
+.RightaboutStyle h2 {
+  color: $maiOrang !important;
+}

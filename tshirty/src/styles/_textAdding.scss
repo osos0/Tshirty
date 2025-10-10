@@ -1,0 +1,123 @@
+@use "./var" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Cairo&family=Poppins&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Badeen+Display&family=Dancing+Script:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans+Arabic:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=WDXL+Lubrifont+TC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@400..700&family=Great+Vibes&family=Merienda:wght@300..900&family=Orbitron:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Allison&family=Black+Ops+One&family=Boldonse&family=Bungee&family=Bytesized&family=Caveat+Brush&family=Covered+By+Your+Grace&family=Creepster&family=DynaPuff:wght@400..700&family=Eater&family=Gochi+Hand&family=Gravitas+One&family=Julee&family=La+Belle+Aurore&family=Pangolin&family=Reenie+Beanie&family=Share+Tech+Mono&display=swap");
+
+.dynamicleftSonText {
+  margin: 5px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  .dynamicleftSonTextOne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .textButton {
+      padding: 5px 5px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid $maiOrang;
+      color: $maiOrang;
+      font-weight: 500;
+    }
+  }
+  .dynamicleftSonTextTwo {
+    width: 105%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+  }
+  .popupTextMenu {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    // height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid $maiOrang;
+    z-index: 2;
+    .textSelectFontAndcolor {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .SelctionCon {
+        padding: 5px;
+        width: 75%;
+        z-index: 2;
+        .custom-select {
+          width: 80%;
+          padding: 5px;
+          font-size: 16px;
+          border: 1px solid $maiOrang;
+          color: $mainblue;
+          border-radius: 8px;
+          background-color: $maiGray;
+          cursor: pointer;
+          outline: none;
+          transition: all 0.3s ease-in-out;
+        }
+        .custom-select:hover {
+          border-color: $maiGray2;
+        }
+      }
+    }
+    .closePopupText {
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 500;
+      color: $maiGray;
+      background: $maiOrang;
+      padding: 10px 40px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+    }
+  }
+  hr {
+    width: 70%;
+    height: 1px;
+    background-color: $maiGray2;
+    border: none;
+    margin: 10px 0;
+  }
+}
+.textStyling {
+  position: absolute;
+  transform: translate(-50%, -120%);
+}

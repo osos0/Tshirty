@@ -1,0 +1,42 @@
+@use "../styles/var" as *;
+
+.TshirtsBigBoxContainer {
+  margin: 20px 0;
+  border: 1px solid $maiOrang;
+  .TshirtsBigBox {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .TshirtsBigBoxLeft {
+      h1 {
+        color: $maiOrang;
+      }
+    }
+    .TshirtsBigBoxRight {
+      padding: 20px;
+      height: 300px;
+      width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .TshirtsBigBoxRightRed {
+        background: $maiOrang;
+        height: 90%;
+        width: 90%;
+        transform: rotate(9deg);
+        .TshirtsBigBoxRightGray {
+          background: $maiGray;
+          height: 100%;
+          width: 100%;
+          transform: rotate(-15deg);
+          img {
+            width: 100%;
+            height: 100%;
+            // object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

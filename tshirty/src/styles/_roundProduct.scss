@@ -1,0 +1,62 @@
+@use "./var" as *;
+.conOfPic360 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .realMug {
+    width: 40%;
+    height: 150px;
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+  .pic360 {
+    width: 60%;
+    height: 150px;
+    width: 40%;
+    .banner {
+      height: 150px;
+      overflow: hidden;
+      position: relative;
+
+      .product {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        --left: -300px;
+        display: flex;
+        .cup {
+          // background: url("../imgs/Mugs/cupBck.jpg") var(--left) 0,
+          //   // url("../imgs/Mugs/cubWithouthold.png");
+          //   url("../imgs/Mugs/cubWithouthold.png");
+          background-size: auto 120%;
+          width: 150px;
+          height: 150px;
+          background-blend-mode: multiply; // Use normal for the first image and multiply for the second
+          mask-image: url("../imgs/Mugs/cubWithouthold.png");
+          mask-size: auto 100%;
+          position: absolute;
+          left: 50%;
+
+          transform: translateX(-50%);
+          animation: scrollBg 30s linear infinite;
+          box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+}
+
+@keyframes scrollBg {
+  0% {
+    background-position: 0 0, center;
+  }
+  100% {
+    background-position: -1000px 0, center;
+  }
+}

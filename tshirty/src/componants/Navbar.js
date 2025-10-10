@@ -139,7 +139,7 @@ export default function Navbar() {
                   </ul>
                 </li>
               </ul>
-              <h3 className="rightH3">hello</h3>
+              <h3 className="rightH3">Sign in</h3>
             </div>
           </div>
         </nav>

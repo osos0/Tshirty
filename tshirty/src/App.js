@@ -60,6 +60,7 @@ import OtherGiftsDynamic from "./componants/otherGifts/OtherGiftsDynamic";
 import CartPage from "./componants/CartPage";
 // 🛒 Cart Context Provider
 import Signin from "./pages/Signin";
+import SignUp from "./pages/Signup";
 import { CartProvider } from "./componants/CartContext";
 
 // 🛒 Toast Container for notifications
@@ -89,6 +90,7 @@ function App() {
           />
           <Route path="cartpage" element={<CartPage />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
 
         <Footer />

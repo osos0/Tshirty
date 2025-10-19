@@ -66,6 +66,13 @@
           font-size: 20px;
         }
       }
+      .errorMessage {
+        background: pink;
+        color: red;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
     }
   }
 }

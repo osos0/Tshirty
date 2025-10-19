@@ -1,31 +1,25 @@
 @use "./var" as *;
 
 .SignUp {
-  border: 1px solid red;
-  //   display: flex;
-  //   flex-direction: row;
-  //   align-items: center;
-  //   justify-content: center;
   padding: 10px 0px;
-  //   width: 100%;
   .rowCon {
     .firstrowCon {
-      border: 1px solid green;
-
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      padding: 20px 0;
+      img {
+        width: 50%;
+        height: auto;
+      }
     }
     .secondrowCon {
-      border: 1px solid black;
-
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 20px 5px;
+      color: $maiOrang;
       form {
         width: 100% !important;
         display: flex;
@@ -42,6 +36,34 @@
           border: 1px solid $mainblue;
           outline: none;
           padding: 10px;
+        }
+        button {
+          width: 100%;
+          height: 40px;
+          border: none;
+          border-radius: 5px;
+          background-color: $maiOrang;
+          color: white;
+          font-weight: bold;
+          margin: 20px 0;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background: $mainblue;
+          }
+        }
+      }
+      .haveAccountCon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        a {
+          color: blue !important;
+          text-decoration: none;
+          margin-left: 7px;
+          font-size: 20px;
         }
       }
     }

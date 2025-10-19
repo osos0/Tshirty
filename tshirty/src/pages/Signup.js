@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import hdyahLogo from "../imgs/firstLogo.jpg";
 
 export default function Signup() {
   return (
@@ -7,8 +8,9 @@ export default function Signup() {
       <div className="container SignUp">
         <div className="row rowCon">
           <div className="col-lg-6 col-md-6 col-sm-12 firstrowCon">
-            <h2 className="logo">CHRIS</h2>
-            <h3>Blog</h3>
+            {/* <h2 className="logo">Hdyah</h2>
+            <h3>Store</h3> */}
+            <img src={hdyahLogo} alt="Signup Illustration" />
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 secondrowCon">
             <form
@@ -25,7 +27,7 @@ export default function Signup() {
               <input
                 id="email"
                 type="email"
-                placeholder="Email"
+                placeholder="name@company.com"
                 // onChange={handelsignvalue}
               />
               <label htmlFor="password">Password</label>
@@ -40,6 +42,7 @@ export default function Signup() {
                 type="submit"
                 //    disabled={loading}
               >
+                SignUp
                 {/* {loading ? "Loading..." : "SIGN UP"} */}
               </button>
             </form>

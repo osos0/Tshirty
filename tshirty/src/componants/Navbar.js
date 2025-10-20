@@ -139,7 +139,7 @@ export default function Navbar() {
                   </ul>
                 </li>
               </ul>
-              <h3 className="rightH3">Sign in</h3>
+              <Link className="signinBTN">Sign in</Link>
             </div>
           </div>
         </nav>

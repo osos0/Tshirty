@@ -17,7 +17,14 @@ mongoose
   });
 
 const app = express();
-app.use(cors());
+
+// app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // مكان تشغيل React
+    credentials: true, // 🔥 مهم جدًا للسماح بإرسال الكوكيز / JWT
+  })
+);
 
 app.use(express.json());
 

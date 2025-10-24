@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import hdyahLogo from "../imgs/firstLogo.jpg";
+import OAuth from "../componants/OAuth";
 
 export default function Signup() {
   const [formData, setFormData] = useState({});
@@ -79,7 +80,7 @@ export default function Signup() {
                 {loading ? "Loading..." : "SIGN UP"}
               </button>
             </form>
-            {/* <OAuth /> */}
+            <OAuth />
             <div className="haveAccountCon">
               <div>Have an Account</div>
               <Link to={"/signin"}>Sign In</Link>

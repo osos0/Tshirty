@@ -35,8 +35,28 @@ a {
   color: whitesmoke !important;
 }
 
+.OAuthBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+  box-shadow: 0px 5px 5px rgba(17, 17, 17, 0.5);
+}
+
+.OAuthBtn:hover {
+  background-color: #f7f7f7;
+}
+
 .standerbtn {
-  margin: 10px 0;
+  // margin: 10px 0;
   background: $maiOrang;
   color: white;
   padding: 10px 30px;

@@ -66,6 +66,8 @@ import { CartProvider } from "./componants/CartContext";
 // 🛒 Toast Container for notifications
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PrivateRoute from "./componants/PrivateRoute";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -91,6 +93,9 @@ function App() {
           <Route path="cartpage" element={<CartPage />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
         </Routes>
 
         <Footer />

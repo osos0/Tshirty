@@ -88,7 +88,7 @@ export const google = async (req, res, next) => {
           Math.floor(Math.random() * 10000),
         email,
         password: hashedPassword,
-        profilePicture: googlePhotoURL,
+        googlePhotoURL,
       });
 
       const savedUser = await newUser.save();

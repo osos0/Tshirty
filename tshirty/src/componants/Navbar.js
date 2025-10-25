@@ -5,9 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Cart from "../componants/Cart";
 import { CartContext } from "../componants/CartContext";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { cartItems } = useContext(CartContext);
+  const { currentUser } = useSelector((state) => state.user);
+
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleCartClick = () => {
     setIsCartVisible(true);
@@ -139,8 +142,72 @@ export default function Navbar() {
                   </ul>
                 </li>
               </ul>
-              <Link className="signinBTN">Sign in</Link>
             </div>
+            {/* {currentUser ? (
+              <drop></drop>
+            ) : (
+              
+              <Link className="signinBTN">Sign in</Link>
+            )} */}
+            {currentUser ? (
+              <div className="dropdown">
+                <button
+                  className="btn dropdown-toggle d-flex align-items-center"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {/* {console.log(currentUser)} */}
+                  <img
+                    src={
+                      currentUser.googlePhotoURL ||
+                      "https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                    }
+                    alt="User"
+                    className="rounded-circle me-2"
+                    width="40"
+                    height="40"
+                    style={{ objectFit: "cover" }}
+                  />
+
+                  <faChevronDown size={14} />
+                </button>
+                <ul className="dropdown-menu dropdown-menu-end">
+                  <li className="dropdown-item text-center">
+                    <strong>{currentUser.username}</strong>
+                    <br />
+                    <small className="text-muted">{currentUser.email}</small>
+                    <br />
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item text-dark"
+                      // onClick={handleLogout}
+                    >
+                      Profile
+                    </button>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item text-danger"
+                      // onClick={handleLogout}
+                    >
+                      Log Out
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link className="signinBTN" to="/signin">
+                Sign in
+              </Link>
+            )}
           </div>
         </nav>
 

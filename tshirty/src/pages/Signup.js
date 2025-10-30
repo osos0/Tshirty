@@ -68,6 +68,13 @@ export default function Signup() {
                 placeholder="name@company.com"
                 onChange={handleChange}
               />
+              <label htmlFor="Mobile">Mobile</label>
+              <input
+                id="Mobile"
+                type="number"
+                placeholder="01*********"
+                onChange={handleChange}
+              />
               <label htmlFor="password">Password</label>
               <input
                 id="password"

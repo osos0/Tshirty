@@ -1,8 +1,11 @@
 import express from "express";
-import { test } from "../controllers/user.controller.js";
+import { deleteUser, signout, test } from "../controllers/user.controller.js";
+import { verifyUser } from "../utils/verifyUser.js";
 
 const router = express.Router();
 
 router.get("/test", test);
+router.delete("/delete/:userId", verifyUser, deleteUser);
+router.post("/signout", signout);
 
 export default router;

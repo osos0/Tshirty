@@ -6,11 +6,13 @@ import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Cart from "../componants/Cart";
 import { CartContext } from "../componants/CartContext";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { signoutSuccess } from "../redux/user/userSlice";
 
 export default function Navbar() {
   const { cartItems } = useContext(CartContext);
   const { currentUser } = useSelector((state) => state.user);
-
+  const dispatch = useDispatch();
   const [isCartVisible, setIsCartVisible] = useState(false);
   const handleCartClick = () => {
     setIsCartVisible(true);
@@ -18,6 +20,23 @@ export default function Navbar() {
 
   const handleCloseCart = () => {
     setIsCartVisible(false);
+  };
+
+  const handleSignout = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/user/signout", {
+        method: "POST",
+        credentials: "include",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signoutSuccess());
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -183,12 +202,18 @@ export default function Navbar() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <button
+                    {/* <button
                       className="dropdown-item text-dark"
                       // onClick={handleLogout}
                     >
                       Profile
-                    </button>
+                    </button> */}
+                    <Link
+                      to="/dashboard?tab=profile"
+                      className="dropdown-item text-dark"
+                    >
+                      Profile
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
@@ -196,7 +221,7 @@ export default function Navbar() {
                   <li>
                     <button
                       className="dropdown-item text-danger"
-                      // onClick={handleLogout}
+                      onClick={handleSignout}
                     >
                       Log Out
                     </button>

@@ -4,7 +4,7 @@ import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
 
 export const signup = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, mobile } = req.body;
 
   if (
     !username ||
@@ -23,6 +23,7 @@ export const signup = async (req, res, next) => {
     username,
     email,
     password: hashedPassword,
+    mobile: mobile || "01************",
   });
   try {
     await newUser.save();
@@ -61,7 +62,7 @@ export const signin = async (req, res, next) => {
 };
 
 export const google = async (req, res, next) => {
-  const { Name, email, googlePhotoURL } = req.body;
+  const { Name, email, googlePhotoURL, mobile } = req.body;
 
   try {
     let user = await User.findOne({ email });
@@ -89,6 +90,7 @@ export const google = async (req, res, next) => {
         email,
         password: hashedPassword,
         googlePhotoURL,
+        mobile: mobile || "01************",
       });
 
       const savedUser = await newUser.save();

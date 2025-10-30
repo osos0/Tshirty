@@ -1,38 +1,55 @@
 @use "./var" as *;
-
-.DashSidebarFather {
-  padding: 15px;
-  .profilLab,
-  .profilsignOut {
-    margin: 20px 0;
-    padding: 10px 5px;
+.dashboardFather {
+  min-height: 100vh;
+  padding: 20px;
+  h1 {
+    text-align: center;
+    color: $maiOrang;
+  }
+  .DashSidebarFather {
+    margin: 5px 0;
+    padding: 15px;
+    border: 1px solid $maiOrang;
     border-radius: 10px;
-    background: gainsboro;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    .adminName {
-      font-size: 18px;
-      background: $mainblue;
-      color: whitesmoke;
-      padding: 2px 5px;
-      border-radius: 8px;
-    }
-    .DashIcon {
-      font-size: 22px;
+    min-height: min-content;
+
+    .profilLab,
+    .profilsignOut {
+      cursor: pointer;
+      margin: 20px 0;
+      padding: 10px 5px;
+      border-radius: 10px;
+      background: gainsboro;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      .adminName {
+        font-size: 18px;
+        background: $mainblue;
+        color: whitesmoke;
+        padding: 2px 5px;
+        border-radius: 8px;
+      }
+      .DashIcon {
+        font-size: 22px;
+      }
     }
   }
-}
 
-.DashProfileFather {
-  form {
-    padding: 15px 0;
+  .DashProfileFather {
+    margin: 5px 0;
+    padding: 15px;
+    border: 1px solid $maiOrang;
+    border-radius: 10px;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    min-height: min-content;
+
     img {
       width: 100px;
       height: 100px;
@@ -41,36 +58,45 @@
       border: 5px solid $mainblue;
       padding: 2px;
     }
+    .profileDetails {
+      width: 95%;
+      background: gainsboro;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: left;
+    }
     input {
-      width: 90%;
-      padding: 8px 15px;
+      width: 95%;
+      padding: 10px;
       border: 1px solid gray;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 16px;
     }
-    .updateProfileBtn {
+    // form {
+    //   .updateProfileBtn {
+    //     width: 90%;
+    //     padding: 8px 15px;
+    //     border: none;
+    //     border-radius: 8px;
+    //     color: $mainblue;
+    //     border: 1px solid $mainblue;
+    //     cursor: pointer;
+    //     font-weight: bold;
+    //     text-align: center;
+    //   }
+    // }
+    .deleteSignOutCon {
       width: 90%;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 8px;
-      color: $mainblue;
-      border: 1px solid $mainblue;
-      cursor: pointer;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: red;
       font-weight: bold;
-      text-align: center;
-    }
-  }
-  .deleteSignOutCon {
-    width: 90%;
-    margin: auto;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: red;
-    font-weight: bold;
-    div {
-      cursor: pointer;
+      div {
+        cursor: pointer;
+      }
     }
   }
 }

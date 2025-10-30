@@ -46,7 +46,8 @@ export default function Signin() {
         return dispatch(signInFailure(data.message || "Sign-in failed"));
       }
       dispatch(signInSuccess(data));
-      navigate("/");
+      // navigate("/");
+      navigate("/dashboard?tab=profile");
 
       // if (data.success === false) {
       //   // return setErrMessage(data.message);

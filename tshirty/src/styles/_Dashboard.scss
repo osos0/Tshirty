@@ -2,101 +2,394 @@
 .dashboardFather {
   min-height: 100vh;
   padding: 20px;
+
   h1 {
     text-align: center;
     color: $maiOrang;
   }
+
+  // 🔸 الشريط الجانبي
   .DashSidebarFather {
     margin: 5px 0;
-    padding: 15px;
-    border: 1px solid $maiOrang;
-    border-radius: 10px;
-    min-height: min-content;
+    padding: 20px;
+    background: #fff;
+    // border: 1px solid $maiOrang;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
 
     .profilLab,
     .profilsignOut {
       cursor: pointer;
-      margin: 20px 0;
-      padding: 10px 5px;
+      margin: 15px 0;
+      padding: 12px 10px;
       border-radius: 10px;
-      background: gainsboro;
+      background: $maiGray;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      text-align: left;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: lighten($maiOrang, 42%);
+        transform: translateY(-2px);
+      }
+
       .adminName {
         font-size: 18px;
         background: $mainblue;
-        color: whitesmoke;
-        padding: 2px 5px;
+        color: #fff;
+        padding: 3px 7px;
         border-radius: 8px;
       }
+
       .DashIcon {
         font-size: 22px;
+        color: $mainblue;
       }
     }
   }
 
+  // 🔹 البروفايل
   .DashProfileFather {
-    margin: 5px 0;
-    padding: 15px;
-    border: 1px solid $maiOrang;
-    border-radius: 10px;
-    min-height: 100%;
+    margin: 10px 0;
+    padding: 25px;
+    background: #fff;
+    // border: 1px solid $maiOrang;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    min-height: min-content;
+    gap: 15px;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
-      // object-fit: cover;
-      border: 5px solid $mainblue;
-      padding: 2px;
+      border: 4px solid $mainblue;
+      padding: 3px;
     }
+
     .profileDetails {
       width: 95%;
-      background: gainsboro;
-      padding: 10px;
+      background: $maiGray;
+      padding: 12px;
       border-radius: 10px;
       text-align: left;
+      font-size: 15px;
+      color: #444;
     }
+
     input {
       width: 95%;
       padding: 10px;
-      border: 1px solid gray;
+      border: 1px solid #ccc;
       border-radius: 10px;
       font-size: 16px;
+      transition: border-color 0.2s;
+
+      &:focus {
+        border-color: $mainblue;
+        outline: none;
+      }
     }
-    // form {
-    //   .updateProfileBtn {
-    //     width: 90%;
-    //     padding: 8px 15px;
-    //     border: none;
-    //     border-radius: 8px;
-    //     color: $mainblue;
-    //     border: 1px solid $mainblue;
-    //     cursor: pointer;
-    //     font-weight: bold;
-    //     text-align: center;
-    //   }
-    // }
-    .deleteSignOutCon {
-      width: 90%;
-      margin: auto;
-      padding: 10px;
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: $mainblue;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: darken($mainblue, 10%);
+      }
+    }
+  }
+
+  // 🔸 تفاصيل الحساب
+  .DashDetailsFather {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: $maiOrang;
+    }
+
+    .detailsForm {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: red;
-      font-weight: bold;
-      div {
+      flex-direction: column;
+      gap: 15px;
+
+      .formGroup {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: 600;
+          margin-bottom: 5px;
+          color: #444;
+        }
+
+        input {
+          padding: 10px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          font-size: 15px;
+          transition: 0.2s;
+          background: $maiGray;
+
+          &:focus {
+            border-color: $mainblue;
+            outline: none;
+          }
+        }
+      }
+
+      h3 {
+        margin-top: 20px;
+        color: $maiOrang;
+        font-size: 18px;
+      }
+
+      .addressGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin-top: 10px;
+
+        input {
+          padding: 10px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          transition: border-color 0.2s;
+          background: $maiGray;
+
+          &:focus {
+            border-color: $mainblue;
+            outline: none;
+          }
+        }
+        select {
+          padding: 10px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          font-size: 15px;
+          transition: border-color 0.2s;
+          background: $maiGray;
+
+          &:focus {
+            border-color: $mainblue;
+            outline: none;
+          }
+        }
+
+        .notebox {
+          min-width: 90% !important;
+          min-height: 100px !important;
+        }
+      }
+
+      .updateBtn {
+        margin-top: 25px;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: $maiOrang;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
         cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+          background: darken($mainblue, 10%);
+        }
       }
     }
   }
 }
+
+////////////////////////////////////////////////////////
+
+// .dashboardFather {
+//   min-height: 100vh;
+//   padding: 20px;
+//   h1 {
+//     text-align: center;
+//     color: $maiOrang;
+//   }
+//   .DashSidebarFather {
+//     margin: 5px 0;
+//     padding: 15px;
+//     border: 1px solid $maiOrang;
+//     border-radius: 10px;
+//     min-height: min-content;
+
+//     .profilLab,
+//     .profilsignOut {
+//       cursor: pointer;
+//       margin: 20px 0;
+//       padding: 10px 5px;
+//       border-radius: 10px;
+//       background: gainsboro;
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       text-align: left;
+//       .adminName {
+//         font-size: 18px;
+//         background: $mainblue;
+//         color: whitesmoke;
+//         padding: 2px 5px;
+//         border-radius: 8px;
+//       }
+//       .DashIcon {
+//         font-size: 22px;
+//       }
+//     }
+//   }
+
+//   .DashProfileFather {
+//     margin: 5px 0;
+//     padding: 15px;
+//     border: 1px solid $maiOrang;
+//     border-radius: 10px;
+//     min-height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 10px;
+//     min-height: min-content;
+
+//     img {
+//       width: 100px;
+//       height: 100px;
+//       border-radius: 50%;
+//       // object-fit: cover;
+//       border: 5px solid $mainblue;
+//       padding: 2px;
+//     }
+//     .profileDetails {
+//       width: 95%;
+//       background: gainsboro;
+//       padding: 10px;
+//       border-radius: 10px;
+//       text-align: left;
+//     }
+//     input {
+//       width: 95%;
+//       padding: 10px;
+//       border: 1px solid gray;
+//       border-radius: 10px;
+//       font-size: 16px;
+//     }
+//   }
+//   .DashDetailsFather {
+//     max-width: 700px;
+//     margin: 40px auto;
+//     background: #fff;
+//     padding: 30px 40px;
+//     border-radius: 16px;
+//     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+//     h1 {
+//       text-align: center;
+//       margin-bottom: 25px;
+//       color: #333;
+//     }
+
+//     .detailsForm {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 15px;
+
+//       .formGroup {
+//         display: flex;
+//         flex-direction: column;
+
+//         label {
+//           font-weight: 600;
+//           margin-bottom: 5px;
+//           color: #444;
+//         }
+
+//         input {
+//           padding: 10px;
+//           border-radius: 8px;
+//           border: 1px solid #ccc;
+//           font-size: 15px;
+//           transition: 0.2s;
+
+//           &:focus {
+//             border-color: #007bff;
+//             outline: none;
+//           }
+//         }
+//       }
+
+//       h3 {
+//         margin-top: 20px;
+//         color: #333;
+//         font-size: 18px;
+//       }
+
+//       .addressGrid {
+//         display: grid;
+//         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+//         gap: 12px;
+//         margin-top: 10px;
+
+//         input {
+//           padding: 10px;
+//           border-radius: 8px;
+//           border: 1px solid #ccc;
+//           transition: border-color 0.2s;
+
+//           &:focus {
+//             border-color: #007bff;
+//             outline: none;
+//           }
+//         }
+//       }
+
+//       .updateBtn {
+//         margin-top: 25px;
+//         padding: 12px;
+//         border: none;
+//         border-radius: 8px;
+//         background: #007bff;
+//         color: #fff;
+//         font-size: 16px;
+//         font-weight: 600;
+//         cursor: pointer;
+//         transition: background 0.2s;
+
+//         &:hover {
+//           background: #0056b3;
+//         }
+//       }
+//     }
+//   }
+// }

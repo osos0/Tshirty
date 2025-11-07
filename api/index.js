@@ -18,17 +18,15 @@ mongoose
   });
 
 const app = express();
-app.use(cookieParser());
 
-// app.use(cors());
+app.use(cookieParser());
+app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000", // مكان تشغيل React
-    credentials: true, // 🔥 مهم جدًا للسماح بإرسال الكوكيز / JWT
+    origin: "http://localhost:3000",
+    credentials: true,
   })
 );
-
-app.use(express.json());
 
 app.listen(5000, () => {
   console.log("🚀 Tshirty server running on http://localhost:5000");

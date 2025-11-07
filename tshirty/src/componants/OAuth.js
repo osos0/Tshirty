@@ -24,7 +24,9 @@ export default function OAuth() {
           Name: result.user.displayName,
           email: result.user.email,
           googlePhotoURL: result.user.photoURL,
+          // address :result.user.address
         }),
+        credentials: "include",
       });
       const data = await res.json();
       if (res.ok) {

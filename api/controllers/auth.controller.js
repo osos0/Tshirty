@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
 
+//  signUp
 export const signup = async (req, res, next) => {
   const { username, email, password, mobile } = req.body;
 
@@ -24,6 +25,7 @@ export const signup = async (req, res, next) => {
     email,
     password: hashedPassword,
     mobile: mobile || "01************",
+    // address,
   });
   try {
     await newUser.save();
@@ -33,6 +35,7 @@ export const signup = async (req, res, next) => {
   }
 };
 
+// signIn
 export const signin = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password || email === "" || password === "") {
@@ -50,10 +53,18 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     const { password: pass, ...rest } = validUser._doc;
 
+    // res
+    //   .status(200)
+    //   .cookie("access_token", token, {
+    //     httpOnly: true,
+    //   })
+    //   .json(rest);
     res
       .status(200)
       .cookie("access_token", token, {
         httpOnly: true,
+        sameSite: "lax", // أو "none" لو تستخدم HTTPS
+        secure: false, // خليه true فقط لو بتستخدم HTTPS
       })
       .json(rest);
   } catch (error) {
@@ -61,6 +72,7 @@ export const signin = async (req, res, next) => {
   }
 };
 
+// google
 export const google = async (req, res, next) => {
   const { Name, email, googlePhotoURL, mobile } = req.body;
 
@@ -91,16 +103,25 @@ export const google = async (req, res, next) => {
         password: hashedPassword,
         googlePhotoURL,
         mobile: mobile || "01************",
+        // address,
       });
 
       const savedUser = await newUser.save();
       const token = jwt.sign({ id: savedUser._id }, process.env.JWT_SECRET);
       const { password, ...rest } = savedUser._doc;
 
+      // res
+      //   .status(200)
+      //   .cookie("access_token", token, {
+      //     httpOnly: true,
+      //   })
+      //   .json(rest);
       res
         .status(200)
         .cookie("access_token", token, {
           httpOnly: true,
+          sameSite: "lax", // أو "none" لو تستخدم HTTPS
+          secure: false, // خليه true فقط لو بتستخدم HTTPS
         })
         .json(rest);
     }

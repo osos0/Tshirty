@@ -68,6 +68,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./componants/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
+import PrivateRouteOnlyAdmin from "./componants/PrivateRouteOnlyAdmin";
+import AdminOrdears from "./pages/adminOrdears";
 
 function App() {
   return (
@@ -95,6 +97,9 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route element={<PrivateRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+          <Route element={<PrivateRouteOnlyAdmin />}>
+            <Route path="/admin-ordears" element={<AdminOrdears />} />
           </Route>
         </Routes>
 

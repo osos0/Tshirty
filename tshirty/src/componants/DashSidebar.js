@@ -6,10 +6,12 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { signoutSuccess } from "../redux/user/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function DashSidebar() {
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.currentUser);
 
   const handleSignout = async () => {
     try {
@@ -33,13 +35,23 @@ export default function DashSidebar() {
       <div className="profilLab">
         <FontAwesomeIcon icon={faUser} className="DashIcon" />
         <div> Profile</div>
-        <div className="adminName">user</div>
+        <div className="adminName">
+          {currentUser.isAdmin ? "Admin" : "User"}
+        </div>
       </div>
       <div className="profilsignOut" onClick={handleSignout}>
         <FontAwesomeIcon icon={faArrowRight} className="DashIcon" />
         <div>Sign Up</div>
         <FontAwesomeIcon icon={faSadCry} className="DashIcon" />
       </div>
+
+      {currentUser.isAdmin && (
+        <Link to="/admin-ordears">
+          <button type="submit" className="updateBtn">
+            Go to Admin Panel
+          </button>
+        </Link>
+      )}
     </>
   );
 }

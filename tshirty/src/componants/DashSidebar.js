@@ -46,7 +46,7 @@ export default function DashSidebar() {
       </div>
 
       {currentUser.isAdmin && (
-        <Link to="/admin-ordears">
+        <Link to="/admin-panel">
           <button type="submit" className="updateBtn">
             Go to Admin Panel
           </button>

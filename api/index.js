@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.route.js";
+import privateUserRoutes from "./routes/private.user.route.js";
 import cookieParser from "cookie-parser";
 
 dotenv.config({ quiet: true });
@@ -34,6 +35,7 @@ app.listen(5000, () => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", privateUserRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.status || 500;

@@ -69,7 +69,11 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./componants/PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import PrivateRouteOnlyAdmin from "./componants/PrivateRouteOnlyAdmin";
-import AdminOrdears from "./pages/adminOrdears";
+import AdminPanel from "./pages/AdminPanel";
+import PrivateRouteUsersManagment from "./componants/PrivateRouteUsersManagment";
+import PrivateUsersManagment from "./pages/PrivateUsersManagment";
+import PrivateRouteOrdersManagment from "./componants/PrivateRouteOrdersManagment";
+import PrivateOrdersManagment from "./pages/PrivateOrdersManagment";
 
 function App() {
   return (
@@ -99,10 +103,15 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
           <Route element={<PrivateRouteOnlyAdmin />}>
-            <Route path="/admin-ordears" element={<AdminOrdears />} />
+            <Route path="/admin-panel" element={<AdminPanel />} />
+          </Route>
+          <Route element={<PrivateRouteUsersManagment />}>
+            <Route path="/admin-users" element={<PrivateUsersManagment />} />
+          </Route>
+          <Route element={<PrivateRouteOrdersManagment />}>
+            <Route path="/admin-orders" element={<PrivateOrdersManagment />} />
           </Route>
         </Routes>
-
         <Footer />
       </Fragment>
     </CartProvider>

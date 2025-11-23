@@ -1,275 +1,154 @@
-// import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 
-// export default function PrivateUsersManagment() {
-//   const [users, setUsers] = useState([]);
-//   const [page, setPage] = useState(1);
-//   const [search, setSearch] = useState("");
-//   const [hasMore, setHasMore] = useState(true);
-//   const [loading, setLoading] = useState(false);
-//   const [errorMessage, setErrorMessage] = useState("");
+export default class PrivateUsersManagement extends Component {
+  state = {
+    users: [],
+    page: 1,
+    limit: 10,
+    search: "",
+    hasMore: true,
+    loading: false,
+    errorMessage: "",
+  };
 
-//   const fetchUsers = async (reset = false) => {
-//     setLoading(true);
-//     setErrorMessage("");
+  componentDidMount() {
+    this.fetchUsers(true);
+  }
 
-//     try {
-//       const res = await fetch(
-//         `http://localhost:5000/api/admin/all?search=${search}&page=${page}`,
-//         {
-//           credentials: "include",
-//         }
-//       );
-//       const data = await res.json();
+  componentDidUpdate(prevProps, prevState) {
+    // لا تجلب البيانات إلا عند تغيير الصفحة أو البحث
+    if (
+      prevState.page !== this.state.page ||
+      prevState.search !== this.state.search
+    ) {
+      this.fetchUsers(prevState.search !== this.state.search);
+      // إذا كانت نتيجة البحث جديدة (search تغير)، فنحتاج نعيد ضبط البيانات
+    }
+  }
 
-//       if (res.ok && data.status === "success") {
-//         setUsers((prev) => (reset ? data.users : [...prev, ...data.users]));
-//         setHasMore(page < data.totalPages);
-//       } else {
-//         setErrorMessage(data.message || "Failed to fetch users");
-//       }
-//     } catch (error) {
-//       setErrorMessage("Server error. Please try again later.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const debounce = (func, delay) => {
-//     let timeout;
-//     return (...args) => {
-//       clearTimeout(timeout);
-//       timeout = setTimeout(() => func(...args), delay);
-//     };
-//   };
-
-//   const handleSearchChange = debounce((e) => {
-//     const value = e.target.value;
-//     setSearch(value);
-//     setPage(1);
-//     fetchUsers(true);
-//   }, 500);
-
-//   const loadMore = () => {
-//     if (hasMore) {
-//       setPage((prev) => prev + 1);
-//     }
-//   };
-
-//   const downloadAllUsers = () => {
-//     alert("📥 Download feature will be implemented soon...");
-//   };
-
-//   useEffect(() => {
-//     fetchUsers(true);
-//   }, []);
-
-//   useEffect(() => {
-//     if (page > 1) fetchUsers();
-//   }, [page]);
-
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <h2>Users Management</h2>
-
-//       {/* Search */}
-//       <input
-//         type="text"
-//         placeholder="Search by email..."
-//         onChange={handleSearchChange}
-//         style={{ padding: "8px", marginBottom: "10px", width: "300px" }}
-//       />
-
-//       {/* Error */}
-//       {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-
-//       {/* Users List */}
-//       <ul>
-//         {users.length > 0 ? (
-//           users.map((user) => (
-//             <li key={user._id}>
-//               {user.username} – {user.email}
-//             </li>
-//           ))
-//         ) : (
-//           <p>No users found.</p>
-//         )}
-//       </ul>
-
-//       {/* Buttons */}
-//       {hasMore && (
-//         <button onClick={loadMore} disabled={loading}>
-//           {loading ? "Loading..." : "Load More"}
-//         </button>
-//       )}
-//       <button onClick={downloadAllUsers} style={{ marginLeft: "10px" }}>
-//         Download All Users
-//       </button>
-//     </div>
-//   );
-// }
-
-import React, { useEffect, useState } from "react";
-
-export default function PrivateUsersManagment() {
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1);
-  const [search, setSearch] = useState("");
-  const [hasMore, setHasMore] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const fetchUsers = async (reset = false) => {
-    setLoading(true);
-    setErrorMessage("");
+  fetchUsers = async (reset = false) => {
+    const { page, search, limit } = this.state;
+    this.setState({ loading: true, errorMessage: "" });
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/admin/all?search=${search}&page=${page}`,
-        {
-          credentials: "include",
-        }
+        `http://localhost:5000/api/admin/all?search=${search}&page=${page}&limit=${limit}`,
+        { credentials: "include" }
       );
       const data = await res.json();
 
       if (res.ok && data.status === "success") {
-        setUsers((prev) => (reset ? data.users : [...prev, ...data.users]));
-        setHasMore(page < data.totalPages);
+        this.setState((prevState) => ({
+          users: reset ? data.users : [...prevState.users, ...data.users],
+          hasMore: page < data.totalPages,
+        }));
       } else {
-        setErrorMessage(data.message || "Failed to fetch users");
+        this.setState({
+          errorMessage: data.message || "Failed to fetch users",
+        });
       }
     } catch (error) {
-      setErrorMessage("Server error. Please try again later.");
+      this.setState({ errorMessage: "Server error. Please try again later." });
     } finally {
-      setLoading(false);
+      this.setState({ loading: false });
     }
   };
 
-  const debounce = (func, delay) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), delay);
-    };
-  };
-
-  const handleSearchChange = debounce((e) => {
+  handleSearch = (e) => {
     const value = e.target.value;
-    setSearch(value);
-    setPage(1);
-    fetchUsers(true);
-  }, 500);
+    this.setState({ search: value, page: 1 }); // reset page
+  };
 
-  const loadMore = () => {
-    if (hasMore) {
-      setPage((prev) => prev + 1);
+  loadMore = () => {
+    if (this.state.hasMore) {
+      this.setState((prev) => ({ page: prev.page + 1, limit: 5 }));
     }
   };
 
-  const downloadAllUsers = () => {
-    alert("📥 Download feature will be implemented soon...");
+  showAll = () => {
+    this.setState({ page: 1, limit: 1000, users: [] }); // clear users and fetch again
   };
 
-  useEffect(() => {
-    fetchUsers(true); // first load
-  }, []);
+  render() {
+    const { users, loading, search, errorMessage, hasMore } = this.state;
 
-  useEffect(() => {
-    if (page > 1) fetchUsers(); // load more
-  }, [page]);
+    return (
+      <div className="container py-4">
+        <h2 className="mb-4 text-center">Users Management</h2>
 
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2 style={{ marginBottom: "20px" }}>Users Management</h2>
+        {/* Search */}
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by email..."
+            value={search}
+            onChange={this.handleSearch}
+          />
+        </div>
 
-      {/* Search */}
-      <input
-        type="text"
-        placeholder="Search by email..."
-        onChange={handleSearchChange}
-        style={{
-          padding: "8px",
-          width: "300px",
-          marginBottom: "20px",
-          borderRadius: "5px",
-          border: "1px solid #ccc",
-        }}
-      />
+        {/* Error */}
+        {errorMessage && (
+          <div className="alert alert-danger">{errorMessage}</div>
+        )}
 
-      {/* Error */}
-      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        {/* Users Table */}
+        <div className="table-responsive">
+          <table className="table table-striped table-bordered align-middle text-center">
+            <thead className="table-dark">
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th style={{ width: "150px" }}>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.length > 0 ? (
+                users.map((user) => (
+                  <tr key={user._id}>
+                    <td>{user.email}</td>
+                    <td>{user.username}</td>
+                    <td>{user.mobile || "N/A"}</td>
+                    <td>
+                      {user.address
+                        ? `${user.address.building}, ${user.address.city}`
+                        : "No address"}
+                    </td>
+                    <td>
+                      <button className="btn btn-warning btn-sm me-2">
+                        Edit
+                      </button>
+                      <button className="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5">No users found.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
 
-      {/* Users List */}
-      <div
-        style={{
-          display: "grid",
-          gap: "15px",
-          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-        }}
-      >
-        {users.length > 0 ? (
-          users.map((user) => (
-            <div
-              key={user._id}
-              style={{
-                padding: "15px",
-                border: "1px solid #ddd",
-                borderRadius: "8px",
-                background: "#fafafa",
-              }}
+        {/* Buttons */}
+        <div className="d-flex justify-content-center gap-3 mt-3">
+          {hasMore && (
+            <button
+              className="btn btn-primary"
+              onClick={this.loadMore}
+              disabled={loading}
             >
-              <h4 style={{ marginBottom: "8px" }}>{user.username}</h4>
-              <p>
-                <strong>Email:</strong> {user.email}
-              </p>
-              <p>
-                <strong>Mobile:</strong> {user.mobile || "Not provided"}
-              </p>
-              <p>
-                <strong>Address:</strong>{" "}
-                {user.address
-                  ? Object.values(user.address).filter(Boolean).join(", ")
-                  : "Not provided"}
-              </p>
-            </div>
-          ))
-        ) : (
-          <p>No users found.</p>
-        )}
-      </div>
-
-      {/* Buttons */}
-      <div style={{ marginTop: "20px" }}>
-        {hasMore && (
-          <button
-            onClick={loadMore}
-            disabled={loading}
-            style={{
-              padding: "10px 15px",
-              borderRadius: "5px",
-              border: "none",
-              backgroundColor: "#007bff",
-              color: "white",
-              cursor: "pointer",
-              marginRight: "10px",
-            }}
-          >
-            {loading ? "Loading..." : "Load More"}
+              {loading ? "Loading..." : "Load 5 More"}
+            </button>
+          )}
+          <button className="btn btn-success" onClick={this.showAll}>
+            Show All Users
           </button>
-        )}
-        <button
-          onClick={downloadAllUsers}
-          style={{
-            padding: "10px 15px",
-            borderRadius: "5px",
-            border: "none",
-            backgroundColor: "#28a745",
-            color: "white",
-            cursor: "pointer",
-          }}
-        >
-          Download All Users
-        </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

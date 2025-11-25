@@ -244,6 +244,30 @@
         }
       }
     }
+    .detailsHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toggleBtn {
+      background: $maiOrang;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .toggleBtn:hover {
+      background: darken($maiOrang, 10%);
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #444;
+    }
   }
 }
 

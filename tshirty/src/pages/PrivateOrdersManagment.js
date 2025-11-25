@@ -35,14 +35,12 @@ export default function PrivateOrdersManagment() {
     fetchOrders();
   }, []);
 
-  // فلترة حسب الحالة
   const filteredOrders = orders
     .filter((order) =>
       statusFilter === "all" ? true : order.status === statusFilter
     )
     .filter((order) => order._id.toLowerCase().includes(search.toLowerCase()));
 
-  // تغيير حالة أي أوردر
   const handleStatusChange = async (orderId, newStatus) => {
     try {
       const res = await fetch(
@@ -58,7 +56,6 @@ export default function PrivateOrdersManagment() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      // تحديث في الواجهة بدون ريفرش
       setOrders((prev) =>
         prev.map((order) =>
           order._id === orderId ? { ...order, status: newStatus } : order
@@ -73,7 +70,6 @@ export default function PrivateOrdersManagment() {
     <div className="container py-4">
       <h2>Orders Management</h2>
 
-      {/* أدوات الفلترة */}
       <div className="row mb-3">
         <div className="col-md-4">
           <select
@@ -100,7 +96,6 @@ export default function PrivateOrdersManagment() {
         </div>
       </div>
 
-      {/* جدول الأوردرات */}
       {loading ? (
         <p>Loading...</p>
       ) : filteredOrders.length === 0 ? (

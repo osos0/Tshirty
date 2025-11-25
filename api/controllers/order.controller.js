@@ -45,3 +45,41 @@ export const getUserOrders = async (req, res, next) => {
     next(error);
   }
 };
+
+export const getAllOrders = async (req, res, next) => {
+  try {
+    if (!req.user.isAdmin) {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    const orders = await Order.find().populate("user", "username email mobile");
+
+    res.status(200).json({
+      status: "success",
+      orders,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateOrderStatus = async (req, res, next) => {
+  try {
+    const orderId = req.params.id;
+    const { status } = req.body;
+
+    const valid = ["pending", "processing", "completed", "cancelled"];
+    if (!valid.includes(status))
+      return res.status(400).json({ message: "Invalid status" });
+
+    const order = await Order.findByIdAndUpdate(
+      orderId,
+      { status },
+      { new: true }
+    );
+
+    res.status(200).json(order);
+  } catch (err) {
+    next(err);
+  }
+};

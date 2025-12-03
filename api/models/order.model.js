@@ -10,6 +10,9 @@ const orderSchema = new mongoose.Schema(
         name: { type: String, required: true },
         quantity: { type: Number, required: true },
         price: { type: Number, required: true },
+
+        // 🟢 صورة خاصة بكل Item
+        image: { type: String, default: "" },
       },
     ],
 
@@ -17,6 +20,9 @@ const orderSchema = new mongoose.Schema(
 
     mobile: { type: String, required: true },
     mobile2: { type: String, default: "" },
+
+    // 🟢 الصورة النهائية للأوردر
+    finalImage: { type: String, default: "" },
 
     status: {
       type: String,
@@ -37,6 +43,7 @@ const orderSchema = new mongoose.Schema(
 
 const Order = mongoose.model("Order", orderSchema);
 export default Order;
+
 /////////////////////////////////////////////////////////////////////
 
 // import mongoose from "mongoose";

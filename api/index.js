@@ -5,8 +5,9 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.route.js";
 import privateUserRoutes from "./routes/private.user.route.js";
-import orderRoutes from "./routes/order.routes.js"; // ⬅️ أضفته
+import orderRoutes from "./routes/order.routes.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 dotenv.config({ quiet: true });
 
@@ -30,6 +31,9 @@ app.use(
   })
 );
 
+// ⬅️ مهم جدًا لعرض الصور المخزنة
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+
 app.listen(5000, () => {
   console.log("🚀 Tshirty server running on http://localhost:5000");
 });
@@ -39,6 +43,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin", privateUserRoutes);
 app.use("/api/orders", orderRoutes);
 
+// error handler
 app.use((err, req, res, next) => {
   const statusCode = err.status || 500;
   const message = err.message || "Internal Server Error";

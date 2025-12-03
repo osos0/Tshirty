@@ -66,6 +66,33 @@ export default function PrivateOrdersManagment() {
     }
   };
 
+  const deleteOrder = async (orderId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this order?"
+    );
+
+    if (!confirmDelete) return;
+
+    try {
+      const res = await fetch(`http://localhost:5000/api/orders/${orderId}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message);
+
+      // Remove from UI
+      setOrders((prev) => prev.filter((order) => order._id !== orderId));
+
+      // Success message
+      alert("🗑️ Order deleted successfully!");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <div className="container py-4">
       <h2>Orders Management</h2>
@@ -109,6 +136,7 @@ export default function PrivateOrdersManagment() {
               <th>Total Price</th>
               <th>Status</th>
               <th>Change Status</th>
+              <th>#</th>
             </tr>
           </thead>
 
@@ -133,6 +161,14 @@ export default function PrivateOrdersManagment() {
                     <option value="completed">🟢 Completed</option>
                     <option value="cancelled">🔴 Cancelled</option>
                   </select>
+                </td>
+                <td>
+                  <button
+                    className="btn btn-sm btn-danger"
+                    onClick={() => deleteOrder(order._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
